@@ -2,20 +2,34 @@ body {
   font-family: Arial, sans-serif;
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
   line-height: 1.6;
+  background: #fafafa;
+  color: #111;
 }
 
 nav a {
   margin-right: 10px;
   text-decoration: none;
-  color: #0056b3;
+  color: #0066cc;
+  font-weight: bold;
 }
 
-h1, h2 {
+nav a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2rem;
   color: #222;
 }
 
-section {
-  margin-top: 30px;
+h2 {
+  margin-top: 25px;
+  color: #333;
+}
+
+ul {
+  margin-left: 20px;
 }
