@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #0056b3;
+}
+
+h1, h2 {
+  color: #222;
+}
+
+section {
+  margin-top: 30px;
+}
