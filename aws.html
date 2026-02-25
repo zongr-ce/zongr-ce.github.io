@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Automatic Weather Station</title>
+  <title>Automatic Weather Station (AWS)</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
 
+<body>
 <nav class="top-nav">
   <a href="index.html">Home</a>
   <a href="projects.html" class="active">Projects</a>
@@ -20,73 +20,98 @@
   <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="crumb-sep">›</span>
+  <a href="projects.html">Projects</a>
+  <span class="crumb-sep">›</span>
+  <span class="crumb-current">Automatic Weather Station</span>
+</nav>
+
 <div class="back-link">
-  <a href="projects.html">
-    <i class="fa-solid fa-arrow-left"></i> Back to Projects
-  </a>
+  <a href="projects.html"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
 </div>
 
-<h1>Automatic Weather Station – Embedded Systems</h1>
+<h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
 
-<section>
+<section class="card">
   <h2>Overview</h2>
   <p>
-    Developed embedded firmware for an autonomous Automatic Weather Station designed
-    to operate unattended in Antarctica under strict power and reliability constraints.
+    Developed embedded firmware components for an automatic weather station, including
+    low-level sensor drivers and a finite state machine (FSM) to manage data collection,
+    processing, and error handling for long-term deployment.
   </p>
 </section>
 
-<section>
-  <h2>My Role</h2>
-  <p>
-    Embedded Systems Engineer responsible for firmware development, power optimization,
-    and system validation.
-  </p>
-</section>
+<section class="card">
+  <h2>What I Built</h2>
 
-<section>
-  <h2>Technical Highlights</h2>
+  <h3>1) Sensor Drivers in C++</h3>
   <ul>
-    <li>Embedded C/C++ firmware using finite state machine architecture</li>
-    <li>Low-power sleep mode implementation</li>
-    <li>Adaptive frequency sampling using timers and ISRs</li>
-    <li>USART and I2C communication protocols</li>
-    <li>Git/GitHub version control (CLI)</li>
+    <li>Implemented low-level C++ drivers to communicate with environmental sensors.</li>
+    <li>Handled data acquisition, calibration, and error conditions.</li>
+    <li>Integrated drivers into a larger embedded system and validated functionality in the field.</li>
+    <li>Used timers + ISR-based techniques for frequency-driven sensors.</li>
+  </ul>
+
+  <h3>2) Finite State Machine (FSM)</h3>
+  <ul>
+    <li>Defined system states for data collection, processing, and error recovery.</li>
+    <li>Implemented predictable state transitions and tested edge cases for robustness.</li>
+    <li>Integrated FSM with timing, RTC behavior, and sensor drivers.</li>
+    <li>Designed a low-power sleep mode to reduce idle consumption.</li>
   </ul>
 </section>
 
-<section>
+<section class="card">
+  <h2>System Images</h2>
+  <div class="image-grid">
+    <figure>
+      <img src="images/aws/aws_station.jpg" alt="AWS station hardware">
+      <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/aws/sensor_stack.jpg" alt="Environmental sensors">
+      <figcaption>Environmental sensors used for pressure, humidity, temperature, etc.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/aws/fsm_diagram.png" alt="Finite State Machine diagram">
+      <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/aws/firmware_debug.jpg" alt="Firmware testing / debug">
+      <figcaption>Firmware validation and debugging during test runs</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card">
   <h2>Results</h2>
   <ul>
-    <li>Reduced idle current from 32 mA to 7 mA (~78% reduction)</li>
-    <li>Reduced idle runtime from 10 minutes to 1 minute 30 seconds</li>
-    <li>System independently operated in Antarctica for a full year</li>
+    <li>Successfully collected and processed environmental data (pressure, humidity, temperature, etc.).</li>
+    <li>Improved reliability and modularity of the AWS firmware through driver + FSM architecture.</li>
+    <li>AWS operated independently in Antarctica for a full year (deployment target).</li>
+    <li>Implemented sleep mode: reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
+    <li>Reduced idle-mode power consumption by ~78% (32 mA → 7 mA).</li>
   </ul>
 </section>
 
+<nav class="project-pagination" aria-label="Project navigation">
+  <a class="prev" href="electric-boat.html">← Previous: Electric Boat</a>
+  <a class="next" href="cpu.html">Next: 8-Bit CPU →</a>
+</nav>
+
 <footer>
-  <hr>
- <p class="footer-links">
-  © 2026 Grace O. Zongo |
-
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">
-    <i class="fa-solid fa-file-lines"></i> Resume
-  </a> |
-
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">
-    <i class="fa-solid fa-folder-open"></i> Portfolio
-  </a> |
-
-  <a href="https://github.com/zongr-ce" target="_blank">
-    <i class="fa-brands fa-github"></i> GitHub
-  </a> |
-
-  <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">
-    <i class="fa-brands fa-linkedin"></i> LinkedIn
-  </a>
-</p>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  </p>
 </footer>
-
 </body>
 </html>
-

@@ -2,88 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Solar Racing – Low Voltage Systems</title>
+  <title>Badger Solar Racing – PDC Current Sense</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
 
+<body>
 <nav class="top-nav">
   <a href="index.html">Home</a>
   <a href="projects.html" class="active">Projects</a>
   <a href="education.html">Education</a>
   <a href="work.html">Work</a>
-
   <span class="nav-spacer"></span>
-
   <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
   <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="crumb-sep">›</span>
+  <a href="projects.html">Projects</a>
+  <span class="crumb-sep">›</span>
+  <span class="crumb-current">Solar Racing (PDC Current Sense)</span>
+</nav>
+
 <div class="back-link">
-  <a href="projects.html">
-    <i class="fa-solid fa-arrow-left"></i> Back to Projects
-  </a>
+  <a href="projects.html"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
 </div>
 
-<h1>Solar Racing – Low Voltage & Power Distribution</h1>
+<h1>Badger Solar Racing – PDC Current Sense</h1>
 
-<section>
+<section class="card">
   <h2>Overview</h2>
   <p>
-    Contributed to low-voltage electrical systems for a collegiate solar racing vehicle,
-    focusing on reliable power distribution and system integration.
+    Designed and implemented a current-sensing solution for the power distribution center (PDC)
+    of a solar racing vehicle, supporting safer power monitoring and system-level visibility.
   </p>
 </section>
 
-<section>
-  <h2>My Role</h2>
-  <p>
-    Low Voltage Team Member responsible for PCB design and system integration.
-  </p>
-</section>
-
-<section>
-  <h2>Technical Highlights</h2>
+<section class="card">
+  <h2>What I Did</h2>
   <ul>
-    <li>CAN-based communication systems</li>
-    <li>Power Distribution Circuit (PDC) design concepts</li>
-    <li>PCB design using Altium Designer</li>
-    <li>Vehicle electrical system integration</li>
+    <li>Developed a PDC current-sensing approach for monitoring power usage.</li>
+    <li>Supported communication between modules using CAN (Controller Area Network).</li>
+    <li>Designed PCB hardware (control-board related) in Altium Designer.</li>
+    <li>Collaborated with the team to align design decisions with integration constraints.</li>
   </ul>
 </section>
 
-<section>
+<section class="card">
+  <h2>System Images</h2>
+  <div class="image-grid">
+    <figure>
+      <img src="images/solar-racing/pdc_overview.jpg" alt="Power Distribution Center overview">
+      <figcaption>PDC overview: where current sensing is integrated</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/solar-racing/current_sense_schematic.png" alt="Current sensing schematic">
+      <figcaption>Current sensing schematic / measurement concept</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/solar-racing/can_network.png" alt="CAN network diagram">
+      <figcaption>CAN communication between vehicle modules</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/solar-racing/pcb_layout.png" alt="PCB layout in Altium">
+      <figcaption>PCB layout (Altium) supporting control / monitoring integration</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card">
   <h2>Results</h2>
   <ul>
-    <li>Supported reliable low-voltage power distribution</li>
-    <li>Improved system organization and electrical robustness</li>
-    <li>Gained experience in automotive electrical design standards</li>
+    <li>Delivered a current-sensing solution concept for the PDC monitoring stack.</li>
+    <li>Strengthened experience with CAN-based module communication and PCB design workflows.</li>
+    <li>Improved system-level understanding of power distribution, measurement, and integration constraints.</li>
   </ul>
 </section>
 
+<nav class="project-pagination" aria-label="Project navigation">
+  <a class="prev" href="occ-sensor.html">← Previous: Occupancy Sensor</a>
+  <a class="next" href="ACS.html">Next: HVAC Wiring →</a>
+</nav>
+
 <footer>
-  <hr>
   <p class="footer-links">
-    © 2026 Grace O. Zongo |
-
-    <a href="Grace_Zongo_Resume.pdf" target="_blank">
-      <i class="fa-solid fa-file-lines"></i> Resume
-    </a> |
-
-    <a href="Grace_Zongo_Portfolio.pdf" target="_blank">
-      <i class="fa-solid fa-folder-open"></i> Portfolio
-    </a> |
-
-    <a href="https://github.com/zongr-ce" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
-    </a> |
-
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
   </p>
 </footer>
-
 </body>
 </html>

@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Electric Boat Power System</title>
+  <title>Electric Boat – Battery & Propulsion System</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
+<body>
 
 <nav class="top-nav">
   <a href="index.html">Home</a>
@@ -19,23 +21,57 @@
   <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
+<!-- Breadcrumbs -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="crumb-sep">›</span>
+  <a href="projects.html">Projects</a>
+  <span class="crumb-sep">›</span>
+  <span class="crumb-current">Electric Boat</span>
+</nav>
+
+<!-- Back button -->
 <div class="back-link">
   <a href="projects.html">
     <i class="fa-solid fa-arrow-left"></i> Back to Projects
   </a>
 </div>
 
-<h1>Electric Boat - Battery & Propulsion System</h1>
+<h1>Electric Boat – Battery & Propulsion System</h1>
 
-<section>
+<section class="card">
   <h2>Overview</h2>
   <p>
     Designed and built a dual-battery electric propulsion system for a competition boat with a team,
-    prioritizing safety, efficiency, and reliability.
+    prioritizing safety, efficiency, and reliability. The system used two custom 18650 Li-ion battery packs
+    with JK-BMS protection and dual 1 kW thrusters with differential thrust steering.
   </p>
 </section>
 
-<section>
+<section class="card">
+  <h2>System Architecture</h2>
+  <ul>
+    <li><strong>Energy Storage:</strong> Two identical custom <strong>6s8p 18650 Li-ion</strong> battery packs with BMS protection.</li>
+    <li><strong>Battery Management:</strong> JK-BMS for cell balancing, voltage monitoring, current limiting, and short-circuit protection.</li>
+    <li><strong>Propulsion:</strong> Two <strong>1 kW Blue Robotics T500</strong> thrusters (one per battery).</li>
+    <li><strong>Control:</strong> Differential thrust for steering (no rudder required).</li>
+    <li><strong>Mechanical:</strong> Vibration isolation + waterproof enclosure for protection and reliability.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Build Process</h2>
+  <ul>
+    <li>Aligned cells with spacers and <strong>spot welded</strong> them into a 6-series / 8-parallel layout (6s8p).</li>
+    <li>Wrapped packs with rubber sheets to reduce vibration stress on cells.</li>
+    <li>Connected JK-BMS to main terminals and each parallel group for balancing + monitoring.</li>
+    <li>Heat-shrink wrapped the pack into a solid package and installed connectors.</li>
+    <li>Sealed final packs inside waterproof casing for marine environment use.</li>
+    <li>Repeated the full process to create two identical packs.</li>
+  </ul>
+</section>
+
+<section class="card">
   <h2>System Images</h2>
 
   <div class="image-grid">
@@ -66,58 +102,46 @@
   </div>
 </section>
 
-<section>
-  <h2>Technical Highlights</h2>
-  <ul>
-    <li>Two custom 6s8p 18650 Li-ion battery packs (24 Ah)</li>
-    <li>JK-BMS integration for cell balancing and protection</li>
-    <li>Spot welding and vibration isolation</li>
-    <li>Dual 1 kW Blue Robotics T500 thrusters</li>
-    <li>Differential thrust steering (no mechanical rudder)</li>
-  </ul>
-</section>
-
-<section>
-  <h2> prototyping and testing</h2>
+<section class="card">
+  <h2>Prototyping & Testing</h2>
+  <p>
+    Before mounting on the boat, the batteries were fully charged and tested under a ~1 kW motor load.
+    The packs handled high current draw with minimal temperature rise, so no active cooling was required.
+  </p>
 
   <div class="video-grid">
     <iframe
-      src="https://www.youtube.com/embed/fVf2vQFFWI0" 
+      src="https://www.youtube.com/embed/fVf2vQFFWI0"
       title="Prototype testing"
-      width="360"
-      height="640"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
 
     <iframe
-      src="https://www.youtube.com/embed/ZHzxq1XYqJM" 
+      src="https://www.youtube.com/embed/ZHzxq1XYqJM"
       title="Indoor Testing of battery packs and thruster"
-      width="360"
-      height="640"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
-  </section>
+</section>
 
-
-<section>
+<section class="card">
   <h2>Results</h2>
   <ul>
-    <li>~2.5 hours runtime at 8 knots</li>
-    <li>~10 A average current draw per motor at full throttle</li>
-    <li>Handled ~50 A load testing with minimal temperature rise</li>
-    <li>2nd Place – PEP 2024 Displacement Hull Division</li>
+    <li><strong>Runtime:</strong> ~2.5 hours at ~8 knots</li>
+    <li><strong>Range:</strong> ~20 miles (estimated based on runtime + speed)</li>
+    <li><strong>Load Testing:</strong> handled ~50 A current draw with minimal temperature rise</li>
+    <li><strong>In-water current draw:</strong> ~10 A average per motor at full throttle (~8 knots)</li>
+    <li><strong>Competition:</strong> 2nd Place – PEP 2024 (Displacement Hull Division)</li>
+    <li><strong>Steering:</strong> differential thrust successfully eliminated need for a rudder</li>
   </ul>
 
   <iframe
     src="https://www.youtube.com/embed/9FD3SnGXR5w"
     title="Electric Boat Water Test"
-    width="360"
-    height="640"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -126,29 +150,38 @@
   <p><em>
     On-water testing demonstrating sustained cruise speed and stable differential-thrust steering.
   </em></p>
-
 </section>
 
+<section class="card">
+  <h2>Potential Improvements</h2>
+  <ol>
+    <li>
+      <strong>On-board charging module:</strong> Add external charging access without removing battery packs.
+    </li>
+    <li>
+      <strong>Improved monitoring & data logging:</strong> Expand telemetry + logging for mobile electric systems
+      (battery health, current, voltage trends, thermal tracking).
+    </li>
+    <li>
+      <strong>Improved hull enclosure:</strong> A twin-sheet thermoformed hull could improve waterproofing and stiffness,
+      with easier access to electrical components.
+    </li>
+  </ol>
+</section>
+
+<!-- Next / Previous -->
+<nav class="project-pagination" aria-label="Project navigation">
+  <a class="prev" href="aws.html">← Previous: AWS</a>
+  <a class="next" href="cpu.html">Next: 8-Bit CPU →</a>
+</nav>
+
 <footer>
-  <hr>
   <p class="footer-links">
-    © 2026 Grace O. Zongo |
-
-    <a href="Grace_Zongo_Resume.pdf" target="_blank">
-      <i class="fa-solid fa-file-lines"></i> Resume
-    </a> |
-
-    <a href="Grace_Zongo_Portfolio.pdf" target="_blank">
-      <i class="fa-solid fa-folder-open"></i> Portfolio
-    </a> |
-
-    <a href="https://github.com/zongr-ce" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
-    </a> |
-
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
   </p>
 </footer>
 

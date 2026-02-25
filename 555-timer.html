@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>555 Timer Clock Module</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="work.html">Work</a>
+
+  <span class="nav-spacer"></span>
+
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+</nav>
+
+<!-- Breadcrumbs -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="crumb-sep">›</span>
+  <a href="projects.html">Projects</a>
+  <span class="crumb-sep">›</span>
+  <span class="crumb-current">555 Timer Clock Module</span>
+</nav>
+
+<div class="back-link">
+  <a href="projects.html"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+</div>
+
+<h1>555 Timer Clock Module</h1>
+
+<section class="card">
+  <h2>Overview</h2>
+  <p>
+    Prototyped and designed a clock generation module using a 555 timer to provide a stable
+    timing source for digital circuits.
+  </p>
+</section>
+
+<section class="card">
+  <h2>What I Did</h2>
+  <ul>
+    <li>Configured the 555 timer in <strong>astable mode</strong> to generate a periodic clock signal.</li>
+    <li>Selected resistor and capacitor values to hit a target frequency.</li>
+    <li>Built and tested the circuit on breadboard and prototype hardware.</li>
+    <li>Verified output frequency and duty cycle using measurement tools.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>System Images</h2>
+  <div class="image-grid">
+    <figure>
+      <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer clock module board">
+      <figcaption>Clock module prototype built around a 555 timer and logic gates for mode switching</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/555-timer/clock-module-sch.png" alt="555 timer schematic">
+      <figcaption>Schematic: 555 timer configured in astable mode</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/555-timer/clock-module-pcb.png" alt="PCB layer view - KiCad">
+      <figcaption>Breadboard build for initial validation</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/555-timer/clk-module-soldered.jpg" alt="populated PCB">
+      <figcaption>Frequency and duty-cycle verification using an oscilloscope</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Results</h2>
+  <ul>
+    <li>Generated a stable, reliable clock signal for digital systems.</li>
+    <li>Covered a wide range: from manual trigger up to ~<strong>10 kHz</strong> astable frequency.</li>
+    <li>Reinforced understanding of analog timing circuits and component-level design.</li>
+
+    <iframe
+        src="https://www.youtube.com/embed/XPLGhJ6kN4U"
+        title="Electric Boat Water Test"
+        width="360"
+        height="640"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+  </iframe>
+
+  </ul>
+</section>
+
+<!-- Next / Previous -->
+<nav class="project-pagination" aria-label="Project navigation">
+  <a class="prev" href="cpu.html">← Previous: 8-Bit CPU</a>
+  <a class="next" href="occ-sensor.html">Next: Motion Sensor →</a>
+</nav>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+  </p>
+</footer>
+
+</body>
+</html>

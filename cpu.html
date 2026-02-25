@@ -2,91 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>8-Bit CPU Design</title>
+  <title>8-Bit CPU – FPGA & PCB</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
 
+<body>
 <nav class="top-nav">
   <a href="index.html">Home</a>
   <a href="projects.html" class="active">Projects</a>
   <a href="education.html">Education</a>
   <a href="work.html">Work</a>
-
   <span class="nav-spacer"></span>
-
   <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
   <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="crumb-sep">›</span>
+  <a href="projects.html">Projects</a>
+  <span class="crumb-sep">›</span>
+  <span class="crumb-current">8-Bit CPU</span>
+</nav>
+
 <div class="back-link">
-  <a href="projects.html">
-    <i class="fa-solid fa-arrow-left"></i> Back to Projects
-  </a>
+  <a href="projects.html"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
 </div>
 
-<h1>8-Bit CPU – FPGA & PCB Implementation</h1>
+<h1>8-Bit CPU – FPGA (Quartus) & PCB Implementation</h1>
 
-<section>
+<section class="card">
   <h2>Overview</h2>
   <p>
-    Designed and implemented a custom 8-bit CPU from logic gates through FPGA deployment
-    and PCB validation.
+    Designed and implemented a custom 8-bit CPU to understand processor architecture,
+    instruction execution, and FSM-based control. Extended the design into a PCB-based
+    implementation to explore real-world integration constraints beyond FPGA simulation.
   </p>
 </section>
 
-<section>
-  <h2>My Role</h2>
-  <p>
-    Digital Design Engineer responsible for datapath, control logic, FPGA testing,
-    and hardware validation.
-  </p>
-</section>
-
-<section>
-  <h2>Technical Highlights</h2>
+<section class="card">
+  <h2>What I Did</h2>
   <ul>
-    <li>Von Neumann architecture</li>
-    <li>Custom datapath and control unit</li>
-    <li>Instruction set: FETCH, LOAD, ADD</li>
-    <li>FPGA implementation using Intel Quartus</li>
-    <li>PCB extension for hardware verification</li>
+    <li>Designed the datapath and control unit using block-diagram design in Intel Quartus.</li>
+    <li>Implemented core components: program counter, registers, RAM, ALU, and control logic.</li>
+    <li>Defined an instruction set (including addition/subtraction) and validated execution flow.</li>
+    <li>Verified functionality using simulation, testbenches, and waveform analysis.</li>
+    <li>Translated the digital CPU into a PCB-level architecture (power + routing considerations).</li>
   </ul>
 </section>
 
-<section>
+<section class="card">
+  <h2>System Images</h2>
+  <div class="image-grid">
+    <figure>
+      <img src="images/cpu/block_diagram.png" alt="CPU block diagram">
+      <figcaption>Datapath + control unit design in Quartus</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/waveform.png" alt="Waveform verification">
+      <figcaption>Waveform + testbench verification of instruction execution</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/fpga_setup.jpg" alt="FPGA implementation">
+      <figcaption>FPGA implementation and bring-up testing</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/pcb_board.jpg" alt="CPU PCB board">
+      <figcaption>PCB-based CPU implementation for hardware integration testing</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card">
   <h2>Results</h2>
   <ul>
-    <li>Achieved stable operation at 15 kHz after resolving timing violations</li>
-    <li>Verified instruction execution on FPGA hardware</li>
-    <li>Successfully transitioned design from simulation to physical hardware</li>
+    <li>Successfully executed all implemented instructions on FPGA hardware.</li>
+    <li>Achieved stable operation at ~15 kHz after resolving timing violations.</li>
+    <li>Successfully demonstrated CPU operation on a custom PCB.</li>
+    <li>Gained hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
+    <li>Strengthened understanding of computer architecture, FSM-based control, and debugging workflow.</li>
   </ul>
 </section>
 
+<nav class="project-pagination" aria-label="Project navigation">
+  <a class="prev" href="aws.html">← Previous: AWS</a>
+  <a class="next" href="555-timer.html">Next: 555 Timer →</a>
+</nav>
+
 <footer>
-  <hr>
   <p class="footer-links">
-    © 2026 Grace O. Zongo |
-
-    <a href="Grace_Zongo_Resume.pdf" target="_blank">
-      <i class="fa-solid fa-file-lines"></i> Resume
-    </a> |
-
-    <a href="Grace_Zongo_Portfolio.pdf" target="_blank">
-      <i class="fa-solid fa-folder-open"></i> Portfolio
-    </a> |
-
-    <a href="https://github.com/zongr-ce" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
-    </a> |
-
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
   </p>
 </footer>
-
 </body>
 </html>
-
