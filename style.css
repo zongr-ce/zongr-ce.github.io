@@ -642,7 +642,7 @@ footer {
   position: sticky;
   top: 65px; /* below fixed nav */
   z-index: 900;
-  margin: 10px 0 18px;
+  margin: 20px 0 18px;
   background: var(--background);
 }
 
