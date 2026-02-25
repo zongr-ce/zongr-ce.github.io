@@ -1,10 +1,20 @@
+:root {
+  --primary: #1E3A8A;      /* Deep engineering blue */
+  --accent: #0EA5A4;       /* Muted teal (embedded vibe) */
+  --text-dark: #111827;    /* Near-black */
+  --text-light: #6B7280;   /* Secondary text */
+  --background: #F3F4F6;   /* Very light cool gray */
+  --card-bg: #FFFFFF;      /* Cards */
+  --border-light: #E5E7EB; /* Subtle borders */
+}
+
 body {
   font-family: Arial, sans-serif;
   max-width: 900px;
   margin: auto;
   padding: 30px;
   line-height: 1.6;
-  background: #fafafa;
+  background: var(--background);
   color: #111;
 }
 
@@ -180,8 +190,9 @@ figcaption {
 }
 
 .top-nav a:hover {
-  background: #f2f6ff;
-  color: #0b5fff;
+  background: #E0F2FE;
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .top-nav .nav-spacer {
@@ -190,7 +201,7 @@ figcaption {
 
 /* Optional: mark the current page link */
 .top-nav a.active {
-  background: #0b5fff;
+  background: var(--primary);
   color: #ffffff;
 }
 
@@ -287,6 +298,7 @@ footer {
   transform: translateY(-2px);
 }
 
-.footer-links i {
-  font-size: 1rem;
+.footer-links i,
+.download-card i {
+  color: var(--accent);
 }
