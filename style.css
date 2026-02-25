@@ -126,3 +126,17 @@ figcaption {
   font-size: 0.95em;
   color: #555;
 }
+
+.footer-links a {
+  margin: 0 6px;
+  text-decoration: none;
+}
+
+.footer-links i {
+  margin-right: 4px;
+  color: #444;
+}
+
+.footer-links a:hover i {
+  color: #0077b5; /* LinkedIn blue feel */
+}
