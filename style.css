@@ -33,3 +33,14 @@ h2 {
 ul {
   margin-left: 20px;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+em {
+  color: #555;
+  font-size: 0.95em;
+}
