@@ -28,78 +28,81 @@
   </ol>
 </nav>
 
-<h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
+<main class="page-content">
 
-<section class="card">
-  <h2>Overview</h2>
-  <p>
-    Developed embedded firmware components for an automatic weather station, including
-    low-level sensor drivers and a finite state machine (FSM) to manage data collection,
-    processing, and error handling for long-term deployment.
-  </p>
-</section>
+  <h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
 
-<section class="card">
-  <h2>What I Built</h2>
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Developed embedded firmware components for an automatic weather station, including
+      low-level sensor drivers and a finite state machine (FSM) to manage data collection,
+      processing, and error handling for long-term deployment.
+    </p>
+  </section>
 
-  <h3>1) Sensor Drivers in C++</h3>
-  <ul>
-    <li>Implemented low-level C++ drivers to communicate with environmental sensors.</li>
-    <li>Handled data acquisition, calibration, and error conditions.</li>
-    <li>Integrated drivers into a larger embedded system and validated functionality in the field.</li>
-    <li>Used timers + ISR-based techniques for frequency-driven sensors.</li>
-  </ul>
+  <section class="card">
+    <h2>What I Built</h2>
 
-  <h3>2) Finite State Machine (FSM)</h3>
-  <ul>
-    <li>Defined system states for data collection, processing, and error recovery.</li>
-    <li>Implemented predictable state transitions and tested edge cases for robustness.</li>
-    <li>Integrated FSM with timing, RTC behavior, and sensor drivers.</li>
-    <li>Designed a low-power sleep mode to reduce idle consumption.</li>
-  </ul>
-</section>
+    <h3>1) Sensor Drivers in C++</h3>
+    <ul>
+      <li>Implemented low-level C++ drivers to communicate with environmental sensors.</li>
+      <li>Handled data acquisition, calibration, and error conditions.</li>
+      <li>Integrated drivers into a larger embedded system and validated functionality in the field.</li>
+      <li>Used timers + ISR-based techniques for frequency-driven sensors.</li>
+    </ul>
 
-<section class="card">
-  <h2>System Images</h2>
-  <div class="image-grid">
-    <figure>
-      <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware">
-      <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
-    </figure>
+    <h3>2) Finite State Machine (FSM)</h3>
+    <ul>
+      <li>Defined system states for data collection, processing, and error recovery.</li>
+      <li>Implemented predictable state transitions and tested edge cases for robustness.</li>
+      <li>Integrated FSM with timing, RTC behavior, and sensor drivers.</li>
+      <li>Designed a low-power sleep mode to reduce idle consumption.</li>
+    </ul>
+  </section>
 
-    <figure>
-      <img src="images/aws/baro-1.png" alt="Environmental sensors">
-      <figcaption>Snapshot of barometer driver</figcaption>
-    </figure>
+  <section class="card">
+    <h2>System Images</h2>
+    <div class="image-grid">
+      <figure>
+        <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware">
+        <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram">
-      <figcaption>Snapshot of Finite state machine controlling collection / processing / etc...</figcaption>
-    </figure>
+      <figure>
+        <img src="images/aws/baro-1.png" alt="Environmental sensors">
+        <figcaption>Snapshot of barometer driver</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug">
-      <figcaption>Firmware validation and debugging during test runs</figcaption>
-    </figure>
-  </div>
-</section>
+      <figure>
+        <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram">
+        <figcaption>Snapshot of Finite state machine controlling collection / processing / etc...</figcaption>
+      </figure>
 
-<section class="card">
-  <h2>Results</h2>
-  <ul>
-    <li>Successfully collected and processed environmental data (pressure, humidity, temperature, etc.).</li>
-    <li>Improved reliability and modularity of the AWS firmware through driver + FSM architecture.</li>
-    <li>AWS operated independently in Antarctica for a full year (deployment target).</li>
-    <li>Implemented sleep mode: reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
-    <li>Reduced idle-mode power consumption by ~78% (32 mA → 7 mA).</li>
-  </ul>
-</section>
+      <figure>
+        <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug">
+        <figcaption>Firmware validation and debugging during test runs</figcaption>
+      </figure>
+    </div>
+  </section>
 
-<!-- Next / Previous -->
-<nav class="project-pagination" aria-label="Project navigation">
-  <a class="prev" href="electric-boat.html">Electric Boat</a>
-  <a class="next" href="cpu.html">8-Bit CPU</a>
-</nav>
+  <section class="card">
+    <h2>Results</h2>
+    <ul>
+      <li>Successfully collected and processed environmental data (pressure, humidity, temperature, etc.).</li>
+      <li>Improved reliability and modularity of the AWS firmware through driver + FSM architecture.</li>
+      <li>AWS operated independently in Antarctica for a full year (deployment target).</li>
+      <li>Implemented sleep mode: reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
+      <li>Reduced idle-mode power consumption by ~78% (32 mA → 7 mA).</li>
+    </ul>
+  </section>
+
+  <!-- Next / Previous -->
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="electric-boat.html">Electric Boat</a>
+    <a class="next" href="cpu.html">8-Bit CPU</a>
+  </nav>
+</main>
 
 <footer>
   <p class="footer-links">

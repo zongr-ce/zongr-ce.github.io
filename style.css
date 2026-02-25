@@ -10,13 +10,18 @@
 
 body {
   font-family: Arial, sans-serif;
-  max-width: 900px;
   margin: auto;
   padding: 30px;
-  padding-top: 130px; /* space only for top nav */
+  padding-top: 110px; /* space only for top nav */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
+}
+
+.page-content {
+  max-width: 900px;
+  margin: 130px auto 40px;
+  padding: 0 30px;
 }
 
 h1 {
@@ -714,7 +719,7 @@ footer {
   }
 
   body {
-    padding-top: 150px;
+    padding-top: 120px;
   }
 
 }

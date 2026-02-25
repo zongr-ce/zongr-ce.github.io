@@ -26,98 +26,102 @@
   </ol>
 </nav>
 
-<h1>8-Bit CPU – FPGA (Quartus) & PCB Implementation</h1>
+<main class="page-content">
 
-<section class="card">
-  <h2>Overview</h2>
-  <p>
-    Designed and implemented a custom 8-bit CPU to understand processor architecture,
-    instruction execution, and FSM-based control. Extended the design into a PCB-based
-    implementation to explore real-world integration constraints beyond FPGA simulation.
-  </p>
-</section>
+  <h1>8-Bit CPU – FPGA (Quartus) & PCB Implementation</h1>
 
-<section class="card">
-  <h2>What I Did</h2>
-  <ul>
-    <li>Designed the datapath and control unit using block-diagram design in Intel Quartus.</li>
-    <li>Implemented core components: program counter, registers, RAM, ALU, and control logic.</li>
-    <li>Defined an instruction set (including addition/subtraction) and validated execution flow.</li>
-    <li>Verified functionality using simulation, testbenches, and waveform analysis.</li>
-    <li>Translated the digital CPU into a PCB-level architecture (power + routing considerations).</li>
-  </ul>
-</section>
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Designed and implemented a custom 8-bit CPU to understand processor architecture,
+      instruction execution, and FSM-based control. Extended the design into a PCB-based
+      implementation to explore real-world integration constraints beyond FPGA simulation.
+    </p>
+  </section>
 
-<section class="card">
-  <h2>System Images</h2>
-  <div class="image-grid">
-    <figure>
-      <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram">
-      <figcaption>Datapath + control unit design in Quartus</figcaption>
-    </figure>
+  <section class="card">
+    <h2>What I Did</h2>
+    <ul>
+      <li>Designed the datapath and control unit using block-diagram design in Intel Quartus.</li>
+      <li>Implemented core components: program counter, registers, RAM, ALU, and control logic.</li>
+      <li>Defined an instruction set (including addition/subtraction) and validated execution flow.</li>
+      <li>Verified functionality using simulation, testbenches, and waveform analysis.</li>
+      <li>Translated the digital CPU into a PCB-level architecture (power + routing considerations).</li>
+    </ul>
+  </section>
 
-    <figure>
-      <img src="images/cpu/instruction-steps.png" alt="FPGA implementation">
-      <figcaption>FPGA implementation of instructions and control unit</figcaption>
-    </figure>
+  <section class="card">
+    <h2>System Images</h2>
+    <div class="image-grid">
+      <figure>
+        <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram">
+        <figcaption>Datapath + control unit design in Quartus</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/cpu/instruction.png" alt="CPU PCB board">
-      <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
-    </figure>
+      <figure>
+        <img src="images/cpu/instruction-steps.png" alt="FPGA implementation">
+        <figcaption>FPGA implementation of instructions and control unit</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/cpu/8bit-reg-sch.png" alt="Waveform verification">
-      <figcaption>PCB-based CPU implementation for hardware integration testing (8bit register showed in image above)</figcaption>
-    </figure>
+      <figure>
+        <img src="images/cpu/instruction.png" alt="CPU PCB board">
+        <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/cpu/8bit-reg-pcd.png" alt="Waveform verification">
-      <figcaption>8 bit register (building block of RAM)</figcaption>
-    </figure>
+      <figure>
+        <img src="images/cpu/8bit-reg-sch.png" alt="Waveform verification">
+        <figcaption>PCB-based CPU implementation for hardware integration testing (8bit register showed in image above)</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/cpu/4bit-decoder-pcb.png" alt="Waveform verification">
-      <figcaption>4 bit decoder</figcaption>
-    </figure>
+      <figure>
+        <img src="images/cpu/8bit-reg-pcd.png" alt="Waveform verification">
+        <figcaption>8 bit register (building block of RAM)</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/cpu/pcb.jpg" alt="Waveform verification">
-      <figcaption>Printed Circuit Board for RAM, register, and 4bit decoder to be tested</figcaption>
-    </figure>
+      <figure>
+        <img src="images/cpu/4bit-decoder-pcb.png" alt="Waveform verification">
+        <figcaption>4 bit decoder</figcaption>
+      </figure>
 
-  </div>
-</section>
+      <figure>
+        <img src="images/cpu/pcb.jpg" alt="Waveform verification">
+        <figcaption>Printed Circuit Board for RAM, register, and 4bit decoder to be tested</figcaption>
+      </figure>
 
-<section class="card">
-  <h2>Results</h2>
-  <ul>
-    <li>Successfully executed all implemented instructions on FPGA hardware.</li>
-    <li>Achieved stable operation at ~15 kHz after resolving timing violations (FPGA).</li>
-    <li>Successfully demonstrated CPU operation on a custom PCB.</li>
-    <li>Gained hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
-    <li>Strengthened understanding of computer architecture, FSM-based control, and debugging workflow.</li>
-  </ul>
-    <div class="video-container"></div>
-      <iframe
-        src="https://www.youtube.com/embed/vF5l8H2w_BA"
-        title="Testbench"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    <div class="video-container"></div>
-    <p><em>
-      Waveform + testbench verification of instruction execution
-    </em></p>
+    </div>
+  </section>
 
-</section>
+  <section class="card">
+    <h2>Results</h2>
+    <ul>
+      <li>Successfully executed all implemented instructions on FPGA hardware.</li>
+      <li>Achieved stable operation at ~15 kHz after resolving timing violations (FPGA).</li>
+      <li>Successfully demonstrated CPU operation on a custom PCB.</li>
+      <li>Gained hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
+      <li>Strengthened understanding of computer architecture, FSM-based control, and debugging workflow.</li>
+    </ul>
+      <div class="video-container"></div>
+        <iframe
+          src="https://www.youtube.com/embed/vF5l8H2w_BA"
+          title="Testbench"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      <div class="video-container"></div>
+      <p><em>
+        Waveform + testbench verification of instruction execution
+      </em></p>
 
-<!-- Next / Previous -->
-<nav class="project-pagination" aria-label="Project navigation">
-  <a class="prev" href="aws.html">AWS</a>
-  <a class="next" href="555-timer.html">555 Timer</a>
-</nav>
+  </section>
+
+  <!-- Next / Previous -->
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="aws.html">AWS</a>
+    <a class="next" href="555-timer.html">555 Timer</a>
+  </nav>
+
+</main>
 
 <footer>
   <p class="footer-links">

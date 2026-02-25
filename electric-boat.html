@@ -30,149 +30,153 @@
   </ol>
 </nav>
 
-<h1>Electric Boat – Battery & Propulsion System</h1>
+<main class="page-content">
 
-<section class="card">
-  <h2>Overview</h2>
-  <p>
-    Designed and built a dual-battery electric propulsion system for a competition boat with a team,
-    prioritizing safety, efficiency, and reliability. The system used two custom 18650 Li-ion battery packs
-    with JK-BMS protection and dual 1 kW thrusters with differential thrust steering.
-  </p>
-</section>
+  <h1>Electric Boat – Battery & Propulsion System</h1>
 
-<section class="card">
-  <h2>System Architecture</h2>
-  <ul>
-    <li><strong>Energy Storage:</strong> Two identical custom <strong>6s8p 18650 Li-ion</strong> battery packs with BMS protection.</li>
-    <li><strong>Battery Management:</strong> JK-BMS for cell balancing, voltage monitoring, current limiting, and short-circuit protection.</li>
-    <li><strong>Propulsion:</strong> Two <strong>1 kW Blue Robotics T500</strong> thrusters (one per battery).</li>
-    <li><strong>Control:</strong> Differential thrust for steering (no rudder required).</li>
-    <li><strong>Mechanical:</strong> Vibration isolation + waterproof enclosure for protection and reliability.</li>
-  </ul>
-</section>
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Designed and built a dual-battery electric propulsion system for a competition boat with a team,
+      prioritizing safety, efficiency, and reliability. The system used two custom 18650 Li-ion battery packs
+      with JK-BMS protection and dual 1 kW thrusters with differential thrust steering.
+    </p>
+  </section>
 
-<section class="card">
-  <h2>Build Process</h2>
-  <ul>
-    <li>Aligned cells with spacers and <strong>spot welded</strong> them into a 6-series / 8-parallel layout (6s8p).</li>
-    <li>Wrapped packs with rubber sheets to reduce vibration stress on cells.</li>
-    <li>Connected JK-BMS to main terminals and each parallel group for balancing + monitoring.</li>
-    <li>Heat-shrink wrapped the pack into a solid package and installed connectors.</li>
-    <li>Sealed final packs inside waterproof casing for marine environment use.</li>
-    <li>Repeated the full process to create two identical packs.</li>
-  </ul>
-</section>
+  <section class="card">
+    <h2>System Architecture</h2>
+    <ul>
+      <li><strong>Energy Storage:</strong> Two identical custom <strong>6s8p 18650 Li-ion</strong> battery packs with BMS protection.</li>
+      <li><strong>Battery Management:</strong> JK-BMS for cell balancing, voltage monitoring, current limiting, and short-circuit protection.</li>
+      <li><strong>Propulsion:</strong> Two <strong>1 kW Blue Robotics T500</strong> thrusters (one per battery).</li>
+      <li><strong>Control:</strong> Differential thrust for steering (no rudder required).</li>
+      <li><strong>Mechanical:</strong> Vibration isolation + waterproof enclosure for protection and reliability.</li>
+    </ul>
+  </section>
 
-<section class="card">
-  <h2>System Images</h2>
+  <section class="card">
+    <h2>Build Process</h2>
+    <ul>
+      <li>Aligned cells with spacers and <strong>spot welded</strong> them into a 6-series / 8-parallel layout (6s8p).</li>
+      <li>Wrapped packs with rubber sheets to reduce vibration stress on cells.</li>
+      <li>Connected JK-BMS to main terminals and each parallel group for balancing + monitoring.</li>
+      <li>Heat-shrink wrapped the pack into a solid package and installed connectors.</li>
+      <li>Sealed final packs inside waterproof casing for marine environment use.</li>
+      <li>Repeated the full process to create two identical packs.</li>
+    </ul>
+  </section>
 
-  <div class="image-grid">
-    <figure>
-      <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals">
-      <figcaption>Custom 6s8p 18650 Li-ion battery pack</figcaption>
-    </figure>
+  <section class="card">
+    <h2>System Images</h2>
 
-    <figure>
-      <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure">
-      <figcaption>Battery pack sealed inside waterproof enclosure with integrated BMS</figcaption>
-    </figure>
+    <div class="image-grid">
+      <figure>
+        <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals">
+        <figcaption>Custom 6s8p 18650 Li-ion battery pack</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/electric-boat/BMS-monitoring.png" alt="Monitoring and configuring battery packs">
-      <figcaption>Monitoring and configuration of battery packs using JK-BMS</figcaption>
-    </figure>
+      <figure>
+        <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure">
+        <figcaption>Battery pack sealed inside waterproof enclosure with integrated BMS</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/electric-boat/remote-control-thruster.png" alt="MT12 controller and Blue Robotics T500 thruster">
-      <figcaption>1 kW Blue Robotics T500 thruster and MT12 controller used for propulsion</figcaption>
-    </figure>
+      <figure>
+        <img src="images/electric-boat/BMS-monitoring.png" alt="Monitoring and configuring battery packs">
+        <figcaption>Monitoring and configuration of battery packs using JK-BMS</figcaption>
+      </figure>
 
-    <figure>
-      <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing">
-      <figcaption>Electric boat during full-throttle on-water testing</figcaption>
-    </figure>
-  </div>
-</section>
+      <figure>
+        <img src="images/electric-boat/remote-control-thruster.png" alt="MT12 controller and Blue Robotics T500 thruster">
+        <figcaption>1 kW Blue Robotics T500 thruster and MT12 controller used for propulsion</figcaption>
+      </figure>
 
-<section class="card">
-  <h2>Prototyping & Testing</h2>
-  <p>
-    Before mounting on the boat, the batteries were fully charged and tested under a ~1 kW motor load.
-    The packs handled high current draw with minimal temperature rise, so no active cooling was required.
-  </p>
+      <figure>
+        <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing">
+        <figcaption>Electric boat during full-throttle on-water testing</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <div class="video-grid">
+  <section class="card">
+    <h2>Prototyping & Testing</h2>
+    <p>
+      Before mounting on the boat, the batteries were fully charged and tested under a ~1 kW motor load.
+      The packs handled high current draw with minimal temperature rise, so no active cooling was required.
+    </p>
+
+    <div class="video-grid">
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/fVf2vQFFWI0"
+          title="Prototype testing"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/ZHzxq1XYqJM"
+          title="Indoor Testing of battery packs and thruster"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Results</h2>
+    <ul>
+      <li><strong>Runtime:</strong> ~2.5 hours at ~8 knots</li>
+      <li><strong>Range:</strong> ~20 miles (estimated based on runtime + speed)</li>
+      <li><strong>Load Testing:</strong> handled ~50 A current draw with minimal temperature rise</li>
+      <li><strong>In-water current draw:</strong> ~10 A average per motor at full throttle (~8 knots)</li>
+      <li><strong>Competition:</strong> 2nd Place – PEP 2024 (Displacement Hull Division)</li>
+      <li><strong>Steering:</strong> differential thrust successfully eliminated need for a rudder</li>
+    </ul>
+
     <div class="video-container">
       <iframe
-        src="https://www.youtube.com/embed/fVf2vQFFWI0"
-        title="Prototype testing"
+        src="https://www.youtube.com/embed/9FD3SnGXR5w"
+        title="Electric Boat Water Test"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/ZHzxq1XYqJM"
-        title="Indoor Testing of battery packs and thruster"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
+    <p><em>
+      On-water testing demonstrating sustained cruise speed and stable differential-thrust steering.
+    </em></p>
+  </section>
 
-<section class="card">
-  <h2>Results</h2>
-  <ul>
-    <li><strong>Runtime:</strong> ~2.5 hours at ~8 knots</li>
-    <li><strong>Range:</strong> ~20 miles (estimated based on runtime + speed)</li>
-    <li><strong>Load Testing:</strong> handled ~50 A current draw with minimal temperature rise</li>
-    <li><strong>In-water current draw:</strong> ~10 A average per motor at full throttle (~8 knots)</li>
-    <li><strong>Competition:</strong> 2nd Place – PEP 2024 (Displacement Hull Division)</li>
-    <li><strong>Steering:</strong> differential thrust successfully eliminated need for a rudder</li>
-  </ul>
+  <section class="card">
+    <h2>Potential Improvements</h2>
+    <ol>
+      <li>
+        <strong>On-board charging module:</strong> Add external charging access without removing battery packs.
+      </li>
+      <li>
+        <strong>Improved monitoring & data logging:</strong> Expand telemetry + logging for mobile electric systems
+        (battery health, current, voltage trends, thermal tracking).
+      </li>
+      <li>
+        <strong>Improved hull enclosure:</strong> A twin-sheet thermoformed hull could improve waterproofing and stiffness,
+        with easier access to electrical components.
+      </li>
+    </ol>
+  </section>
 
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/9FD3SnGXR5w"
-      title="Electric Boat Water Test"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- Next / Previous -->
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="aws.html">AWS</a>
+    <a class="next" href="cpu.html">8-Bit CPU</a>
+  </nav>
 
-  <p><em>
-    On-water testing demonstrating sustained cruise speed and stable differential-thrust steering.
-  </em></p>
-</section>
-
-<section class="card">
-  <h2>Potential Improvements</h2>
-  <ol>
-    <li>
-      <strong>On-board charging module:</strong> Add external charging access without removing battery packs.
-    </li>
-    <li>
-      <strong>Improved monitoring & data logging:</strong> Expand telemetry + logging for mobile electric systems
-      (battery health, current, voltage trends, thermal tracking).
-    </li>
-    <li>
-      <strong>Improved hull enclosure:</strong> A twin-sheet thermoformed hull could improve waterproofing and stiffness,
-      with easier access to electrical components.
-    </li>
-  </ol>
-</section>
-
-<!-- Next / Previous -->
-<nav class="project-pagination" aria-label="Project navigation">
-  <a class="prev" href="aws.html">AWS</a>
-  <a class="next" href="cpu.html">8-Bit CPU</a>
-</nav>
+</main>
 
 <footer>
   <p class="footer-links">
