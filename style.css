@@ -495,34 +495,29 @@ footer {
 
 .work-timeline {
   position: relative;
-  padding-left: 22px;
+  padding-left: 40px;   /* give more breathing room */
   margin: 20px 0 40px;
 }
 
 .work-timeline::before {
   content: "";
   position: absolute;
-  left: 9px;
-  top: 6px;
-  bottom: 6px;
+  left: 20px;           /* center of timeline */
+  top: 0;
+  bottom: 0;
   width: 2px;
   background: var(--border-light);
 }
 
-.work-item {
-  position: relative;
-  margin-bottom: 22px;
-}
-
 .work-dot {
   position: absolute;
-  left: 1px;
+  left: 14px;           /* center dot over the line */
   top: 22px;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background: var(--primary);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--card-bg);
+  box-shadow: 0 0 0 4px var(--background);
 }
 
 .work-card {
