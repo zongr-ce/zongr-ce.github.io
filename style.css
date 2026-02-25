@@ -723,3 +723,27 @@ footer {
   }
 
 }
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 14px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  color: var(--primary);
+  background: #e8efff;
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
