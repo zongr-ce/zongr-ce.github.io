@@ -619,3 +619,53 @@ footer {
     text-align: center;
   }
 }
+
+/* ===== BREADCRUMBS (STRUCTURED) ===== */
+
+.breadcrumbs {
+  margin: 12px 0 18px;
+}
+
+.crumbs {
+  list-style: none;
+  padding: 10px 12px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  font-size: 0.92rem;
+}
+
+.crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* separator */
+.crumbs li:not(:last-child)::after {
+  content: "›";
+  color: #9CA3AF;
+  font-weight: 700;
+}
+
+.crumbs a {
+  text-decoration: none;
+  color: #1E3A8A;
+  font-weight: 700;
+}
+
+.crumbs a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crumbs [aria-current="page"] span {
+  color: #111827;
+  font-weight: 800;
+}

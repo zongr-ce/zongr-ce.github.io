@@ -19,11 +19,11 @@
 </nav>
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <a href="index.html">Home</a>
-  <span class="crumb-sep">›</span>
-  <a href="projects.html">Projects</a>
-  <span class="crumb-sep">›</span>
-  <span class="crumb-current">8-Bit CPU</span>
+  <ol class="crumbs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li aria-current="page"><span>8-Bit CPU</span></li>
+  </ol>
 </nav>
 
 <h1>8-Bit CPU – FPGA (Quartus) & PCB Implementation</h1>
@@ -66,20 +66,24 @@
       <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
     </figure>
 
-    <iframe
-      src="https://www.youtube.com/embed/vF5l8H2w_BA"
-      title="Testbench"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-    <p><em>
-      Waveform + testbench verification of instruction execution
-    </em></p>
-
     <figure>
       <img src="images/cpu/8bit-reg-sch.png" alt="Waveform verification">
       <figcaption>PCB-based CPU implementation for hardware integration testing (8bit register showed in image above)</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/8bit-reg-pcd.png" alt="Waveform verification">
+      <figcaption>8 bit register (building block of RAM)</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/4bit-decoder-pcb.png" alt="Waveform verification">
+      <figcaption>4 bit decoder</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/cpu/pcb.jpg" alt="Waveform verification">
+      <figcaption>Printed Circuit Board for RAM, register, and 4bit decoder to be tested</figcaption>
     </figure>
 
   </div>
@@ -94,6 +98,17 @@
     <li>Gained hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
     <li>Strengthened understanding of computer architecture, FSM-based control, and debugging workflow.</li>
   </ul>
+    <iframe
+      src="https://www.youtube.com/embed/vF5l8H2w_BA"
+      title="Testbench"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+    <p><em>
+      Waveform + testbench verification of instruction execution
+    </em></p>
+
 </section>
 
 <!-- Next / Previous -->
