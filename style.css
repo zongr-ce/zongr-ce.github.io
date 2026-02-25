@@ -13,7 +13,7 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 30px;
-  padding-top: 110px; /* space only for top nav */
+  padding-top: 130px; /* space only for top nav */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
@@ -177,25 +177,12 @@ figcaption {
   transform: translateX(-50%);
   width: 100%;
   max-width: 900px;
-  z-index: 1000;
+  z-index: 9999;
 
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border-light);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.breadcrumbs {
-  position: sticky;
-  top: 85px; /* height of fixed navbar */
-  z-index: 900;
-
-  background: var(--background);
-  border: none;
-  border-radius: 12px;
-  box-shadow: none;
-
-  margin: 10px 0 14px;
 }
 
 .top-nav a {
@@ -653,7 +640,7 @@ footer {
   top: 95px; /* below fixed nav */
   z-index: 900;
   margin: 10px 0 18px;
-  background: transparent;
+  background: var(--background);
 }
 
 .crumbs {
@@ -727,7 +714,7 @@ footer {
   }
 
   body {
-    padding-top: 120px;
+    padding-top: 150px;
   }
 
 }
