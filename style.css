@@ -13,6 +13,7 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 30px;
+  padding-top: 150px; /* enough space for nav + breadcrumbs */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
@@ -165,6 +166,37 @@ figcaption {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   margin: 16px 0 22px;
+}
+
+/* ===== FIXED NAVIGATION ===== */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.breadcrumbs {
+  position: fixed;
+  top: 80px; /* height of top-nav */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
+  z-index: 999;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.top-nav,
+.breadcrumbs {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-light);
 }
 
 .top-nav a {
@@ -686,4 +718,15 @@ footer {
   padding: 10px 15px;
   margin: 10px 0;
   font-weight: bold;
+}
+
+@media (max-width: 700px) {
+
+  .breadcrumbs {
+    top: 90px;
+  }
+
+  body {
+    padding-top: 170px;
+  }
 }
