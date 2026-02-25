@@ -168,12 +168,6 @@ figcaption {
 
 /* Top navigation bar */
 .top-nav {
-
-  position: fixed;    /* Anchors the nav to the viewport */
-  top: 0;             /* Positions it at the very top */
-  left: 0;
-  z-index: 1000;      /* Keeps it on top of all other elements */
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
