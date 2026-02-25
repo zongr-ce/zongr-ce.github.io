@@ -354,20 +354,18 @@ footer {
 
 /* ===== EDUCATION: TIMELINE + AWARDS + COURSEWORK ===== */
 
-/* ===== EDUCATION TIMELINE (ALIGNED) ===== */
-
 .timeline {
   position: relative;
   margin: 30px 0 40px;
-  padding-left: 40px; /* more room so cards don’t crowd the line */
+  padding-left: 22px;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 20px;         /* center of the timeline */
-  top: 0;
-  bottom: 0;
+  left: 9px;
+  top: 6px;
+  bottom: 6px;
   width: 2px;
   background: var(--border-light);
 }
@@ -379,13 +377,13 @@ footer {
 
 .timeline-dot {
   position: absolute;
-  left: 7px;         /* centers dot on the line (20px - 7px) */
+  left: 1px;
   top: 18px;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background: var(--primary);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--background);
+  box-shadow: 0 0 0 4px var(--card-bg);
 }
 
 .timeline-content {
@@ -497,29 +495,34 @@ footer {
 
 .work-timeline {
   position: relative;
-  padding-left: 40px;   /* give more breathing room */
+  padding-left: 22px;
   margin: 20px 0 40px;
 }
 
 .work-timeline::before {
   content: "";
   position: absolute;
-  left: 20px;           /* center of timeline */
-  top: 0;
-  bottom: 0;
+  left: 9px;
+  top: 6px;
+  bottom: 6px;
   width: 2px;
   background: var(--border-light);
 }
 
+.work-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+
 .work-dot {
   position: absolute;
-  left: 7px;           /* center dot over the line */
+  left: 1px;
   top: 22px;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background: var(--primary);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--background);
+  box-shadow: 0 0 0 4px var(--card-bg);
 }
 
 .work-card {
@@ -717,28 +720,4 @@ footer {
     padding-top: 120px;
   }
 
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding: 8px 14px;
-
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-
-  color: var(--primary);
-  background: #e8efff;
-  border-radius: 8px;
-
-  transition: all 0.2s ease;
-}
-
-.project-link:hover {
-  background: var(--primary);
-  color: #ffffff;
-  transform: translateY(-2px);
 }
