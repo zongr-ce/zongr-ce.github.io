@@ -379,7 +379,7 @@ footer {
 
 .timeline-dot {
   position: absolute;
-  left: 0px;         /* centers dot on the line (20px - 7px) */
+  left: 7px;         /* centers dot on the line (20px - 7px) */
   top: 18px;
   width: 14px;
   height: 14px;
@@ -513,7 +513,7 @@ footer {
 
 .work-dot {
   position: absolute;
-  left: 0px;           /* center dot over the line */
+  left: 7px;           /* center dot over the line */
   top: 22px;
   width: 14px;
   height: 14px;
@@ -717,4 +717,28 @@ footer {
     padding-top: 120px;
   }
 
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 14px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+
+  color: var(--primary);
+  background: #e8efff;
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
