@@ -190,17 +190,16 @@ figcaption {
   top: 85px; /* height of fixed navbar */
   z-index: 900;
 
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--background);
   backdrop-filter: blur(6px);
-  border: 1px solid var(--border-light);
+  border: none;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  box-shadow: none;
 
-  margin: 12px 0 18px;
+  margin: 10px 0 14px;
 }
 
-.top-nav,
-.breadcrumbs {
+.top-nav {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border-light);
