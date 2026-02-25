@@ -302,3 +302,42 @@ footer {
 .download-card i {
   color: var(--accent);
 }
+
+
+/* Project sub-navigation */
+
+.project-nav {
+  margin: 20px 0 30px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.project-nav h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.project-links a {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #f3f4f6;
+  color: #1f2937;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.project-links a:hover {
+  background: #1E3A8A;
+  color: #ffffff;
+}
