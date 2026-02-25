@@ -377,13 +377,14 @@ footer {
 
 .timeline-dot {
   position: absolute;
-  left: 1px;
+  left: 2px;
   top: 18px;
   width: 16px;
   height: 16px;
   background: var(--primary);
   border-radius: 50%;
   box-shadow: 0 0 0 4px var(--card-bg);
+  z-index: 2;
 }
 
 .timeline-content {
@@ -516,13 +517,14 @@ footer {
 
 .work-dot {
   position: absolute;
-  left: 1px;
+  left: 2px;
   top: 22px;
   width: 16px;
   height: 16px;
   background: var(--primary);
   border-radius: 50%;
   box-shadow: 0 0 0 4px var(--card-bg);
+  z-index: 2;
 }
 
 .work-card {
