@@ -553,3 +553,69 @@ footer {
 .work-tags {
   margin-top: 12px;
 }
+
+/* =========================
+   PROJECT NEXT / PREVIOUS
+   ========================= */
+
+.project-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  margin: 50px 0 20px;
+}
+
+.project-pagination a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 22px;
+  text-decoration: none;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+  font-weight: 600;
+  color: #1E3A8A;
+  min-height: 70px;
+}
+
+.project-pagination a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  background: #f1f5ff;
+}
+
+.project-pagination .prev {
+  text-align: left;
+}
+
+.project-pagination .next {
+  text-align: right;
+}
+
+/* Optional subtle arrow style */
+.project-pagination .prev::before {
+  content: "← ";
+  font-weight: 700;
+}
+
+.project-pagination .next::after {
+  content: " →";
+  font-weight: 700;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  .project-pagination {
+    flex-direction: column;
+  }
+
+  .project-pagination .next,
+  .project-pagination .prev {
+    text-align: center;
+  }
+}
