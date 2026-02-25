@@ -354,18 +354,20 @@ footer {
 
 /* ===== EDUCATION: TIMELINE + AWARDS + COURSEWORK ===== */
 
+/* ===== EDUCATION TIMELINE (ALIGNED) ===== */
+
 .timeline {
   position: relative;
   margin: 30px 0 40px;
-  padding-left: 22px;
+  padding-left: 40px; /* more room so cards don’t crowd the line */
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 9px;
-  top: 6px;
-  bottom: 6px;
+  left: 20px;         /* center of the timeline */
+  top: 0;
+  bottom: 0;
   width: 2px;
   background: var(--border-light);
 }
@@ -377,13 +379,13 @@ footer {
 
 .timeline-dot {
   position: absolute;
-  left: 1px;
+  left: 0px;         /* centers dot on the line (20px - 7px) */
   top: 18px;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background: var(--primary);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--card-bg);
+  box-shadow: 0 0 0 4px var(--background);
 }
 
 .timeline-content {
@@ -511,7 +513,7 @@ footer {
 
 .work-dot {
   position: absolute;
-  left: 14px;           /* center dot over the line */
+  left: 0px;           /* center dot over the line */
   top: 22px;
   width: 14px;
   height: 14px;
