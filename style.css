@@ -49,3 +49,26 @@ iframe {
   max-width: 100%;
   border: none;
 }
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 6px;
+}
