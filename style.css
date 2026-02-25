@@ -377,7 +377,7 @@ footer {
 
 .timeline-dot {
   position: absolute;
-  left: -14px;
+  left: -20px;
   top: 18px;
   width: 16px;
   height: 16px;
@@ -517,7 +517,7 @@ footer {
 
 .work-dot {
   position: absolute;
-  left: -14px;
+  left: -20px;
   top: 22px;
   width: 16px;
   height: 16px;
