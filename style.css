@@ -341,3 +341,215 @@ footer {
   background: #1E3A8A;
   color: #ffffff;
 }
+
+/* ===== EDUCATION: TIMELINE + AWARDS + COURSEWORK ===== */
+
+.timeline {
+  position: relative;
+  margin: 30px 0 40px;
+  padding-left: 22px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 1px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  background: #1E3A8A;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff;
+}
+
+.timeline-content {
+  background: #ffffff;
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.timeline-content h2 {
+  margin: 0 0 6px;
+}
+
+.edu-degree {
+  font-weight: 700;
+  color: #1E3A8A;
+  margin: 0 0 6px;
+}
+
+.edu-meta {
+  color: #6B7280;
+  margin: 0 0 10px;
+}
+
+.edu-section {
+  margin: 30px 0;
+}
+
+.edu-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.award-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.award-list li {
+  margin: 8px 0;
+}
+
+.course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.chip {
+  background: #f3f4f6;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.chip-primary {
+  background: #e8efff;
+  border-color: #cfe0ff;
+  color: #1E3A8A;
+  font-weight: 700;
+}
+
+.edu-note {
+  margin: 8px 0 0;
+  color: #6B7280;
+  font-size: 0.95rem;
+}
+
+/* ===== BACK BUTTON ===== */
+
+.back-link {
+  margin: 10px 0 20px;
+}
+
+.back-link a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1E3A8A;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.back-link a:hover {
+  background: #e8efff;
+  transform: translateX(-2px);
+}
+
+
+/* ===== WORK PAGE ===== */
+
+.work-intro {
+  margin: 10px 0 24px;
+  color: #6B7280;
+}
+
+.work-timeline {
+  position: relative;
+  padding-left: 22px;
+  margin: 20px 0 40px;
+}
+
+.work-timeline::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.work-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.work-dot {
+  position: absolute;
+  left: 1px;
+  top: 22px;
+  width: 16px;
+  height: 16px;
+  background: #1E3A8A;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff;
+}
+
+.work-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.work-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.work-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.work-dates {
+  color: #6B7280;
+  font-size: 0.95rem;
+}
+
+.work-org {
+  margin: 6px 0 12px;
+  font-weight: 700;
+  color: #1E3A8A;
+}
+
+.work-bullets {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.work-bullets li {
+  margin: 8px 0;
+}
+
+.work-tags {
+  margin-top: 12px;
+}
