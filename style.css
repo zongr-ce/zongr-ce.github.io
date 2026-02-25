@@ -198,12 +198,6 @@ figcaption {
   margin: 10px 0 14px;
 }
 
-.top-nav {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border-light);
-}
-
 .top-nav a {
   text-decoration: none;
   color: #1f2937;
