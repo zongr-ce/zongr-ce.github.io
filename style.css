@@ -10,10 +10,9 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: auto;
-  padding: 30px;
+  margin: 0;
+  padding: 0 30px 30px;
   max-width: 900px;
-  padding-top: 100px; /* space only for top nav */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
