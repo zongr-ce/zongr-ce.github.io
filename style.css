@@ -13,7 +13,7 @@ body {
   margin: auto;
   padding: 30px;
   max-width: 900px;
-  padding-top: 100px; /* space only for top nav */
+  /*padding-top: 100px;*/ /* space only for top nav */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
@@ -640,9 +640,9 @@ footer {
 
 .breadcrumbs {
   position: sticky;
-  top: 70px; /* below fixed nav */
+  top: 65px; /* below fixed nav */
   z-index: 900;
-  margin: 10px 0 18px;
+  margin: 20px 0 18px;
   background: var(--background);
 }
 
