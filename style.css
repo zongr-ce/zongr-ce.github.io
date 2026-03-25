@@ -1,6 +1,6 @@
 :root {
   --primary: #1E3A8A;      /* Deep engineering blue */
-  --accent: #0EA5A4;       /* Muted teal (embedded vibe) */
+  --accent: #D97706;       /* Warm amber — precision & achievement */
   --text-dark: #111827;    /* Near-black */
   --text-light: #6B7280;   /* Secondary text */
   --background: #F3F4F6;   /* Very light cool gray */
@@ -13,7 +13,6 @@ body {
   margin: auto;
   padding: 30px;
   max-width: 900px;
-  /*padding-top: 100px;*/ /* space only for top nav */
   line-height: 1.6;
   background: var(--background);
   color: var(--text-dark);
@@ -112,14 +111,15 @@ figcaption {
   border-radius: 10px;
   overflow: hidden;
   background: var(--card-bg);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.13);
+  border-color: #BFCFE8;
 }
 
 .project-card img {
@@ -130,7 +130,7 @@ figcaption {
 
 .project-card h3 {
   margin: 12px;
-  color: var(--text-dark);
+  color: var(--primary);
 }
 
 .project-card p {
@@ -153,7 +153,7 @@ figcaption {
   height: 95px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--border-light);
+  border: 3px solid var(--accent);
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
@@ -182,7 +182,7 @@ figcaption {
   max-width: 900px;
   z-index: 9999;
 
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border-light);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -192,15 +192,17 @@ figcaption {
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 600;
-  padding: 8px 10px;
-  border-radius: 10px;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .top-nav a:hover {
-  background: #E0F2FE;
+  background: #EFF6FF;
   color: var(--primary);
-  transform: translateY(-2px);
+  border-color: #BFCFE8;
+  transform: translateY(-1px);
 }
 
 .top-nav .nav-spacer {
@@ -210,6 +212,7 @@ figcaption {
 .top-nav a.active {
   background: var(--primary);
   color: #ffffff;
+  border-color: var(--primary);
 }
 
 /* ===== SUMMARY ===== */
@@ -254,7 +257,7 @@ figcaption {
   padding: 18px;
   background: var(--card-bg);
   border-radius: 14px;
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   transition: all 0.25s ease;
 }
@@ -273,6 +276,7 @@ figcaption {
 .download-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  border-color: var(--accent);
 }
 
 /* ===== FOOTER ===== */
@@ -301,11 +305,16 @@ footer {
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1.5px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
 .footer-links a:hover {
   color: var(--primary);
+  border-color: #BFCFE8;
+  background: #EFF6FF;
   transform: translateY(-2px);
 }
 
@@ -342,6 +351,7 @@ footer {
   padding: 6px 12px;
   border-radius: 20px;
   background: var(--background);
+  border: 1.5px solid var(--border-light);
   color: var(--text-dark);
   font-size: 0.9rem;
   transition: all 0.2s ease;
@@ -350,6 +360,7 @@ footer {
 .project-links a:hover {
   background: var(--primary);
   color: #ffffff;
+  border-color: var(--primary);
 }
 
 /* ===== EDUCATION: TIMELINE + AWARDS + COURSEWORK ===== */
@@ -448,9 +459,9 @@ footer {
 }
 
 .chip-primary {
-  background: #e8efff;
-  border-color: #cfe0ff;
-  color: var(--primary);
+  background: #FEF3C7;
+  border-color: #FCD34D;
+  color: #92400E;
   font-weight: 700;
 }
 
@@ -476,13 +487,14 @@ footer {
   background: var(--card-bg);
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .back-link a:hover {
-  background: #f1f5ff;
+  background: #EFF6FF;
+  border-color: #BFCFE8;
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
 }
@@ -592,20 +604,21 @@ footer {
   justify-content: center;
   padding: 18px 22px;
   text-decoration: none;
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--card-bg);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-  transition: all 0.25s ease;
-  font-weight: 600;
+  border: 2px solid var(--primary);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.10);
+  transition: all 0.2s ease;
+  font-weight: 700;
   color: var(--primary);
   min-height: 70px;
 }
 
 .project-pagination a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
-  background: #f1f5ff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(30, 58, 138, 0.18);
+  background: var(--primary);
+  color: #ffffff;
 }
 
 .project-pagination .prev {
@@ -642,7 +655,7 @@ footer {
 
 .breadcrumbs {
   position: sticky;
-  top: 65px; /* below fixed nav */
+  top: 65px;
   z-index: 900;
   margin: 20px 0 18px;
   background: var(--background);
@@ -664,7 +677,6 @@ footer {
   align-items: center;
 }
 
-/* separator */
 .crumbs li:not(:last-child)::after {
   content: "›";
   margin: 0 6px;
@@ -689,7 +701,7 @@ footer {
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   margin-bottom: 20px;
@@ -705,11 +717,12 @@ footer {
 }
 
 .metric-highlight {
-  background-color: #f0f7ff; /* Light blue tint */
-  border-left: 4px solid #007bff; /* Primary color accent */
+  background-color: #FEF3C7;
+  border-left: 4px solid var(--accent);
   padding: 10px 15px;
   margin: 10px 0;
   font-weight: bold;
+  color: #92400E;
 }
 
 @media (max-width: 700px) {
@@ -729,14 +742,15 @@ footer {
   align-items: center;
   gap: 6px;
   margin-top: 12px;
-  padding: 8px 14px;
+  padding: 8px 16px;
 
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none;
 
   color: var(--primary);
-  background: #e8efff;
+  background: #EFF6FF;
+  border: 1.5px solid var(--primary);
   border-radius: 8px;
 
   transition: all 0.2s ease;
@@ -746,6 +760,7 @@ footer {
   background: var(--primary);
   color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 /* ===== CARD (used on all project detail pages) ===== */
@@ -768,7 +783,7 @@ footer {
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #93B4F8;
-    --accent: #2DD4BF;
+    --accent: #FCD34D;
     --text-dark: #F9FAFB;
     --text-light: #9CA3AF;
     --background: #111827;
@@ -788,11 +803,13 @@ footer {
 
   .top-nav a:hover {
     background: #1E3A5F;
+    border-color: #2D5499;
   }
 
   .top-nav a.active {
     background: #1E3A8A;
     color: #ffffff;
+    border-color: #1E3A8A;
   }
 
   .project-card {
@@ -800,8 +817,12 @@ footer {
     border-color: var(--border-light);
   }
 
+  .project-card:hover {
+    border-color: #4B6FA8;
+  }
+
   .project-card h3 {
-    color: var(--text-dark);
+    color: var(--primary);
   }
 
   .summary {
@@ -816,6 +837,7 @@ footer {
 
   .download-card:hover {
     background: #263548;
+    border-color: var(--accent);
   }
 
   footer {
@@ -823,10 +845,15 @@ footer {
     border-color: var(--border-light);
   }
 
-  .chip-primary {
+  .footer-links a:hover {
     background: #1E3A5F;
     border-color: #2D5499;
-    color: #93B4F8;
+  }
+
+  .chip-primary {
+    background: #2D2408;
+    border-color: #92400E;
+    color: #FCD34D;
   }
 
   .timeline-content,
@@ -839,11 +866,14 @@ footer {
 
   .project-pagination a {
     background: var(--card-bg);
-    border-color: var(--border-light);
+    border-color: var(--primary);
+    color: var(--primary);
   }
 
   .project-pagination a:hover {
-    background: #263548;
+    background: #1E3A8A;
+    color: #ffffff;
+    border-color: #1E3A8A;
   }
 
   .back-link a {
@@ -852,18 +882,26 @@ footer {
   }
 
   .back-link a:hover {
-    background: #263548;
+    background: #1E3A5F;
+    border-color: #2D5499;
   }
 
   .project-link {
     background: #1E3A5F;
     color: #93B4F8;
+    border-color: #2D5499;
+  }
+
+  .project-link:hover {
+    background: #1E3A8A;
+    color: #ffffff;
+    border-color: #1E3A8A;
   }
 
   .metric-highlight {
-    background-color: #1E3A5F;
-    border-left-color: #93B4F8;
-    color: var(--text-dark);
+    background-color: #2D2408;
+    border-left-color: #FCD34D;
+    color: #FCD34D;
   }
 
   .breadcrumbs {
@@ -872,5 +910,14 @@ footer {
 
   .crumbs [aria-current="page"] span {
     color: var(--text-dark);
+  }
+
+  .project-links a {
+    border-color: var(--border-light);
+  }
+
+  .project-links a:hover {
+    background: #1E3A8A;
+    border-color: #1E3A8A;
   }
 }
