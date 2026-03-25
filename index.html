@@ -1,12 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grace O. Zongo | Electrical Engineering</title>
+  <meta name="description" content="Grace O. Zongo — EE student at UW–Madison specializing in embedded systems and power electronics. Built firmware deployed in Antarctica, a competition electric boat, and an 8-bit CPU from scratch.">
   <meta property="og:title" content="Grace O. Zongo | Electrical Engineering">
   <meta property="og:description" content="Embedded systems, power electronics, and hardware I can actually show you.">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="images/profile.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/profile.jpg">
 </head>
 <body>
 
@@ -15,67 +19,103 @@
   <a href="education.html">Education</a>
   <a href="projects.html">Projects</a>
   <a href="work.html">Work Experience</a>
-
   <span class="nav-spacer"></span>
-
-  <a href="Grace_Zongo_Resume.pdf" target="_blank" class="nav-cta">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank" class="nav-cta">PDF Portfolio</a>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
 <main class="page-content">
 
   <section class="hero">
-    <img src="images/profile.jpg" alt="Grace O. Zongo professional photo" class="profile-photo">
-
+    <img src="images/profile.jpg" alt="Grace O. Zongo" class="profile-photo">
     <div>
       <h1>Grace O. Zongo</h1>
-      <p style="font-weight: 600; color: var(--primary); margin-bottom: 8px;">EE @ UW–Madison — Building real systems, from hardware to software</p>
-      <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 12px;">
-        Firmware deployed in Antarctica. 2nd-place electric boat. An 8-bit CPU built from scratch.
-        Embedded systems and power electronics, with real results to show for it.
+      <p class="hero-tagline">Electrical Engineering @ UW–Madison &nbsp;·&nbsp; Embedded Systems &amp; Power Electronics</p>
+      <p class="hero-sub">
+        Firmware running in Antarctica. 2nd-place competition electric boat. An 8-bit CPU built from scratch.
+        Real systems, real results.
       </p>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <span class="chip chip-primary">32→7 mA sleep mode</span>
-        <span class="chip chip-primary">2nd Place PEP 2024</span>
-        <span class="chip chip-primary">Antarctica deployment</span>
+      <div class="hero-chips">
+        <span class="chip chip-primary"><i class="fa-solid fa-microchip" style="font-size:0.78em;margin-right:4px;"></i>32→7 mA sleep mode</span>
+        <span class="chip chip-primary"><i class="fa-solid fa-trophy" style="font-size:0.78em;margin-right:4px;"></i>2nd Place PEP 2024</span>
+        <span class="chip chip-primary"><i class="fa-solid fa-snowflake" style="font-size:0.78em;margin-right:4px;"></i>Antarctica deployment</span>
       </div>
     </div>
   </section>
 
   <section class="summary">
-    <h2>Summary</h2>
+    <h2>About</h2>
     <p>
       Electrical Engineering student with hands-on experience in embedded systems,
       power electronics, and hardware prototyping. Designed and validated real-world
       systems including an Antarctic-deployed Automatic Weather Station, a dual-battery
       electric propulsion system, and a discrete 8-bit CPU.
     </p>
-
-    <p>
+    <p style="margin-bottom:0;">
       Strong background in battery management systems, digital logic design,
       PCB development, and system-level integration. Passionate about building
-      reliable, high-performance electrical systems from concept through testing
-      and validation.
+      reliable, high-performance electrical systems from concept through testing and validation.
     </p>
   </section>
 
   <section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="skill-group-label">Languages</span>
+        <ul>
+          <li>C / C++</li>
+          <li>Python</li>
+          <li>VHDL / Verilog</li>
+          <li>MATLAB</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Hardware</span>
+        <ul>
+          <li>PCB Design (KiCad, Altium)</li>
+          <li>FPGA (Quartus)</li>
+          <li>Oscilloscope / DMM</li>
+          <li>Soldering &amp; Bring-up</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Protocols</span>
+        <ul>
+          <li>USART / UART</li>
+          <li>I²C / SPI</li>
+          <li>CAN Bus</li>
+          <li>GPIO / ISR / Timers</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Tools</span>
+        <ul>
+          <li>Git / GitHub</li>
+          <li>Linux / Bash CLI</li>
+          <li>VS Code</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 36px;">
+    <h2>Explore</h2>
     <div class="project-grid">
       <a href="education.html" class="project-card">
         <img src="images/campus-building.jpg" alt="UW-Madison Campus">
         <h3>Education</h3>
-        <p>UW–Madison EE, Dean's List, awards & coursework</p>
+        <p>UW–Madison EE, Dean's List, awards &amp; coursework</p>
       </a>
-
       <a href="projects.html" class="project-card">
-        <img src="images/electric-boat/boat_water_test.jpg" alt="Personal and team projects">
-        <h3>Project Experience</h3>
+        <img src="images/electric-boat/boat_water_test.jpg" alt="Projects">
+        <h3>Project Work</h3>
         <p>Embedded firmware, power systems, digital hardware</p>
       </a>
-
       <a href="work.html" class="project-card">
         <img src="images/work2.jpg" alt="Work experience">
-        <h3>Internship & Work Experience</h3>
+        <h3>Work Experience</h3>
         <p>SSEC, Alpha Controls, Bemis, solar racing team</p>
       </a>
     </div>
@@ -83,16 +123,14 @@
 
   <section class="downloads">
     <h2>Downloads</h2>
-
     <div class="download-buttons">
       <a href="Grace_Zongo_Resume.pdf" target="_blank" class="download-card">
         <i class="fa-solid fa-file-lines"></i>
         <div>
           <strong>Resume</strong>
-          <p>PDF version of my resume</p>
+          <p>PDF — one-page overview</p>
         </div>
       </a>
-
       <a href="Grace_Zongo_Portfolio.pdf" target="_blank" class="download-card">
         <i class="fa-solid fa-folder-open"></i>
         <div>
@@ -107,27 +145,12 @@
 
 <footer>
   <p class="footer-links">
-    © 2026 Grace O. Zongo |
-
-    <a href="Grace_Zongo_Resume.pdf" target="_blank">
-      <i class="fa-solid fa-file-lines"></i> Resume
-    </a>
-
-    <a href="Grace_Zongo_Portfolio.pdf" target="_blank">
-      <i class="fa-solid fa-folder-open"></i> Portfolio
-    </a>
-
-    <a href="https://github.com/zongr-ce" target="_blank">
-      <i class="fa-brands fa-github"></i> GitHub
-    </a>
-
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
-
-    <a href="mailto:gzongo@wisc.edu" target="_blank">
-      <i class="fa-solid fa-envelope"></i> Email Me
-    </a>
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
 

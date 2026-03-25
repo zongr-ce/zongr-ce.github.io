@@ -2,27 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Automatic Weather Station (AWS) | Grace O. Zongo</title>
-  <meta name="description" content="Automatic Weather Station firmware by Grace O. Zongo — C++ sensor drivers, FSM architecture, and low-power sleep mode for Antarctic deployment.">
-  <link rel="icon" type="image/png" href="images/profile.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automatic Weather Station | Grace O. Zongo</title>
+  <meta name="description" content="Embedded firmware for an Automatic Weather Station deployed in Antarctica — sensor drivers, FSM, low-power sleep mode reducing idle current from 32 mA to 7 mA.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
+
 <nav class="top-nav">
   <a href="index.html">Home</a>
   <a href="education.html">Education</a>
   <a href="projects.html" class="active">Projects</a>
   <a href="work.html">Work Experience</a>
-
   <span class="nav-spacer"></span>
-
-  <a href="Grace_Zongo_Resume.pdf" target="_blank" class="nav-cta">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank" class="nav-cta">PDF Portfolio</a>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -36,6 +31,7 @@
 <main class="page-content">
 
   <h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
+  <hr class="accent-rule">
 
   <section class="card">
     <h2>Overview</h2>
@@ -73,17 +69,14 @@
         <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware">
         <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
       </figure>
-
       <figure>
-        <img src="images/aws/baro-1.png" alt="Environmental sensors">
+        <img src="images/aws/baro-1.png" alt="Barometer driver snapshot">
         <figcaption>Snapshot of barometer driver</figcaption>
       </figure>
-
       <figure>
         <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram">
-        <figcaption>Snapshot of Finite state machine controlling collection / processing / etc...</figcaption>
+        <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
       </figure>
-
       <figure>
         <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug">
         <figcaption>Firmware validation and debugging during test runs</figcaption>
@@ -97,11 +90,36 @@
       <li>Successfully collected and processed environmental data (pressure, humidity, temperature, etc.).</li>
       <li>Improved reliability and modularity of the AWS firmware through driver + FSM architecture.</li>
       <li>AWS operated independently in Antarctica for a full year (deployment target).</li>
-      <li>Implemented sleep mode: reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
-      <li>Reduced idle-mode power consumption by ~78% (32 mA → 7 mA).</li>
+      <li>Reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
     </ul>
+    <div class="metric-highlight">
+      Reduced idle-mode power consumption by ~78% — 32 mA → 7 mA
+    </div>
   </section>
 
   <nav class="project-pagination" aria-label="Project navigation">
-    <a class="prev" href="electric-boat.html">Bemis</a>
-    <a class="next" href="cpu.html">Electric Boat</a>
+    <a class="prev" href="Bemis.html">
+      <span class="pagination-label">Previous</span>
+      Smart Toilet Seat
+    </a>
+    <a class="next" href="electric-boat.html">
+      <span class="pagination-label">Next</span>
+      Electric Boat
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+  </p>
+</footer>
+
+</body>
+</html>

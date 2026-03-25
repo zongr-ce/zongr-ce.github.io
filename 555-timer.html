@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>555 Timer Clock Module | Grace O. Zongo</title>
-  <meta name="description" content="555 Timer Clock Module by Grace O. Zongo — astable mode oscillator prototype, PCB design, frequency and duty-cycle verification.">
-  <link rel="icon" type="image/png" href="images/profile.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="555 timer configured in astable mode for stable clock generation — breadboard prototype through oscilloscope verification, covering manual trigger up to 10 kHz.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
 <nav class="top-nav">
@@ -19,11 +15,9 @@
   <a href="education.html">Education</a>
   <a href="projects.html" class="active">Projects</a>
   <a href="work.html">Work Experience</a>
-
   <span class="nav-spacer"></span>
-
-  <a href="Grace_Zongo_Resume.pdf" target="_blank" class="nav-cta">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank" class="nav-cta">PDF Portfolio</a>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
 </nav>
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -37,6 +31,7 @@
 <main class="page-content">
 
   <h1>555 Timer Clock Module</h1>
+  <hr class="accent-rule">
 
   <section class="card">
     <h2>Overview</h2>
@@ -60,22 +55,19 @@
     <h2>System Images</h2>
     <div class="image-grid">
       <figure>
-        <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer clock module board">
+        <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer breadboard prototype">
         <figcaption>Clock module prototype built around a 555 timer and logic gates for mode switching</figcaption>
       </figure>
-
       <figure>
         <img src="images/555-timer/clock-module-sch.png" alt="555 timer schematic">
         <figcaption>Schematic: 555 timer configured in astable mode</figcaption>
       </figure>
-
       <figure>
-        <img src="images/555-timer/clock-module-pcb.png" alt="PCB layer view - KiCad">
-        <figcaption>Breadboard build for initial validation</figcaption>
+        <img src="images/555-timer/clock-module-pcb.png" alt="PCB layout - KiCad">
+        <figcaption>PCB layout (KiCad)</figcaption>
       </figure>
-
       <figure>
-        <img src="images/555-timer/clk-module-soldered.jpg" alt="populated PCB">
+        <img src="images/555-timer/clk-module-soldered.jpg" alt="Populated PCB">
         <figcaption>Frequency and duty-cycle verification using an oscilloscope</figcaption>
       </figure>
     </div>
@@ -89,21 +81,20 @@
       <li>Reinforced understanding of analog timing circuits and component-level design.</li>
     </ul>
     <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/XPLGhJ6kN4U"
-        title="555 Timer Demo"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
+      <iframe src="https://www.youtube.com/embed/XPLGhJ6kN4U" title="555 Timer Demo" allowfullscreen loading="lazy"></iframe>
     </div>
-    <p><em>
-      Demonstration of breadboard prototype (monostable, astable, bistable).
-    </em></p>
+    <p><em>Demonstration of breadboard prototype (monostable, astable, bistable).</em></p>
   </section>
 
   <nav class="project-pagination" aria-label="Project navigation">
-    <a class="prev" href="cpu.html">8-Bit CPU</a>
-    <a class="next" href="occ-sensor.html">Occupancy Sensor</a>
+    <a class="prev" href="cpu.html">
+      <span class="pagination-label">Previous</span>
+      8-Bit CPU
+    </a>
+    <a class="next" href="occ-sensor.html">
+      <span class="pagination-label">Next</span>
+      Occupancy Sensor
+    </a>
   </nav>
 
 </main>
@@ -115,7 +106,7 @@
     <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
     <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email Me</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
 
