@@ -19,15 +19,6 @@ body {
   color: var(--text-dark);
 }
 
-.card {
-  background: var(--card-bg);
-  padding: 20px 22px;
-  border-radius: 14px;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
-}
-
 .page-content {
   margin: 130px auto 40px;
 }
@@ -101,7 +92,7 @@ figcaption {
 
 .video-grid iframe {
   width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 16 / 9;
   max-height: 420px;
   border-radius: 8px;
 }
@@ -199,7 +190,7 @@ figcaption {
 
 .top-nav a {
   text-decoration: none;
-  color: #1f2937;
+  color: var(--text-dark);
   font-weight: 600;
   padding: 8px 10px;
   border-radius: 10px;
@@ -259,7 +250,7 @@ figcaption {
   align-items: center;
   gap: 16px;
   text-decoration: none;
-  color: #1f2937;
+  color: var(--text-dark);
   padding: 18px;
   background: var(--card-bg);
   border-radius: 14px;
@@ -306,7 +297,7 @@ footer {
 
 .footer-links a {
   text-decoration: none;
-  color: #374151;
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -350,8 +341,8 @@ footer {
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 20px;
-  background: #f3f4f6;
-  color: #1f2937;
+  background: var(--background);
+  color: var(--text-dark);
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
@@ -448,11 +439,11 @@ footer {
 }
 
 .chip {
-  background: #f3f4f6;
+  background: var(--background);
   padding: 7px 12px;
   border-radius: 999px;
   font-size: 0.9rem;
-  color: #1f2937;
+  color: var(--text-dark);
   border: 1px solid var(--border-light);
 }
 
@@ -755,4 +746,131 @@ footer {
   background: var(--primary);
   color: #ffffff;
   transform: translateY(-2px);
+}
+
+/* ===== CARD (used on all project detail pages) ===== */
+
+.card {
+  background: var(--card-bg);
+  padding: 20px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* ===== DARK MODE ===== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #93B4F8;
+    --accent: #2DD4BF;
+    --text-dark: #F9FAFB;
+    --text-light: #9CA3AF;
+    --background: #111827;
+    --card-bg: #1F2937;
+    --border-light: #374151;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--text-dark);
+  }
+
+  .top-nav {
+    background: rgba(31, 41, 55, 0.97);
+    border-color: #374151;
+  }
+
+  .top-nav a:hover {
+    background: #1E3A5F;
+  }
+
+  .top-nav a.active {
+    background: #1E3A8A;
+    color: #ffffff;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .project-card h3 {
+    color: var(--text-dark);
+  }
+
+  .summary {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .download-card {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .download-card:hover {
+    background: #263548;
+  }
+
+  footer {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .chip-primary {
+    background: #1E3A5F;
+    border-color: #2D5499;
+    color: #93B4F8;
+  }
+
+  .timeline-content,
+  .edu-card,
+  .work-card,
+  .card {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .project-pagination a {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .project-pagination a:hover {
+    background: #263548;
+  }
+
+  .back-link a {
+    background: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .back-link a:hover {
+    background: #263548;
+  }
+
+  .project-link {
+    background: #1E3A5F;
+    color: #93B4F8;
+  }
+
+  .metric-highlight {
+    background-color: #1E3A5F;
+    border-left-color: #93B4F8;
+    color: var(--text-dark);
+  }
+
+  .breadcrumbs {
+    background: var(--background);
+  }
+
+  .crumbs [aria-current="page"] span {
+    color: var(--text-dark);
+  }
 }
