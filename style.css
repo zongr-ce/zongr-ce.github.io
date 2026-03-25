@@ -1,15 +1,19 @@
 :root {
-  --primary: #1E3A8A;      /* Deep engineering blue */
-  --accent: #D97706;       /* Warm amber — precision & achievement */
-  --text-dark: #111827;    /* Near-black */
-  --text-light: #6B7280;   /* Secondary text */
-  --background: #F3F4F6;   /* Very light cool gray */
-  --card-bg: #FFFFFF;      /* Cards */
-  --border-light: #E5E7EB; /* Subtle borders */
+  --primary: #1E3A8A;
+  --accent: #D97706;
+  --text-dark: #111827;
+  --text-light: #6B7280;
+  --background: #F3F4F6;
+  --card-bg: #FFFFFF;
+  --border-light: #E5E7EB;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
   margin: auto;
   padding: 30px;
   max-width: 900px;
@@ -51,6 +55,15 @@ em {
 iframe {
   max-width: 100%;
   border: none;
+}
+
+/* ===== FOCUS STYLES (accessibility) ===== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ===== MEDIA GRIDS ===== */
@@ -163,17 +176,13 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 12px 14px;
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
   border: 1px solid var(--border-light);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-
-/* ===== FIXED NAVIGATION ===== */
-
-.top-nav {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   position: fixed;
   top: 0;
   left: 50%;
@@ -181,11 +190,6 @@ figcaption {
   width: 100%;
   max-width: 900px;
   z-index: 9999;
-
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .top-nav a {
@@ -213,6 +217,22 @@ figcaption {
   background: var(--primary);
   color: #ffffff;
   border-color: var(--primary);
+}
+
+/* ===== NAV CTA BUTTONS (Resume / Portfolio) ===== */
+
+.top-nav a.nav-cta {
+  color: var(--primary);
+  background: #FFFBEB;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.top-nav a.nav-cta:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 /* ===== SUMMARY ===== */
@@ -650,7 +670,6 @@ footer {
   }
 }
 
-
 /* ===== MINIMAL BREADCRUMBS ===== */
 
 .breadcrumbs {
@@ -699,6 +718,8 @@ footer {
   font-weight: 700;
 }
 
+/* ===== VIDEO CONTAINER ===== */
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -716,6 +737,8 @@ footer {
   border: 0;
 }
 
+/* ===== METRIC HIGHLIGHT ===== */
+
 .metric-highlight {
   background-color: #FEF3C7;
   border-left: 4px solid var(--accent);
@@ -725,17 +748,7 @@ footer {
   color: #92400E;
 }
 
-@media (max-width: 700px) {
-
-  .breadcrumbs {
-    top: 95px;
-  }
-
-  body {
-    padding-top: 120px;
-  }
-
-}
+/* ===== PROJECT LINK ===== */
 
 .project-link {
   display: inline-flex;
@@ -743,16 +756,13 @@ footer {
   gap: 6px;
   margin-top: 12px;
   padding: 8px 16px;
-
   font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none;
-
   color: var(--primary);
   background: #EFF6FF;
   border: 1.5px solid var(--primary);
   border-radius: 8px;
-
   transition: all 0.2s ease;
 }
 
@@ -776,6 +786,46 @@ footer {
 
 .card h2 {
   margin-top: 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--primary);
+}
+
+/* ===== MOBILE NAV ===== */
+
+@media (max-width: 600px) {
+  .top-nav {
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 0 0 12px 12px;
+    top: 0;
+  }
+
+  .top-nav a {
+    font-size: 0.82rem;
+    padding: 6px 8px;
+  }
+
+  .nav-spacer {
+    width: 100%;
+    height: 1px;
+    flex: none;
+    background: var(--border-light);
+    margin: 2px 0;
+  }
+
+  .page-content {
+    margin-top: 155px;
+  }
+}
+
+@media (max-width: 700px) {
+  .breadcrumbs {
+    top: 95px;
+  }
+
+  body {
+    padding-top: 120px;
+  }
 }
 
 /* ===== DARK MODE ===== */
@@ -810,6 +860,18 @@ footer {
     background: #1E3A8A;
     color: #ffffff;
     border-color: #1E3A8A;
+  }
+
+  .top-nav a.nav-cta {
+    background: #2D2408;
+    color: #FCD34D;
+    border-color: #92400E;
+  }
+
+  .top-nav a.nav-cta:hover {
+    background: #92400E;
+    color: #ffffff;
+    border-color: #92400E;
   }
 
   .project-card {
@@ -919,5 +981,14 @@ footer {
   .project-links a:hover {
     background: #1E3A8A;
     border-color: #1E3A8A;
+  }
+
+  .nav-spacer {
+    background: var(--border-light);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: var(--primary);
   }
 }
