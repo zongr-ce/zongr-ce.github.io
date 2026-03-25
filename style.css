@@ -19,6 +19,15 @@ body {
   color: var(--text-dark);
 }
 
+.card {
+  background: var(--card-bg);
+  padding: 20px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
 .page-content {
   margin: 130px auto 40px;
 }
