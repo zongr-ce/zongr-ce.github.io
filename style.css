@@ -1,11 +1,11 @@
 :root {
-  --primary: #1E3A8A;      /* Deep engineering blue */
-  --accent: #0EA5A4;       /* Muted teal (embedded vibe) */
-  --text-dark: #111827;    /* Near-black */
-  --text-light: #6B7280;   /* Secondary text */
-  --background: #F3F4F6;   /* Very light cool gray */
+  --primary: #0F172A;      /* Deep slate */
+  --accent: #F59E0B;       /* Amber */
+  --text-dark: #0F172A;    /* Near-black slate */
+  --text-light: #64748B;   /* Secondary text */
+  --background: #F8FAFC;   /* Very light cool white */
   --card-bg: #FFFFFF;      /* Cards */
-  --border-light: #E5E7EB; /* Subtle borders */
+  --border-light: #E2E8F0; /* Subtle borders */
 }
 
 body {
@@ -198,8 +198,8 @@ figcaption {
 }
 
 .top-nav a:hover {
-  background: #E0F2FE;
-  color: var(--primary);
+  background: #FEF3C7;
+  color: #92400E;
   transform: translateY(-2px);
 }
 
@@ -448,9 +448,9 @@ footer {
 }
 
 .chip-primary {
-  background: #e8efff;
-  border-color: #cfe0ff;
-  color: var(--primary);
+  background: #FEF3C7;
+  border-color: #FDE68A;
+  color: #92400E;
   font-weight: 700;
 }
 
@@ -482,7 +482,7 @@ footer {
 }
 
 .back-link a:hover {
-  background: #f1f5ff;
+  background: #FEF3C7;
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
 }
@@ -605,7 +605,7 @@ footer {
 .project-pagination a:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(0,0,0,0.10);
-  background: #f1f5ff;
+  background: #FEF3C7;
 }
 
 .project-pagination .prev {
@@ -705,8 +705,8 @@ footer {
 }
 
 .metric-highlight {
-  background-color: #f0f7ff; /* Light blue tint */
-  border-left: 4px solid #007bff; /* Primary color accent */
+  background-color: #FEF3C7;
+  border-left: 4px solid #F59E0B;
   padding: 10px 15px;
   margin: 10px 0;
   font-weight: bold;
@@ -735,8 +735,8 @@ footer {
   font-size: 0.9rem;
   text-decoration: none;
 
-  color: var(--primary);
-  background: #e8efff;
+  color: #92400E;
+  background: #FEF3C7;
   border-radius: 8px;
 
   transition: all 0.2s ease;
@@ -767,13 +767,13 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #93B4F8;
-    --accent: #2DD4BF;
-    --text-dark: #F9FAFB;
-    --text-light: #9CA3AF;
-    --background: #111827;
-    --card-bg: #1F2937;
-    --border-light: #374151;
+    --primary: #F1F5F9;
+    --accent: #FBB040;
+    --text-dark: #F1F5F9;
+    --text-light: #94A3B8;
+    --background: #0F172A;
+    --card-bg: #1E293B;
+    --border-light: #334155;
   }
 
   body {
@@ -782,17 +782,23 @@ footer {
   }
 
   .top-nav {
-    background: rgba(31, 41, 55, 0.97);
-    border-color: #374151;
+    background: rgba(15, 23, 42, 0.97);
+    border-color: #334155;
+  }
+
+  .top-nav a {
+    color: #CBD5E1;
   }
 
   .top-nav a:hover {
-    background: #1E3A5F;
+    background: #1E293B;
+    color: #FBB040;
   }
 
   .top-nav a.active {
-    background: #1E3A8A;
-    color: #ffffff;
+    background: #1E293B;
+    color: #FBB040;
+    border: 1px solid #FBB040;
   }
 
   .project-card {
@@ -815,7 +821,7 @@ footer {
   }
 
   .download-card:hover {
-    background: #263548;
+    background: #263040;
   }
 
   footer {
@@ -824,9 +830,15 @@ footer {
   }
 
   .chip-primary {
-    background: #1E3A5F;
-    border-color: #2D5499;
-    color: #93B4F8;
+    background: #2D1F07;
+    border-color: #78450A;
+    color: #FBB040;
+  }
+
+  .chip {
+    background: #1E293B;
+    border-color: #334155;
+    color: #CBD5E1;
   }
 
   .timeline-content,
@@ -840,10 +852,11 @@ footer {
   .project-pagination a {
     background: var(--card-bg);
     border-color: var(--border-light);
+    color: #FBB040;
   }
 
   .project-pagination a:hover {
-    background: #263548;
+    background: #263040;
   }
 
   .back-link a {
@@ -852,17 +865,22 @@ footer {
   }
 
   .back-link a:hover {
-    background: #263548;
+    background: #263040;
   }
 
   .project-link {
-    background: #1E3A5F;
-    color: #93B4F8;
+    background: #2D1F07;
+    color: #FBB040;
+  }
+
+  .project-link:hover {
+    background: #FBB040;
+    color: #0F172A;
   }
 
   .metric-highlight {
-    background-color: #1E3A5F;
-    border-left-color: #93B4F8;
+    background-color: #2D1F07;
+    border-left-color: #FBB040;
     color: var(--text-dark);
   }
 
@@ -870,7 +888,21 @@ footer {
     background: var(--background);
   }
 
+  .crumbs a {
+    color: #FBB040;
+  }
+
   .crumbs [aria-current="page"] span {
     color: var(--text-dark);
+  }
+
+  .edu-degree,
+  .work-org {
+    color: #FBB040;
+  }
+
+  .timeline-dot,
+  .work-dot {
+    background: #FBB040;
   }
 }
