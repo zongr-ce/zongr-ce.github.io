@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AM Radio Receiver – ECE 342 | Grace O. Zongo</title>
+  <meta name="description" content="Full AM radio receiver with microphone option — RF pre-amplifier, envelope detector, audio pre-amp, and Darlington pair power stage. PCB designed in Altium, simulated in LTspice. ECE 342, Spring 2026.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="work.html">Work Experience</a>
+  <span class="nav-spacer"></span>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+</nav>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="crumbs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li aria-current="page"><span>AM Radio Receiver</span></li>
+  </ol>
+</nav>
+
+<main class="page-content">
+
+  <h1>AM Radio Receiver – ECE 342</h1>
+  <hr class="accent-rule">
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Designed and simulated a complete AM radio receiver with a microphone input option for ECE 342 (Spring 2026).
+      The system takes a signal from an antenna, amplifies and selects an AM station, demodulates the audio,
+      and drives an 8 Ω speaker through a Darlington power stage — all on a custom Altium PCB.
+    </p>
+    <p>
+      The design is organized into four cascaded stages:
+      RF pre-amplifier → AM demodulator + LPF → audio pre-amplifier → Darlington power output.
+      A DPDT slide switch allows toggling between the AM radio input and a 3.5 mm microphone jack.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+      <span class="chip chip-primary">12 V supply</span>
+      <span class="chip chip-primary">~330 mW speaker output</span>
+      <span class="chip chip-primary">AM band (530–1700 kHz)</span>
+      <span class="chip">LTspice verified</span>
+      <span class="chip">Altium PCB</span>
+      <span class="chip">BOM: ~$47</span>
+    </div>
+  </section>
+
+  <!-- SIGNAL CHAIN -->
+  <section class="card">
+    <h2>Signal Chain</h2>
+
+    <!-- Stage blocks -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:18px;">
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 1</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">RF Detection &amp; Pre-amp</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 common-emitter + LC tank for station selection</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 2</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">AM Demodulation + LPF</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 biased near cut-off for envelope detection + RC audio filter</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 3</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">Audio Pre-amp</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 common-emitter with self-bias feedback (R<sub>f</sub> = 1.2 MΩ)</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 4</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">Darlington Power Output</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 driver + TIP31C output — drives 8 Ω speaker with heatsink</p>
+      </div>
+
+    </div>
+
+    <h3>Stage 1 – RF Pre-amplifier (2N3904, Common Emitter)</h3>
+    <p>
+      An LC tank circuit (L = 300 µH, C<sub>var</sub> = 18–300 pF) selects the AM station by resonating
+      at the desired carrier frequency. The 2N3904 is biased at I<sub>C</sub> ≈ 2.12 mA for linear amplification:
+    </p>
+    <ul>
+      <li>V<sub>B</sub> = 3.24 V, V<sub>C</sub> = 5.0 V, V<sub>CE</sub> = 2.46 V (active region confirmed)</li>
+      <li>R<sub>1</sub> = 27 kΩ, R<sub>3</sub> = 10 kΩ (voltage divider bias, R<sub>1</sub> ≈ 2.83 × R<sub>3</sub>)</li>
+      <li>R<sub>4</sub> = 1.2 kΩ emitter degeneration; C<sub>4</sub> = 100 nF bypass capacitor</li>
+      <li>C<sub>2</sub> = 1 nF output coupling; 1206 SMD capacitors throughout</li>
+    </ul>
+
+    <h3>Stage 2 – AM Demodulator + Low-pass Filter</h3>
+    <p>
+      The demodulator stage biases a second 2N3904 near cut-off (V<sub>B</sub> ≈ 0.77 V) to act as a
+      half-wave rectifier, extracting the audio envelope from the AM carrier.
+    </p>
+    <ul>
+      <li>R<sub>5</sub> = 680 kΩ, R<sub>9</sub> = 47 kΩ → V<sub>B</sub> ≈ 0.77 V (just above cut-off)</li>
+      <li>C<sub>6</sub> (330 pF, variable) + R<sub>8</sub> = 10 kΩ: strips carrier, retains audio envelope</li>
+      <li>R<sub>7</sub> = 1 kΩ, C<sub>8</sub> = 47 nF: final audio low-pass filter before next stage</li>
+      <li>Reducing C<sub>6</sub> increases gain; removing it maximizes gain at the cost of more carrier noise</li>
+    </ul>
+
+    <h3>Stage 3 – Audio Pre-amplifier (2N3904)</h3>
+    <p>
+      Self-biased common-emitter stage providing the bulk of voltage gain before the power transistor.
+      A 1 kΩ potentiometer (volume control) sits between this stage and the output.
+    </p>
+    <ul>
+      <li>Feedback resistor R<sub>13</sub> = 1.2 MΩ sets bias: V<sub>C</sub> ≈ 6.4 V (≈ V<sub>CC</sub>/2 for max swing)</li>
+      <li>I<sub>C</sub> ≈ 1 mA; R<sub>12</sub> = 6.8 kΩ load; R<sub>14</sub> = 100 Ω emitter resistor</li>
+      <li>β = 200 assumed → I<sub>B</sub> = 5 µA, confirming active region operation</li>
+      <li>C<sub>12</sub> = 100 pF optional noise filter at base</li>
+    </ul>
+
+    <h3>Stage 4 – Darlington Power Output (2N3904 + TIP31C)</h3>
+    <p>
+      A Darlington pair (Q3 drives Q4) was chosen after a single common-emitter stage proved insufficient
+      to drive an 8 Ω speaker. The configuration provides extremely high current gain
+      (β<sub>total</sub> ≈ β<sub>Q3</sub> × β<sub>Q4</sub>) with V<sub>BE,total</sub> = 2 × 0.7 V = 1.4 V.
+    </p>
+    <ul>
+      <li>Q3: 2N3904 driver transistor</li>
+      <li>Q4: TIP31C (100 V, 3 A) output transistor with TO-220 heatsink</li>
+      <li>C<sub>9</sub> = 470 µF output coupling; C<sub>11</sub> = 1000 µF supply bypass</li>
+      <li>R<sub>15</sub> = 10 Ω emitter resistor on Q4 for stability</li>
+      <li>Microphone input option via DPDT slide switch and 3.5 mm jack (J1)</li>
+    </ul>
+  </section>
+
+  <!-- SCHEMATICS & PCB -->
+  <section class="card">
+    <h2>Schematics &amp; PCB</h2>
+    <div class="image-grid">
+      <figure>
+        <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
+        <figcaption>Stage 1: RF detection and pre-amplifier schematic (KiCad/Altium)</figcaption>
+      </figure>
+      <figure>
+        <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
+        <figcaption>Stage 2: AM demodulation and low-pass filter</figcaption>
+      </figure>
+      <figure>
+        <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
+        <figcaption>Stages 3 &amp; 4: Audio pre-amp + Darlington power output</figcaption>
+      </figure>
+      <figure>
+        <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy">
+        <figcaption>PCB layout (Altium) — ground plane removed near LC tank to prevent noise injection</figcaption>
+      </figure>
+      <figure>
+        <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy">
+        <figcaption>3D PCB render — heatsink on TIP31C output transistor visible</figcaption>
+      </figure>
+      <figure>
+        <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
+        <figcaption>LTspice simulation: operating point (.op) and transient analysis (.tran)</figcaption>
+      </figure>
+    </div>
+    <p style="margin-top:12px;font-size:0.88rem;color:var(--text-light);">
+      <em>Images above correspond to: <code>images/am-radio/</code> — add your exported screenshots there.</em>
+    </p>
+  </section>
+
+  <!-- SIMULATION -->
+  <section class="card">
+    <h2>LTspice Simulation Results</h2>
+    <p>The full signal chain was verified in LTspice using a transient analysis (.tran) and operating point check (.op).</p>
+
+    <h3>Operating Point (confirmed active region for all transistors)</h3>
+    <div style="overflow-x:auto;margin-top:10px;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border-light);">
+            <th style="text-align:left;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">Node</th>
+            <th style="text-align:left;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">Transistor</th>
+            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">I<sub>C</sub></th>
+            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">V<sub>CE</sub></th>
+            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">β<sub>DC</sub></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border-light);">
+            <td style="padding:8px 12px;">Q1 – RF pre-amp</td>
+            <td style="padding:8px 12px;">2N3904</td>
+            <td style="padding:8px 12px;text-align:right;">2.09 mA</td>
+            <td style="padding:8px 12px;text-align:right;">2.58 V</td>
+            <td style="padding:8px 12px;text-align:right;">304</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border-light);">
+            <td style="padding:8px 12px;">Q2 – Demodulator</td>
+            <td style="padding:8px 12px;">2N3904</td>
+            <td style="padding:8px 12px;text-align:right;">0.357 mA</td>
+            <td style="padding:8px 12px;text-align:right;">1.44 V</td>
+            <td style="padding:8px 12px;text-align:right;">230</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border-light);">
+            <td style="padding:8px 12px;">Q5 – Audio pre-amp</td>
+            <td style="padding:8px 12px;">2N3904</td>
+            <td style="padding:8px 12px;text-align:right;">1.04 mA</td>
+            <td style="padding:8px 12px;text-align:right;">4.66 V</td>
+            <td style="padding:8px 12px;text-align:right;">311</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border-light);">
+            <td style="padding:8px 12px;">Q3 – Darlington driver</td>
+            <td style="padding:8px 12px;">2N3904</td>
+            <td style="padding:8px 12px;text-align:right;">3.87 mA</td>
+            <td style="padding:8px 12px;text-align:right;">7.90 V</td>
+            <td style="padding:8px 12px;text-align:right;">319</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 12px;">Q4 – Power output</td>
+            <td style="padding:8px 12px;">TIP31C</td>
+            <td style="padding:8px 12px;text-align:right;">315 mA</td>
+            <td style="padding:8px 12px;text-align:right;">6.33 V</td>
+            <td style="padding:8px 12px;text-align:right;">81</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:20px;">Transient Simulation (signal path)</h3>
+    <ul>
+      <li><strong>Antenna input:</strong> AM-modulated signal ±15 mV (1 kHz audio on ~1 MHz carrier)</li>
+      <li><strong>After RF pre-amp:</strong> amplified RF signal riding on ~5.1 V DC bias</li>
+      <li><strong>Demodulated audio:</strong> clean ~8 mV peak recovered audio signal</li>
+      <li><strong>Speaker voltage:</strong> ±1.5 V swing → ~330 mW peak into 8 Ω</li>
+    </ul>
+
+    <div class="metric-highlight">
+      Simulated peak speaker output: ~330 mW into 8 Ω — sufficient to drive the speaker audibly
+    </div>
+  </section>
+
+  <!-- RESULTS & NOTES -->
+  <section class="card">
+    <h2>Design Notes &amp; Key Decisions</h2>
+    <ul>
+      <li><strong>RF pre-amp added:</strong> downstream stages alone produced insufficient gain to drive the 8 Ω speaker — adding the LC-tuned common-emitter stage resolved this.</li>
+      <li><strong>Darlington pair:</strong> a single common-emitter output stage lacked current drive; the Q3 (2N3904) + Q4 (TIP31C) Darlington gives β<sub>total</sub> ≈ 25,000+, enabling clean speaker drive.</li>
+      <li><strong>Ground plane clearance:</strong> ground pours were removed around the LC tank on the PCB to prevent capacitive coupling that would inject noise into the tuned circuit.</li>
+      <li><strong>C<sub>6</sub> trade-off:</strong> lower capacitance on the demodulator filter increases audio gain but allows more carrier ripple through — chosen value (330 pF) balances both.</li>
+      <li><strong>Microphone option:</strong> a DPDT slide switch routes either the AM demodulated signal or a microphone input (biased via R<sub>16</sub> = 10 kΩ, +9 V) into the audio pre-amp stage.</li>
+      <li><strong>Test points:</strong> 19 orange 5013 test point markers placed throughout the PCB for each stage's key nodes.</li>
+    </ul>
+  </section>
+
+  <!-- PAGINATION -->
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="electric-boat.html">
+      <span class="pagination-label">Previous</span>
+      Electric Boat
+    </a>
+    <a class="next" href="cpu.html">
+      <span class="pagination-label">Next</span>
+      8-Bit CPU
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="Grace_Zongo_Resume.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Resume</a>
+    <a href="Grace_Zongo_Portfolio.pdf" target="_blank"><i class="fa-solid fa-folder-open"></i> Portfolio</a>
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+  </p>
+</footer>
+
+<!-- Table styles scoped here so they don't affect other pages -->
+<style>
+  table tr:hover { background: var(--background); }
+</style>
+
+</body>
+</html>
