@@ -420,6 +420,11 @@ strong { color: inherit; }
 
 .image-grid figure { margin: 0; }
 
+.image-grid a {
+  display: block;
+  line-height: 0; /* prevents gap below img inside anchor */
+}
+
 .image-grid img {
   width: 100%;
   height: 170px;
@@ -1061,3 +1066,31 @@ footer {
   .cta-btn-primary { background: #fff; color: #1E3A8A; }
   .cta-btn-primary:hover { background: #E8F0FE; border-color: #E8F0FE; }
 }
+
+/* ===== LIGHTGALLERY OVERRIDES ===== */
+
+.lg-backdrop {
+  background-color: #000 !important;
+  opacity: 0.7 !important;
+}
+
+/* Raise lightbox above nav bar */
+.lg-backdrop {
+  z-index: 10000 !important;
+}
+.lg-outer {
+  z-index: 10001 !important;
+}
+
+.lg-sub-html p {
+  color: #eeeeee !important; /* Force white text in light box caption */
+  font-size: 1.15rem !important;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Side padding for images */
+.lg-img-wrap {
+  padding: 0 25px !important;
+}
+

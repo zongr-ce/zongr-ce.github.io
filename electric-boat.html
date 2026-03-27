@@ -7,6 +7,7 @@
   <meta name="description" content="Custom dual 6s8p Li-ion battery packs with JK-BMS and dual 1 kW Blue Robotics T500 thrusters — 2nd place at PEP 2024.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -59,25 +60,35 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals" loading="lazy">
+        <a href="images/electric-boat/battery-pack.png">
+          <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals" loading="lazy">
+        </a>
         <figcaption>Custom 6s8p 18650 Li-ion battery pack</figcaption>
       </figure>
       <figure>
-        <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure" loading="lazy">
+        <a href="images/electric-boat/battery_enclosure.jpg">
+          <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure" loading="lazy">
+        </a>
         <figcaption>Battery pack sealed inside waterproof enclosure with integrated BMS</figcaption>
       </figure>
       <figure>
-        <img src="images/electric-boat/BMS-monitoring.png" alt="BMS monitoring" loading="lazy">
+        <a href="images/electric-boat/BMS-monitoring.png">
+          <img src="images/electric-boat/BMS-monitoring.png" alt="BMS monitoring" loading="lazy">
+        </a>
         <figcaption>Monitoring and configuration of battery packs using JK-BMS</figcaption>
       </figure>
       <figure>
-        <img src="images/electric-boat/remote-control-thruster.png" alt="T500 thruster and MT12 controller" loading="lazy">
+        <a href="images/electric-boat/remote-control-thruster.png">
+          <img src="images/electric-boat/remote-control-thruster.png" alt="T500 thruster and MT12 controller" loading="lazy">
+        </a>
         <figcaption>1 kW Blue Robotics T500 thruster and MT12 controller</figcaption>
       </figure>
       <figure>
-        <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing" loading="lazy">
+        <a href="images/electric-boat/boat_water_test2.jpg">
+          <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing" loading="lazy">
+        </a>
         <figcaption>Electric boat during full-throttle on-water testing</figcaption>
       </figure>
     </div>
@@ -147,3 +158,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>

@@ -7,6 +7,7 @@
   <meta name="description" content="Full AM radio receiver with microphone option — RF pre-amplifier, envelope detector, audio pre-amp, and Darlington pair power stage. PCB designed in Altium, simulated in LTspice. ECE 342, Spring 2026.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -135,29 +136,41 @@
   <!-- SCHEMATICS & PCB -->
   <section class="card">
     <h2>Schematics &amp; PCB</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
+        <a href="images/am-radio/rf-detection-sch.png">
+          <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
+        </a>
         <figcaption>Stage 1: RF detection and pre-amplifier schematic (KiCad/Altium)</figcaption>
       </figure>
       <figure>
-        <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
+        <a href="images/am-radio/demod-sch.png">
+          <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
+        </a>
         <figcaption>Stage 2: AM demodulation and low-pass filter</figcaption>
       </figure>
       <figure>
-        <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
+        <a href="images/am-radio/audio-amp-sch.png">
+          <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
+        </a>
         <figcaption>Stages 3 &amp; 4: Audio pre-amp + Darlington power output</figcaption>
       </figure>
       <figure>
-        <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy">
+        <a href="images/am-radio/pcb-layout.png">
+          <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy">
+        </a>
         <figcaption>PCB layout (Altium) — ground plane removed near LC tank to prevent noise injection</figcaption>
       </figure>
       <figure>
-        <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy">
+        <a href="images/am-radio/pcb-3d.png">
+          <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy">
+        </a>
         <figcaption>3D PCB render — heatsink on TIP31C output transistor visible</figcaption>
       </figure>
       <figure>
-        <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
+        <a href="images/am-radio/ltspice-sim.png">
+          <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
+        </a>
         <figcaption>LTspice transient analysis (.tran)</figcaption>
       </figure>
     </div>
@@ -268,6 +281,8 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>
 
 <!-- Table styles scoped here so they don't affect other pages -->
 <style>

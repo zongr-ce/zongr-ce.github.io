@@ -7,6 +7,7 @@
   <meta name="description" content="HVAC control system wiring diagrams created at Alpha Controls and Services — electrical schematics, panel detail, and safety wiring for commercial installations.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -45,21 +46,29 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/acs/ahu.png" alt="HVAC wiring overview" loading="lazy">
+        <a href="images/acs/ahu.png">
+          <img src="images/acs/ahu.png" alt="HVAC wiring overview" loading="lazy">
+        </a>
         <figcaption>Wiring diagram overview (system-level view)</figcaption>
       </figure>
       <figure>
-        <img src="images/acs/controller.png" alt="Panel detail" loading="lazy">
+        <a href="images/acs/controller.png">
+          <img src="images/acs/controller.png" alt="Panel detail" loading="lazy">
+        </a>
         <figcaption>Panel and terminal block detail</figcaption>
       </figure>
       <figure>
-        <img src="images/acs/safety.png" alt="Safety wiring" loading="lazy">
+        <a href="images/acs/safety.png">
+          <img src="images/acs/safety.png" alt="Safety wiring" loading="lazy">
+        </a>
         <figcaption>Sample safety wiring</figcaption>
       </figure>
       <figure>
-        <img src="images/acs/control-panel1.jpg" alt="Control panel wiring" loading="lazy">
+        <a href="images/acs/control-panel1.jpg">
+          <img src="images/acs/control-panel1.jpg" alt="Control panel wiring" loading="lazy">
+        </a>
         <figcaption>Control panel wiring</figcaption>
       </figure>
     </div>
@@ -94,3 +103,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>
