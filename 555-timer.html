@@ -7,6 +7,7 @@
   <meta name="description" content="555 timer configured in astable mode for stable clock generation — breadboard prototype through oscilloscope verification, covering manual trigger up to 10 kHz.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -45,21 +46,29 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer breadboard prototype" loading="lazy">
+        <a href="images/555-timer/clk-module-breadboard.jpg">
+          <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer breadboard prototype" loading="lazy">
+        </a>
         <figcaption>Clock module prototype built around a 555 timer and logic gates for mode switching</figcaption>
       </figure>
       <figure>
-        <img src="images/555-timer/clock-module-sch.png" alt="555 timer schematic" loading="lazy">
+        <a href="images/555-timer/clock-module-sch.png">
+          <img src="images/555-timer/clock-module-sch.png" alt="555 timer schematic" loading="lazy">
+        </a>
         <figcaption>Schematic: 555 timer configured in astable mode</figcaption>
       </figure>
       <figure>
-        <img src="images/555-timer/clock-module-pcb.png" alt="PCB layout - KiCad" loading="lazy">
+        <a href="images/555-timer/clock-module-pcb.png">
+          <img src="images/555-timer/clock-module-pcb.png" alt="PCB layout - KiCad" loading="lazy">
+        </a>
         <figcaption>PCB layout (KiCad)</figcaption>
       </figure>
       <figure>
-        <img src="images/555-timer/clk-module-soldered.jpg" alt="Populated PCB" loading="lazy">
+        <a href="images/555-timer/clk-module-soldered.jpg">
+          <img src="images/555-timer/clk-module-soldered.jpg" alt="Populated PCB" loading="lazy">
+        </a>
         <figcaption>Frequency and duty-cycle verification using an oscilloscope</figcaption>
       </figure>
     </div>
@@ -99,3 +108,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>

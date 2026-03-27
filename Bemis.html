@@ -7,6 +7,7 @@
   <meta name="description" content="Smart health-monitoring bidet seat concept for Bemis Manufacturing — electrical integration, sensor selection, Pugh Matrix feature prioritization, and prototype documentation.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -45,21 +46,29 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/bemis/bemis1.png" alt="Concept prototype overview" loading="lazy">
+        <a href="images/bemis/bemis1.png">
+          <img src="images/bemis/bemis1.png" alt="Concept prototype overview" loading="lazy">
+        </a>
         <figcaption>Concept prototype: overall system integration view</figcaption>
       </figure>
       <figure>
-        <img src="images/bemis/bemis2.png" alt="Health monitoring sensor integration" loading="lazy">
+        <a href="images/bemis/bemis2.png">
+          <img src="images/bemis/bemis2.png" alt="Health monitoring sensor integration" loading="lazy">
+        </a>
         <figcaption>Health monitoring sensor integration concept</figcaption>
       </figure>
       <figure>
-        <img src="images/bemis/bemis5.png" alt="CAD prototype" loading="lazy">
+        <a href="images/bemis/bemis5.png">
+          <img src="images/bemis/bemis5.png" alt="CAD prototype" loading="lazy">
+        </a>
         <figcaption>CAD model</figcaption>
       </figure>
       <figure>
-        <img src="images/bemis/bemis7-concept.png" alt="Figma UI concept" loading="lazy">
+        <a href="images/bemis/bemis7-concept.png">
+          <img src="images/bemis/bemis7-concept.png" alt="Figma UI concept" loading="lazy">
+        </a>
         <figcaption>Figma concept for companion software</figcaption>
       </figure>
     </div>
@@ -95,3 +104,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>

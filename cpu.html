@@ -7,6 +7,7 @@
   <meta name="description" content="Custom 8-bit CPU designed in Intel Quartus, implemented on FPGA and extended to a PCB-based architecture. Includes ALU, registers, RAM, program counter, and a custom instruction set.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -47,33 +48,47 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy">
+        <a href="images/cpu/8bit-cpu.png">
+          <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy">
+        </a>
         <figcaption>Datapath + control unit design in Quartus</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/instruction-steps.png" alt="FPGA implementation" loading="lazy">
+        <a href="images/cpu/instruction-steps.png">
+          <img src="images/cpu/instruction-steps.png" alt="FPGA implementation" loading="lazy">
+        </a>
         <figcaption>FPGA implementation of instructions and control unit</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/instruction.png" alt="Control unit steps" loading="lazy">
+        <a href="images/cpu/instruction.png">
+          <img src="images/cpu/instruction.png" alt="Control unit steps" loading="lazy">
+        </a>
         <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/8bit-reg-sch.png" alt="8-bit register schematic" loading="lazy">
+        <a href="images/cpu/8bit-reg-sch.png">
+          <img src="images/cpu/8bit-reg-sch.png" alt="8-bit register schematic" loading="lazy">
+        </a>
         <figcaption>PCB-based CPU implementation — 8-bit register schematic</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/8bit-reg-pcd.png" alt="8-bit register PCB" loading="lazy">
+        <a href="images/cpu/8bit-reg-pcd.png">
+          <img src="images/cpu/8bit-reg-pcd.png" alt="8-bit register PCB" loading="lazy">
+        </a>
         <figcaption>8-bit register (building block of RAM)</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/4bit-decoder-pcb.png" alt="4-bit decoder PCB" loading="lazy">
+        <a href="images/cpu/4bit-decoder-pcb.png">
+          <img src="images/cpu/4bit-decoder-pcb.png" alt="4-bit decoder PCB" loading="lazy">
+        </a>
         <figcaption>4-bit decoder</figcaption>
       </figure>
       <figure>
-        <img src="images/cpu/pcb.jpg" alt="Printed Circuit Board" loading="lazy">
+        <a href="images/cpu/pcb.jpg">
+          <img src="images/cpu/pcb.jpg" alt="Printed Circuit Board" loading="lazy">
+        </a>
         <figcaption>PCB for RAM, register, and 4-bit decoder testing</figcaption>
       </figure>
     </div>
@@ -115,3 +130,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>

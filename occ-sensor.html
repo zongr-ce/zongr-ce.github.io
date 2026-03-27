@@ -7,6 +7,7 @@
   <meta name="description" content="Low-cost occupancy sensor prototype for energy-efficient automation — schematic design, PCB layout, and detection validation.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -45,21 +46,29 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/occ-sensor/occ-prototype.jpg" alt="Occupancy sensor prototype" loading="lazy">
+        <a href="images/occ-sensor/occ-prototype.jpg">
+          <img src="images/occ-sensor/occ-prototype.jpg" alt="Occupancy sensor prototype" loading="lazy">
+        </a>
         <figcaption>Prototype build for functional validation</figcaption>
       </figure>
       <figure>
-        <img src="images/occ-sensor/occupancy-sensor-sch.png" alt="Occupancy sensor schematic" loading="lazy">
+        <a href="images/occ-sensor/occupancy-sensor-sch.png">
+          <img src="images/occ-sensor/occupancy-sensor-sch.png" alt="Occupancy sensor schematic" loading="lazy">
+        </a>
         <figcaption>Schematic: sensor + conditioning stage</figcaption>
       </figure>
       <figure>
-        <img src="images/occ-sensor/occupancy-sensor-pcb.png" alt="PCB layout" loading="lazy">
+        <a href="images/occ-sensor/occupancy-sensor-pcb.png">
+          <img src="images/occ-sensor/occupancy-sensor-pcb.png" alt="PCB layout" loading="lazy">
+        </a>
         <figcaption>PCB layout for compact prototype</figcaption>
       </figure>
       <figure>
-        <img src="images/occ-sensor/occ-pcb-solder.jpg" alt="Soldered PCB" loading="lazy">
+        <a href="images/occ-sensor/occ-pcb-solder.jpg">
+          <img src="images/occ-sensor/occ-pcb-solder.jpg" alt="Soldered PCB" loading="lazy">
+        </a>
         <figcaption>Test scenarios to evaluate detection performance</figcaption>
       </figure>
     </div>
@@ -95,3 +104,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>

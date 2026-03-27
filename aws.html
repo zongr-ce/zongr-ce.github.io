@@ -7,6 +7,7 @@
   <meta name="description" content="Embedded firmware for an Automatic Weather Station deployed in Antarctica — sensor drivers, FSM, low-power sleep mode reducing idle current from 32 mA to 7 mA.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
 </head>
 <body>
 
@@ -56,21 +57,29 @@
 
   <section class="card">
     <h2>System Images</h2>
-    <div class="image-grid">
+    <div class="image-grid" id="lg-gallery">
       <figure>
-        <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="lazy">
+        <a href="images/aws/20240626_104612.jpg">
+          <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="lazy">
+        </a>
         <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
       </figure>
       <figure>
-        <img src="images/aws/baro-1.png" alt="Barometer driver snapshot" loading="lazy">
+        <a href="images/aws/baro-1.png">
+          <img src="images/aws/baro-1.png" alt="Barometer driver snapshot" loading="lazy">
+        </a>
         <figcaption>Snapshot of barometer driver</figcaption>
       </figure>
       <figure>
-        <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy">
+        <a href="images/aws/FSM-2.png">
+          <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy">
+        </a>
         <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
       </figure>
       <figure>
-        <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug" loading="lazy">
+        <a href="images/aws/aws-serial-monitor.jpg">
+          <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug" loading="lazy">
+        </a>
         <figcaption>Firmware validation and debugging during test runs</figcaption>
       </figure>
     </div>
@@ -110,3 +119,5 @@
     <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
+
+<script src="scripts/lightbox.js"></script>
