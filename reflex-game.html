@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflex Game – ECE 315 | Grace O. Zongo</title>
+  <meta name="description" content="Multi-sheet PCB design (Altium) for a reflex game built around the Seeed Studio XIAO RP2350 — addressable LED chain, buzzer feedback, regulated 3.3 V power, and voltage-supervisor reset. ECE 315 Intro Microprocessor Lab, UW–Madison, Spring 2026.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="work.html">Work Experience</a>
+  <span class="nav-spacer"></span>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+</nav>
+
+<main class="page-content">
+
+  <h1>Reflex Game – ECE 315 PCB Design Lab</h1>
+  <hr class="accent-rule">
+
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Multi-sheet PCB designed in Altium for a microcontroller-based reflex game built around the
+      Seeed Studio XIAO RP2350. The board drives a chain of 12 addressable LEDs as the visual
+      stimulus, uses a piezo buzzer for audio feedback, and integrates regulated 3.3 V power
+      and voltage supervision. ECE 315 Intro Microprocessor Lab — UW–Madison, Spring 2026.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+      <span class="chip chip-primary">XIAO RP2350</span>
+      <span class="chip chip-primary">12-LED chain</span>
+      <span class="chip chip-primary">Altium multi-sheet</span>
+      <span class="chip">5 V → 3.3 V LDO</span>
+      <span class="chip">Watchdog supervisor</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Subsystems</h2>
+
+    <h3>Serial LED Array</h3>
+    <p>12 addressable LEDs daisy-chained on a single MCU data line, each with its own decoupling cap.</p>
+
+    <h3>Power</h3>
+    <p>TLV1117LV33 LDO regulates the 5 V input down to a clean 3.3 V rail, with test points for bring-up.</p>
+
+    <h3>Buzzer Driver</h3>
+    <p>Piezo buzzer driven by a low-side NMOS, with a gate pulldown and a Schottky flyback diode.</p>
+
+    <h3>Reset &amp; Voltage Supervisor</h3>
+    <p>MCP131X-2X monitors the 3.3 V rail (2.93 V threshold) with watchdog input, manual reset, and an indicator LED.</p>
+  </section>
+
+  <section class="card">
+    <h2>Schematics &amp; PCB</h2>
+    <div class="image-grid" id="lg-gallery">
+      <figure>
+        <a href="images/ece315/led-schematic.png">
+          <img src="images/ece315/led-schematic.png" alt="Serial LED array schematic" loading="lazy">
+        </a>
+        <figcaption>Serial LED array — 12 daisy-chained addressable LEDs</figcaption>
+      </figure>
+      <figure>
+        <a href="images/ece315/ECE315_Altium_design.png">
+          <img src="images/ece315/ECE315_Altium_design.png" alt="Altium PCB layout" loading="lazy">
+        </a>
+        <figcaption>Altium PCB layout — LEDs arranged in a ring around the UW–Madison crest</figcaption>
+      </figure>
+      <figure>
+        <a href="images/ece315/ECE_315_PCB.jpg">
+          <img src="images/ece315/ECE_315_PCB.jpg" alt="Assembled reflex-game PCB" loading="lazy">
+        </a>
+        <figcaption>Assembled board — XIAO RP2350, 12 RGB LEDs, button, buzzer</figcaption>
+      </figure>
+      <figure>
+        <a href="images/ece315/ECE_315_PCB2.jpg">
+          <img src="images/ece315/ECE_315_PCB2.jpg" alt="Reflex game running on hardware" loading="lazy">
+        </a>
+        <figcaption>Reflex game running on hardware</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Demo</h2>
+    <p>Quick demo of the assembled board running the reflex game.</p>
+    <div style="max-width:360px;margin:14px auto 0;">
+      <div style="position:relative;padding-bottom:177.78%;height:0;overflow:hidden;border-radius:8px;background:#000;">
+        <iframe src="https://www.youtube.com/embed/Wlqev_KSwlk"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                title="Reflex Game demo" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>What I Learned</h2>
+    <ul>
+      <li>Multi-sheet hierarchical schematic capture in Altium.</li>
+      <li>Embedded support circuitry around a digital MCU — decoupling, low-side switching, flyback protection.</li>
+      <li>Brown-out and watchdog supervision for reliability beyond the MCU's internal POR.</li>
+      <li>End-to-end PCB workflow: schematic → DRC → layout → bring-up → firmware demo.</li>
+    </ul>
+  </section>
+
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="am-radio.html">
+      <span class="pagination-label">Previous</span>
+      AM Radio Receiver
+    </a>
+    <a class="next" href="cpu.html">
+      <span class="pagination-label">Next</span>
+      8-Bit CPU
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+  </p>
+</footer>
+
+<script src="scripts/lightbox.js"></script>
+
+</body>
+</html>
