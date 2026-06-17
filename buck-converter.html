@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digitally Controlled Buck Converter | Grace O. Zongo</title>
+  <meta name="description" content="Digitally controlled synchronous buck converter — STM32G431KB bare-metal firmware, IR2104 gate driver, IRLZ44N MOSFETs, UART-programmable 1.8–10 V output, Altium PCB, LTspice simulation.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="work.html">Work Experience</a>
+  <span class="nav-spacer"></span>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+</nav>
+
+<main class="page-content">
+
+  <h1>Digitally Controlled Buck Converter</h1>
+  <hr class="accent-rule">
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Designed and built a digitally controlled synchronous DC-DC buck converter with a UART-programmable
+      output voltage. A Nucleo-G431KB runs bare-metal C firmware 
+      that generates a 200 kHz PWM signal, reads output voltage and inductor current via ADC with DMA, and
+      runs a PID control loop at 10 kHz to maintain a user-set target voltage from 1.8 V to 10 V.
+    </p>
+    <p>
+      The power stage is a synchronous buck converter topology: an IR2104 half-bridge gate driver switches both a high-side
+      and low-side IRLZ44N N-channel MOSFET, with the low-side device replacing the freewheeling diode to
+      reduce conduction losses. A 47 µH power inductor and output filter capacitors smooth the switched
+      waveform. An INA180A2 current sense amplifier (50 V/V gain) across a 20 mΩ shunt monitors output
+      current; output voltage is scaled through a 27 kΩ / 10 kΩ resistor divider for the STM32 ADC. The full
+      design was laid out in Altium Designer and simulated in LTspice before fabrication.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+      <span class="chip chip-primary">STM32G431KB</span>
+      <span class="chip chip-primary">IR2104 gate driver</span>
+      <span class="chip chip-primary">IRLZ44N MOSFETs</span>
+      <span class="chip chip-primary">1.8–10 V programmable</span>
+      <span class="chip chip-primary">200 kHz switching</span>
+      <span class="chip">Bare-metal C</span>
+      <span class="chip">UART interface</span>
+      <span class="chip">Altium PCB</span>
+      <span class="chip">LTspice simulated</span>
+    </div>
+  </section>
+
+  <!-- SYSTEM ARCHITECTURE -->
+  <section class="card">
+    <h2>System Architecture</h2>
+    <p>
+      The design is split into two subsystems: a <strong>control subsystem</strong> (MCU, gate signal path,
+      current sense) and a <strong>power subsystem</strong> (switching stage, protection).
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0;">
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Control</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">STM32G431KB MCU</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">200 kHz PWM, ADC+DMA feedback, 10 kHz PID ISR, UART command interface, bare-metal C on Nucleo-G431KB</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Gate Drive</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">IR2104 Half-Bridge Driver</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">Bootstrap gate driver for high and low-side MOSFET drive from a single PWM signal</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Power Stage</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">IRLZ44N MOSFETs + LC Filter</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">High-side (Q1) + low-side (Q2) IRLZ44N synchronous pair, 47 µH inductor, 220 µF + 100 nF output capacitors</p>
+      </div>
+
+      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Sensing &amp; Protection</p>
+        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">INA180A2 + TVS Diode</p>
+        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">INA180A2 (50 V/V) across 20 mΩ shunt for output current sensing; TVS diode on 12 V input rail for protection</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCHEMATICS & PCB -->
+  <section class="card">
+    <h2>Schematics &amp; PCB</h2>
+    <div class="image-grid" id="lg-gallery">
+
+      <figure>
+        <a href="images/buck-converter/conv-altium-sch.png">
+          <img src="images/buck-converter/conv-altium-sch.png" alt="Buck converter schematic (Altium)" loading="lazy">
+        </a>
+        <figcaption>Converter schematic: IR2104 gate driver, Q1/Q2 MOSFETs, SS14 bootstrap diode, LC output filter, INA180A2 current sense (Altium Designer)</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/pow-altium-sch.png">
+          <img src="images/buck-converter/pow-altium-sch.png" alt="Power/control schematic (Altium)" loading="lazy">
+        </a>
+        <figcaption>Power/control schematic: Nucleo-G431KB MCU, 12 V input (TVS + bulk cap), pull-ups resistors, SD_EN/PWM signal routing</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/altium-3d.png">
+          <img src="images/buck-converter/altium-3d.png" alt="3D PCB render (Altium)" loading="lazy">
+        </a>
+        <figcaption>3D PCB render: MOSFETs placed adjacent to minimise switch-node trace length</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/Pcb-front.jpg">
+          <img src="images/buck-converter/Pcb-front.jpg" alt="Assembled PCB front" loading="lazy">
+        </a>
+        <figcaption>Assembled PCB: front side</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/Pcb-back.jpg">
+          <img src="images/buck-converter/Pcb-back.jpg" alt="Assembled PCB back" loading="lazy">
+        </a>
+        <figcaption>Assembled PCB: back side</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- FIRMWARE -->
+  <section class="card">
+    <h2>Firmware</h2>
+    <p>
+      Bare-metal C targeting the STM32G431KB at 170 MHz. Every peripheral is
+      configured by direct register writes. The control loop runs entirely inside a TIM6 interrupt at 10 kHz
+      . The main loop handles only UART commands and telemetry.
+    </p>
+
+    <h3>PWM: 200 kHz on PA8</h3>
+    <p>
+      A single PWM signal drives the IR2104 IN pin. The gate driver internally generates the complementary
+      HO/LO outputs. Duty cycle is clamped in firmware to 15–83%,
+      corresponding to V<sub>out</sub> = 1.8 V at D = 15% and V<sub>out</sub> = 10 V at D = 83%.
+    </p>
+
+    <h3>ADC + DMA: Continuous Dual-Channel Sampling</h3>
+    <p>
+      ADC1 scans two channels in circular DMA mode at ~42.5 MHz ADC clock. The DMA buffer is always
+      fresh.
+    </p>
+    <ul>
+      <li>PA0 (ADC_VOUT): output voltage via 27 kΩ/10 kΩ divider → scaled by ratio 0.270</li>
+      <li>PA1 (ADC_IOUT): INA180A2 output → scaled by 0.020 Ω × 50 V/V = 1.0 V/A</li>
+    </ul>
+
+    <h3>PID Control Loop: 10 kHz ISR</h3>
+    <p>
+      Position-form PID runs every 100 µs inside TIM6_DAC_IRQHandler. The output is a duty-cycle value
+      written directly to the PWM timer compare register.
+    </p>
+    <ul>
+      <li>Default gains: K<sub>p</sub> = 0.8, K<sub>i</sub> = 120, K<sub>d</sub> = 0.0002 . Can be tuned live via UART without reflashing</li>
+      <li><strong>Anti-windup:</strong> integral accumulator clamped to duty cycle limits every tick, preventing overshoot during startup or load steps</li>
+      <li><strong>Soft-start:</strong> internal shadow setpoint ramps at 0.5 mV/tick from 0 V to the target on enable</li>
+      <li><strong>Overcurrent fault:</strong> if ADC_IOUT exceeds 3.2 A, the ISR immediately pulls SD_EN low and latches a fault flag. Recovery requires sending <code>START</code> over USART</li>
+    </ul>
+
+    <h3>UART Interface: Setpoint &amp; Telemetry</h3>
+    <p>
+      USART2 appears as a virtual COM port via the Nucleo ST-Link at 115200 baud. Commands are parsed
+      from a 64-byte ring buffer ISR.
+    </p>
+  </section>
+
+  <!-- SIMULATION -->
+  <section class="card">
+    <h2>LTspice Simulation</h2>
+    <p>
+      The full synchronous buck power stage was simulated in LTspice before PCB layout to verify gate drive,
+       complementary switching, and output voltage regulation.
+    </p>
+    <div class="image-grid">
+      <figure>
+        <a href="images/buck-converter/ltspice-sim-duty-cycle.png">
+          <img src="images/buck-converter/ltspice-sim-duty-cycle.png" alt="LTspice duty cycle simulation" loading="lazy">
+        </a>
+        <figcaption>LTspice transient simulation — switching waveforms, bootstrap gate drive with different duty cycle values</figcaption>
+      </figure>
+    </div>
+    <ul style="margin-top:14px;">
+      <li>Output voltage settles toward 5 V at D = 41.7% with V<sub>in</sub> = 12 V</li>
+      <li>bootstrap cap increased 100 nF --> 220 nF, gate resistors reduced 22 Ω --> 10 Ω</li>
+    </ul>
+  </section>
+
+  <!-- LAB RESULTS -->
+  <section class="card">
+    <h2>Lab Results &amp; Measurements</h2>
+    <p>
+      The converter was tested on the bench with a 12 V DC supply and a resistive load and a signal generator for the pwm input.
+      Output voltage was measured with an oscilloscope at both DC level and AC ripple.
+    </p>
+    <div class="image-grid" id="lg-gallery-results">
+
+      <figure>
+        <a href="images/buck-converter/lab-test-1.jpg">
+          <img src="images/buck-converter/lab-test-1.jpg" alt="Lab test setup" loading="lazy">
+        </a>
+        <figcaption>Bench test setup: PCB connected to supply with oscilloscope probes on output</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/Vout5v.jpg">
+          <img src="images/buck-converter/Vout5v.jpg" alt="Output voltage 5V" loading="lazy">
+        </a>
+        <figcaption>Output voltage: 5 V regulated output (D ≈ 41.7%)</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/Vout8.9V.jpg">
+          <img src="images/buck-converter/Vout8.9V.jpg" alt="Output voltage 8.9V" loading="lazy">
+        </a>
+        <figcaption>Output voltage: 8.9 V at higher duty cycle</figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/buck-converter/Ripple-voltage.jpg">
+          <img src="images/buck-converter/Ripple-voltage.jpg" alt="Output ripple voltage" loading="lazy">
+        </a>
+        <figcaption>AC-coupled output: ripple voltage at switching frequency</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- CHALLENGES & IMPROVEMENTS -->
+  <section class="card">
+    <h2>Challenges &amp; Potential Improvements</h2>
+
+    <h3>VS Pin Not Connected to Switch Node</h3>
+    <p>
+      A schematic oversight left the IR2104's VS pin unconnected to
+      the switch node. Without VS
+      tied to that node, the bootstrap capacitor cannot charge correctly and high-side gate drive is
+      unreliable. This was caught during bring-up pushing when I noticed that the switching node traces burned.
+      Fixed in Altium, but on the bench just tied VS to the switch node with a jumper wire to get the converter running.
+    </p>
+
+    <h3>Switching Noise &amp; Ringing</h3>
+    <p>
+      Ringing appeared on the switch node at each transition. Damped sinusoidal oscillations caused by
+      parasitic trace inductance resonating with MOSFET output capacitance.
+    </p>
+    <figure style="max-width:520px;">
+      <a href="images/buck-converter/Ringing-noise.jpg">
+        <img src="images/buck-converter/Ringing-noise.jpg" alt="Ringing noise on switch node" loading="lazy" style="width:100%;border-radius:8px;">
+      </a>
+      <figcaption>Switch-node ringing, parasitic resonance</figcaption>
+    </figure>
+    <p>
+      Gate resistors (10 Ω) partially mitigate the ringing by slowing the switching edge, trading efficiency
+      for lower EMI.
+    </p>
+
+    <h3>Potential Improvements</h3>
+    <ul>
+      <li><strong>Reduce output ripple:</strong> Measured ripple exceeds the <50 mV design target. Adding a larger output capacitor or a higher-inductance value would reduce ripple amplitude; alternatively, increasing switching frequency reduces inductor current ripple directly.</li>
+    </ul>
+  </section>
+
+  <!-- PAGINATION -->
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="electric-boat.html">
+      <span class="pagination-label">Previous</span>
+      Electric Boat
+    </a>
+    <a class="next" href="am-radio.html">
+      <span class="pagination-label">Next</span>
+      AM Radio Receiver
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+  </p>
+</footer>
+
+<script src="scripts/lightbox.js"></script>
+
+</body>
+</html>
