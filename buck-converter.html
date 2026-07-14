@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
@@ -43,7 +44,7 @@
       current; output voltage is scaled through a 27 kΩ / 10 kΩ resistor divider for the STM32 ADC. The full
       design was laid out in Altium Designer and simulated in LTspice before fabrication.
     </p>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+    <div class="chip-row">
       <span class="chip chip-primary">STM32G431KB</span>
       <span class="chip chip-primary">IR2104 gate driver</span>
       <span class="chip chip-primary">IRLZ44N MOSFETs</span>
@@ -64,30 +65,30 @@
       current sense) and a <strong>power subsystem</strong> (switching stage, protection).
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0;">
+    <div class="mini-card-grid">
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Control</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">STM32G431KB MCU</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">200 kHz PWM, ADC+DMA feedback, 10 kHz PID ISR, UART command interface, bare-metal C on Nucleo-G431KB</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Control</p>
+        <p class="mini-card-title">STM32G431KB MCU</p>
+        <p>200 kHz PWM, ADC+DMA feedback, 10 kHz PID ISR, UART command interface, bare-metal C on Nucleo-G431KB</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Gate Drive</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">IR2104 Half-Bridge Driver</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">Bootstrap gate driver for high and low-side MOSFET drive from a single PWM signal</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Gate Drive</p>
+        <p class="mini-card-title">IR2104 Half-Bridge Driver</p>
+        <p>Bootstrap gate driver for high and low-side MOSFET drive from a single PWM signal</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Power Stage</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">IRLZ44N MOSFETs + LC Filter</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">High-side (Q1) + low-side (Q2) IRLZ44N synchronous pair, 47 µH inductor, 220 µF + 100 nF output capacitors</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Power Stage</p>
+        <p class="mini-card-title">IRLZ44N MOSFETs + LC Filter</p>
+        <p>High-side (Q1) + low-side (Q2) IRLZ44N synchronous pair, 47 µH inductor, 220 µF + 100 nF output capacitors</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Sensing &amp; Protection</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">INA180A2 + TVS Diode</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">INA180A2 (50 V/V) across 20 mΩ shunt for output current sensing; TVS diode on 12 V input rail for protection</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Sensing &amp; Protection</p>
+        <p class="mini-card-title">INA180A2 + TVS Diode</p>
+        <p>INA180A2 (50 V/V) across 20 mΩ shunt for output current sensing; TVS diode on 12 V input rail for protection</p>
       </div>
 
     </div>
@@ -109,7 +110,7 @@
         <a href="images/buck-converter/pow-altium-sch.png">
           <img src="images/buck-converter/pow-altium-sch.png" alt="Power/control schematic (Altium)" loading="lazy">
         </a>
-        <figcaption>Power/control schematic: Nucleo-G431KB MCU, 12 V input (TVS + bulk cap), pull-ups resistors, SD_EN/PWM signal routing</figcaption>
+        <figcaption>Power/control schematic: Nucleo-G431KB MCU, 12 V input (TVS + bulk cap), pull-up resistors, SD_EN/PWM signal routing</figcaption>
       </figure>
 
       <figure>
@@ -198,7 +199,7 @@
     </div>
     <ul style="margin-top:14px;">
       <li>Output voltage settles toward 5 V at D = 41.7% with V<sub>in</sub> = 12 V</li>
-      <li>bootstrap cap increased 100 nF --> 220 nF, gate resistors reduced 22 Ω --> 10 Ω</li>
+      <li>Bootstrap cap increased 100 nF &rarr; 220 nF, gate resistors reduced 22 Ω &rarr; 10 Ω</li>
     </ul>
   </section>
 
@@ -251,7 +252,7 @@
       A schematic oversight left the IR2104's VS pin unconnected to
       the switch node. Without VS
       tied to that node, the bootstrap capacitor cannot charge correctly and high-side gate drive is
-      unreliable. This was caught during bring-up pushing when I noticed that the switching node traces burned.
+      unreliable. This was caught during bring-up when I noticed that the switch-node traces burned.
       Fixed in Altium, but on the bench just tied VS to the switch node with a jumper wire to get the converter running.
     </p>
 
@@ -273,7 +274,7 @@
 
     <h3>Potential Improvements</h3>
     <ul>
-      <li><strong>Reduce output ripple:</strong> Measured ripple exceeds the <50 mV design target. Adding a larger output capacitor or a higher-inductance value would reduce ripple amplitude; alternatively, increasing switching frequency reduces inductor current ripple directly.</li>
+      <li><strong>Reduce output ripple:</strong> Measured ripple exceeds the &lt;50 mV design target. Adding a larger output capacitor or a higher-inductance value would reduce ripple amplitude; alternatively, increasing switching frequency reduces inductor current ripple directly.</li>
     </ul>
   </section>
 
@@ -296,7 +297,7 @@
     © 2026 Grace O. Zongo
     <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
 

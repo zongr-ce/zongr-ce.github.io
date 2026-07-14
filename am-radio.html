@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
@@ -39,7 +40,7 @@
       RF pre-amplifier → AM demodulator + LPF → audio pre-amplifier → Darlington power output.
       A DPDT slide switch allows toggling between the AM radio input and a 3.5 mm microphone jack.
     </p>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+    <div class="chip-row">
       <span class="chip chip-primary">12 V supply</span>
       <span class="chip chip-primary">~330 mW speaker output</span>
       <span class="chip chip-primary">AM band (530–1700 kHz)</span>
@@ -54,30 +55,30 @@
     <h2>Signal Chain</h2>
 
     <!-- Stage blocks -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:18px;">
+    <div class="mini-card-grid" style="margin:0 0 18px;">
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 1</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">RF Detection &amp; Pre-amp</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 common-emitter + LC tank for station selection</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Stage 1</p>
+        <p class="mini-card-title">RF Detection &amp; Pre-amp</p>
+        <p>2N3904 common-emitter + LC tank for station selection</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 2</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">AM Demodulation + LPF</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 biased near cut-off for envelope detection + RC audio filter</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Stage 2</p>
+        <p class="mini-card-title">AM Demodulation + LPF</p>
+        <p>2N3904 biased near cut-off for envelope detection + RC audio filter</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 3</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">Audio Pre-amp</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 common-emitter with self-bias feedback (R<sub>f</sub> = 1.2 MΩ)</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Stage 3</p>
+        <p class="mini-card-title">Audio Pre-amp</p>
+        <p>2N3904 common-emitter with self-bias feedback (R<sub>f</sub> = 1.2 MΩ)</p>
       </div>
 
-      <div style="background:var(--background);border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin:0 0 6px;">Stage 4</p>
-        <p style="font-weight:700;margin:0 0 4px;font-size:0.95rem;">Darlington Power Output</p>
-        <p style="font-size:0.84rem;color:var(--text-light);margin:0;">2N3904 driver + TIP31C output — drives 8 Ω speaker with heatsink</p>
+      <div class="mini-card">
+        <p class="mini-card-label">Stage 4</p>
+        <p class="mini-card-title">Darlington Power Output</p>
+        <p>2N3904 driver + TIP31C output — drives 8 Ω speaker with heatsink</p>
       </div>
 
     </div>
@@ -182,58 +183,58 @@
     <p>The full signal chain was verified in LTspice using a transient analysis (.tran) and operating point check (.op).</p>
 
     <h3>Operating Point (confirmed active region for all transistors)</h3>
-    <div style="overflow-x:auto;margin-top:10px;">
-      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+    <div class="table-scroll">
+      <table class="data-table">
         <thead>
-          <tr style="border-bottom:2px solid var(--border-light);">
-            <th style="text-align:left;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">Node</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">Transistor</th>
-            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">I<sub>C</sub></th>
-            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">V<sub>CE</sub></th>
-            <th style="text-align:right;padding:8px 12px;color:var(--text-light);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;">β<sub>DC</sub></th>
+          <tr>
+            <th>Node</th>
+            <th>Transistor</th>
+            <th class="num">I<sub>C</sub></th>
+            <th class="num">V<sub>CE</sub></th>
+            <th class="num">β<sub>DC</sub></th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border-light);">
-            <td style="padding:8px 12px;">Q1 – RF pre-amp</td>
-            <td style="padding:8px 12px;">2N3904</td>
-            <td style="padding:8px 12px;text-align:right;">2.09 mA</td>
-            <td style="padding:8px 12px;text-align:right;">2.58 V</td>
-            <td style="padding:8px 12px;text-align:right;">304</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border-light);">
-            <td style="padding:8px 12px;">Q2 – Demodulator</td>
-            <td style="padding:8px 12px;">2N3904</td>
-            <td style="padding:8px 12px;text-align:right;">0.357 mA</td>
-            <td style="padding:8px 12px;text-align:right;">1.44 V</td>
-            <td style="padding:8px 12px;text-align:right;">230</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border-light);">
-            <td style="padding:8px 12px;">Q5 – Audio pre-amp</td>
-            <td style="padding:8px 12px;">2N3904</td>
-            <td style="padding:8px 12px;text-align:right;">1.04 mA</td>
-            <td style="padding:8px 12px;text-align:right;">4.66 V</td>
-            <td style="padding:8px 12px;text-align:right;">311</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border-light);">
-            <td style="padding:8px 12px;">Q3 – Darlington driver</td>
-            <td style="padding:8px 12px;">2N3904</td>
-            <td style="padding:8px 12px;text-align:right;">3.87 mA</td>
-            <td style="padding:8px 12px;text-align:right;">7.90 V</td>
-            <td style="padding:8px 12px;text-align:right;">319</td>
+          <tr>
+            <td>Q1 – RF pre-amp</td>
+            <td>2N3904</td>
+            <td class="num">2.09 mA</td>
+            <td class="num">2.58 V</td>
+            <td class="num">304</td>
           </tr>
           <tr>
-            <td style="padding:8px 12px;">Q4 – Power output</td>
-            <td style="padding:8px 12px;">TIP31C</td>
-            <td style="padding:8px 12px;text-align:right;">315 mA</td>
-            <td style="padding:8px 12px;text-align:right;">6.33 V</td>
-            <td style="padding:8px 12px;text-align:right;">81</td>
+            <td>Q2 – Demodulator</td>
+            <td>2N3904</td>
+            <td class="num">0.357 mA</td>
+            <td class="num">1.44 V</td>
+            <td class="num">230</td>
+          </tr>
+          <tr>
+            <td>Q5 – Audio pre-amp</td>
+            <td>2N3904</td>
+            <td class="num">1.04 mA</td>
+            <td class="num">4.66 V</td>
+            <td class="num">311</td>
+          </tr>
+          <tr>
+            <td>Q3 – Darlington driver</td>
+            <td>2N3904</td>
+            <td class="num">3.87 mA</td>
+            <td class="num">7.90 V</td>
+            <td class="num">319</td>
+          </tr>
+          <tr>
+            <td>Q4 – Power output</td>
+            <td>TIP31C</td>
+            <td class="num">315 mA</td>
+            <td class="num">6.33 V</td>
+            <td class="num">81</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="margin-top:20px;">Transient Simulation (signal path)</h3>
+    <h3>Transient Simulation (signal path)</h3>
     <ul>
       <li><strong>Antenna input:</strong> AM-modulated signal ±15 mV (1 kHz audio on ~1 MHz carrier)</li>
       <li><strong>After RF pre-amp:</strong> amplified RF signal riding on ~5.1 V DC bias</li>
@@ -278,16 +279,11 @@
     © 2026 Grace O. Zongo
     <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
-
-<!-- Table styles scoped here so they don't affect other pages -->
-<style>
-  table tr:hover { background: var(--background); }
-</style>
 
 </body>
 </html>

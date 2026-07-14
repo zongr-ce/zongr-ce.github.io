@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
@@ -29,52 +30,122 @@
   <section class="card">
     <h2>Overview</h2>
     <p>
-      Developed embedded firmware components for an automatic weather station, including
-      low-level sensor drivers and a finite state machine (FSM) to manage data collection,
-      processing, and error handling for long-term deployment.
+      The AWS project is a <strong>data logger for climate research</strong>: an instrument that
+      weather researchers at the university can rely on for their research, built to replace the
+      very expensive data loggers on the market. The station is built around a custom PCB with an
+      <strong>ATmega2560</strong>, reads a suite of meteorological sensors, and transmits data over an
+      <strong>Iridium satellite modem</strong> every 10 minutes.
     </p>
+    <p>
+      I develop embedded firmware for the station: low-level sensor drivers, a modular finite state
+      machine, and the low-power sleep mode that makes long-term deployment possible. This work was
+      presented at the <strong>21st Workshop on Antarctic Meteorology and Climate (WAMC, June 2026)</strong>,
+      supported by the NSF Antarctic Automatic Weather Station program.
+    </p>
+    <p style="margin-top:10px;">
+      <a href="WAMC-2026-Madison-AWS.pdf" target="_blank" class="project-link">View Poster (PDF) →</a>
+    </p>
+    <div class="chip-row">
+      <span class="chip chip-primary">ATmega2560</span>
+      <span class="chip chip-primary">Iridium telemetry</span>
+      <span class="chip chip-primary">32 → 7 mA idle</span>
+      <span class="chip">10-min data cadence</span>
+      <span class="chip">Doxygen docs</span>
+    </div>
+    <figure class="image-figure">
+      <a href="images/aws/20240626_104612.jpg">
+        <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="eager">
+      </a>
+      <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
+    </figure>
+  </section>
+
+  <section class="card">
+    <h2>How It Works</h2>
+    <p>
+      The station runs on a 10-minute cycle: the board wakes, takes about a minute to measure the
+      sensors and send the data over the Iridium satellite modem, then sleeps for about 8 minutes
+      and 30 seconds. An RTC alarm wakes the board again, ensuring a measurement is sent out every
+      10 minutes.
+    </p>
+    <div class="mini-card-grid">
+      <div class="mini-card">
+        <p class="mini-card-label">Temperature</p>
+        <p class="mini-card-title">PRTs</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-label">Pressure</p>
+        <p class="mini-card-title">215AX Barometer</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-label">Humidity</p>
+        <p class="mini-card-title">HMP155A</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-label">Snow Accumulation</p>
+        <p class="mini-card-title">SR50A</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-label">Radiation</p>
+        <p class="mini-card-title">Radiometer</p>
+      </div>
+      <div class="mini-card">
+        <p class="mini-card-label">Wind</p>
+        <p class="mini-card-title">RM Young</p>
+      </div>
+    </div>
   </section>
 
   <section class="card">
     <h2>What I Built</h2>
 
-    <h3>1) Sensor Drivers in C++</h3>
+    <h3>1) Low-Power Sleep Mode (32 mA → 7 mA)</h3>
+    <p>
+      My first real task was figuring out how to put the board to sleep to save energy. The first idea
+      was to use the MCU's external reset pin and let the RTC alarm reset the board, but the RTC holds
+      the reset pin, and a board held in reset can never clear the alarm. Instead, the firmware
+      monitors an interrupt pin to detect when the alarm triggers and wakes the board.
+    </p>
+    <p>
+      To cut idle power, the firmware turns off the translators that power every sensor and the
+      Iridium satellite modem, and sleeps the MCU using its internal power-management module. Instead
+      of staying on all the time, the board now spends most of each 10-minute cycle asleep.
+    </p>
+
+    <h3>2) Modular, Sensor-Based State Machine</h3>
+    <p>
+      The state machine was originally organized around the MCU's internal modules (ADC, timers, and
+      so on). I restructured it around the sensors and the Iridium modem instead, so adding a new
+      sensor or new functionality is now a modular, self-contained change.
+    </p>
+    <figure class="image-figure">
+      <a href="images/aws/FSM-2.png">
+        <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy">
+      </a>
+      <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
+    </figure>
+
+    <h3>3) Unified Frequency Sampling (Wind &amp; Barometer)</h3>
+    <p>
+      The wind sensor and barometer needed two different sampling frequencies, but I found a way to
+      use the same sampling method for both: one timer triggers a flag after a measurement window of
+      2 to 4 seconds, while a second timer, clocked externally by the sensor's output, counts the
+      incoming pulses during that window.
+    </p>
+
+    <h3>4) Sensor Drivers in C++</h3>
     <ul>
-      <li>Implemented low-level C++ drivers to communicate with environmental sensors.</li>
+      <li>Implemented low-level C++ drivers to communicate with the environmental sensors.</li>
       <li>Handled data acquisition, calibration, and error conditions.</li>
-      <li>Integrated drivers into a larger embedded system and validated functionality in the field.</li>
       <li>Used timers + ISR-based techniques for frequency-driven sensors.</li>
+      <li>Documented the firmware with Doxygen.</li>
     </ul>
-
-    <h3>2) Finite State Machine (FSM)</h3>
-    <ul>
-      <li>Defined system states for data collection, processing, and error recovery.</li>
-      <li>Implemented predictable state transitions and tested edge cases for robustness.</li>
-      <li>Integrated FSM with timing, RTC behavior, and sensor drivers.</li>
-      <li>Designed a low-power sleep mode to reduce idle consumption.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>System Images</h2>
-    <div class="image-grid" id="lg-gallery">
-      <figure>
-        <a href="images/aws/20240626_104612.jpg">
-          <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="lazy">
-        </a>
-        <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
-      </figure>
+    <div class="image-grid">
       <figure>
         <a href="images/aws/baro-1.png">
           <img src="images/aws/baro-1.png" alt="Barometer driver snapshot" loading="lazy">
         </a>
         <figcaption>Snapshot of barometer driver</figcaption>
-      </figure>
-      <figure>
-        <a href="images/aws/FSM-2.png">
-          <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy">
-        </a>
-        <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
       </figure>
       <figure>
         <a href="images/aws/aws-serial-monitor.jpg">
@@ -88,24 +159,20 @@
   <section class="card">
     <h2>Results</h2>
     <ul>
-      <li>Successfully collected and processed environmental data (pressure, humidity, temperature, etc.).</li>
-      <li>Improved reliability and modularity of the AWS firmware through driver + FSM architecture.</li>
-      <li>AWS operated independently in Antarctica for a full year (deployment target).</li>
+      <li>The AWS operated independently in Antarctica for a full year.</li>
       <li>Reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
     </ul>
     <div class="metric-highlight">
-      Reduced idle-mode power consumption by ~78% — 32 mA → 7 mA
+      Reduced idle-mode power consumption by ~78% (32 mA → 7 mA)
     </div>
   </section>
 
   <section class="card">
-    <h2>Conference Presentation</h2>
+    <h2>Current Work: Local NAND Flash Storage</h2>
     <p>
-      This work was presented at the <strong>21st Workshop on Antarctic Meteorology and Climate (WAMC)</strong>, June 2026,
-      supported by the NSF Antarctic Automatic Weather Station program.
-    </p>
-    <p style="margin-top:10px;">
-      <a href="WAMC-2026-Madison-AWS.pdf" target="_blank" class="project-link">View Poster (PDF) →</a>
+      I am currently adding local storage on NAND flash so the station keeps an on-board record.
+      During field season, researchers can read the fault flags and other diagnostics directly from
+      the board to check whether something went wrong.
     </p>
   </section>
 
@@ -127,8 +194,10 @@
     © 2026 Grace O. Zongo
     <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:gzongo@wisc.edu" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
+</body>
+</html>

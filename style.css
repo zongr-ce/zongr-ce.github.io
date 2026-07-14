@@ -51,6 +51,18 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ===== PAGE ENTRY ANIMATION ===== */
 
 @keyframes fadeUp {
@@ -448,6 +460,21 @@ figcaption {
   line-height: 1.4;
 }
 
+/* Single inline figure (opens in lightbox like grid images) */
+.image-figure { margin: 16px 0 0; max-width: 560px; }
+.image-figure a { display: block; line-height: 0; }
+.image-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.image-figure img:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -597,39 +624,85 @@ figcaption {
   border-color: var(--accent-border);
 }
 
-/* ===== BREADCRUMBS ===== */
+/* ===== MINI CARD (architecture blocks) ===== */
 
-.breadcrumbs {
-  position: sticky;
-  top: 62px;
-  z-index: 900;
-  margin: 0 0 12px;
-  padding: 6px 0 4px;
-  background: var(--background);
+.mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
 }
 
-.crumbs {
-  list-style: none;
-  padding: 0;
+.mini-card {
+  background: var(--background);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.mini-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  margin: 0 0 6px;
+}
+
+.mini-card-title {
+  font-weight: 700;
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.mini-card p:last-child {
+  font-size: 0.84rem;
+  color: var(--text-light);
   margin: 0;
+}
+
+/* Card with only a label + title (no description line) */
+.mini-card .mini-card-title:last-child {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+/* ===== CHIP ROW ===== */
+
+.chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
-  font-size: 0.83rem;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+/* ===== DATA TABLE ===== */
+
+.table-scroll { overflow-x: auto; margin-top: 10px; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 8px 12px;
   color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-.crumbs li { display: inline-flex; align-items: center; }
+.data-table td { padding: 8px 12px; }
 
-.crumbs li:not(:last-child)::after {
-  content: "›";
-  margin: 0 5px;
-  color: #9CA3AF;
-}
+.data-table thead tr { border-bottom: 2px solid var(--border-light); }
+.data-table tbody tr:not(:last-child) { border-bottom: 1px solid var(--border-light); }
+.data-table tbody tr:hover { background: var(--background); }
 
-.crumbs a { text-decoration: none; color: var(--primary); font-weight: 600; }
-.crumbs a:hover { text-decoration: underline; text-underline-offset: 2px; }
-.crumbs [aria-current="page"] span { color: var(--text-dark); font-weight: 600; }
+.data-table th.num, .data-table td.num { text-align: right; }
 
 /* ===== PROJECT LINK ===== */
 
@@ -952,7 +1025,7 @@ footer {
 /* ===== PRINT ===== */
 
 @media print {
-  .top-nav, footer, .project-pagination, .back-link, .breadcrumbs { display: none !important; }
+  .top-nav, footer, .project-pagination, .back-link { display: none !important; }
 
   body { padding: 0; max-width: 100%; background: white; }
   .page-content { margin: 0; }
@@ -973,7 +1046,6 @@ footer {
 @media (max-width: 700px) {
   body { padding: 14px; }
   .page-content { margin-top: 78px; }
-  .breadcrumbs { top: 70px; }
 
   h1 { font-size: 1.8rem; }
 
@@ -1051,9 +1123,6 @@ footer {
 
   .project-link { background: #1E3A5F; color: #93B4F8; border-color: #2D5499; }
   .project-link:hover { background: #1E3A8A; color: #ffffff; }
-
-  .breadcrumbs { background: var(--background); }
-  .crumbs [aria-current="page"] span { color: var(--text-dark); }
 
   .project-links a { border-color: var(--border-light); }
   .project-links a:hover { background: #1E3A8A; border-color: #1E3A8A; }

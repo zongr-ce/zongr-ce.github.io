@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const lgEl = document.getElementById("lg-gallery");
-  if (!lgEl) return;
+  const grids = document.querySelectorAll(".image-grid, .image-figure");
+  if (!grids.length) return;
 
   const loadScript = (src) =>
     new Promise((resolve, reject) => {
@@ -20,24 +20,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadScript(`${BASE}/plugins/thumbnail/lg-thumbnail.umd.js`),
     ]);
 
-    // Pull <figcaption> text into data sub html on each anchor so
-    // lightGallery shows the caption text instead of the alt.
-    lgEl.querySelectorAll("figure").forEach((figure) => {
-      const a = figure.querySelector("a");
-      const caption = figure.querySelector("figcaption");
-      if (a && caption) {
-        a.dataset.subHtml = `<p>${caption.textContent.trim()}</p>`;
-      }
-    });
+    grids.forEach((grid) => {
+      // Pull <figcaption> text into data sub html on each anchor so
+      // lightGallery shows the caption text instead of the alt.
+      grid.querySelectorAll("figure").forEach((figure) => {
+        const a = figure.querySelector("a");
+        const caption = figure.querySelector("figcaption");
+        if (a && caption) {
+          a.dataset.subHtml = `<p>${caption.textContent.trim()}</p>`;
+        }
+      });
 
-    lightGallery(lgEl, {
-      selector: "a",
-      plugins: [lgZoom, lgThumbnail],
-      speed: 100,
-      backdropDuration: 100,
-      download: false,
-      zoomFromOrigin: false,
-      hideScrollbar: true
+      lightGallery(grid, {
+        selector: "a",
+        plugins: [lgZoom, lgThumbnail],
+        speed: 100,
+        backdropDuration: 100,
+        download: false,
+        zoomFromOrigin: false,
+        hideScrollbar: true
+      });
     });
 
   } catch (err) {
