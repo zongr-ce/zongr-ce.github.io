@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>555 Timer Clock Module | Grace O. Zongo</title>
-  <meta name="description" content="555 timer configured in astable mode for stable clock generation — breadboard prototype through oscilloscope verification, covering manual trigger up to 10 kHz.">
+  <meta name="description" content="555 timer configured in astable mode for stable clock generation: breadboard prototype through oscilloscope verification, covering manual trigger up to 10 kHz.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
@@ -33,6 +33,12 @@
       Prototyped and designed a clock generation module using a 555 timer to provide a stable
       timing source for digital circuits.
     </p>
+    <div class="chip-row">
+      <span class="chip chip-primary">555 timer</span>
+      <span class="chip chip-primary">Monostable / astable / bistable</span>
+      <span class="chip">Up to ~10 kHz</span>
+      <span class="chip">KiCad PCB</span>
+    </div>
   </section>
 
   <section class="card">
@@ -43,11 +49,7 @@
       <li>Built and tested the circuit on breadboard and prototype hardware.</li>
       <li>Verified output frequency and duty cycle using measurement tools.</li>
     </ul>
-  </section>
-
-  <section class="card">
-    <h2>System Images</h2>
-    <div class="image-grid" id="lg-gallery">
+    <div class="image-grid">
       <figure>
         <a href="images/555-timer/clk-module-breadboard.jpg">
           <img src="images/555-timer/clk-module-breadboard.jpg" alt="555 timer breadboard prototype" loading="lazy">
@@ -66,12 +68,6 @@
         </a>
         <figcaption>PCB layout (KiCad)</figcaption>
       </figure>
-      <figure>
-        <a href="images/555-timer/clk-module-soldered.jpg">
-          <img src="images/555-timer/clk-module-soldered.jpg" alt="Populated PCB" loading="lazy">
-        </a>
-        <figcaption>Frequency and duty-cycle verification using an oscilloscope</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -80,12 +76,24 @@
     <ul>
       <li>Generated a stable, reliable clock signal for digital systems.</li>
       <li>Covered a wide range: from manual trigger up to ~<strong>10 kHz</strong> astable frequency.</li>
-      <li>Reinforced understanding of analog timing circuits and component-level design.</li>
     </ul>
+    <figure class="image-figure">
+      <a href="images/555-timer/clk-module-soldered.jpg">
+        <img src="images/555-timer/clk-module-soldered.jpg" alt="Populated PCB" loading="lazy">
+      </a>
+      <figcaption>Frequency and duty-cycle verification using an oscilloscope</figcaption>
+    </figure>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/XPLGhJ6kN4U?mute=1" title="555 Timer Demo" allowfullscreen loading="lazy"></iframe>
     </div>
     <p><em>Demonstration of breadboard prototype (monostable, astable, bistable).</em></p>
+  </section>
+
+  <section class="card">
+    <h2>What I Learned</h2>
+    <p>
+      Reinforced understanding of analog timing circuits and component-level design.
+    </p>
   </section>
 
   <nav class="project-pagination" aria-label="Project navigation">

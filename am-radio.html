@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AM Radio Receiver – ECE 342 | Grace O. Zongo</title>
-  <meta name="description" content="Full AM radio receiver with microphone option — RF pre-amplifier, envelope detector, audio pre-amp, and Darlington pair power stage. PCB designed in Altium, simulated in LTspice. ECE 342, Spring 2026.">
+  <meta name="description" content="Full AM radio receiver with microphone option: RF pre-amplifier, envelope detector, audio pre-amp, and Darlington pair power stage. PCB designed in Altium, simulated in LTspice. ECE 342, Spring 2026.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
@@ -33,7 +33,7 @@
     <p>
       Designed and simulated a complete AM radio receiver with a microphone input option for ECE 342 (Spring 2026).
       The system takes a signal from an antenna, amplifies and selects an AM station, demodulates the audio,
-      and drives an 8 Ω speaker through a Darlington power stage — all on a custom Altium PCB.
+      and drives an 8 Ω speaker through a Darlington power stage, all on a custom Altium PCB.
     </p>
     <p>
       The design is organized into four cascaded stages:
@@ -78,7 +78,7 @@
       <div class="mini-card">
         <p class="mini-card-label">Stage 4</p>
         <p class="mini-card-title">Darlington Power Output</p>
-        <p>2N3904 driver + TIP31C output — drives 8 Ω speaker with heatsink</p>
+        <p>2N3904 driver + TIP31C output, drives 8 Ω speaker with heatsink</p>
       </div>
 
     </div>
@@ -94,6 +94,12 @@
       <li>R<sub>4</sub> = 1.2 kΩ emitter degeneration; C<sub>4</sub> = 100 nF bypass capacitor</li>
       <li>C<sub>2</sub> = 1 nF output coupling; 1206 SMD capacitors throughout</li>
     </ul>
+    <figure class="image-figure">
+      <a href="images/am-radio/rf-detection-sch.png">
+        <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
+      </a>
+      <figcaption>Stage 1: RF detection and pre-amplifier schematic (KiCad/Altium)</figcaption>
+    </figure>
 
     <h3>Stage 2 – AM Demodulator + Low-pass Filter</h3>
     <p>
@@ -106,6 +112,12 @@
       <li>R<sub>7</sub> = 1 kΩ, C<sub>8</sub> = 47 nF: final audio low-pass filter before next stage</li>
       <li>Reducing C<sub>6</sub> increases gain; removing it maximizes gain at the cost of more carrier noise</li>
     </ul>
+    <figure class="image-figure">
+      <a href="images/am-radio/demod-sch.png">
+        <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
+      </a>
+      <figcaption>Stage 2: AM demodulation and low-pass filter</figcaption>
+    </figure>
 
     <h3>Stage 3 – Audio Pre-amplifier (2N3904)</h3>
     <p>
@@ -132,47 +144,29 @@
       <li>R<sub>15</sub> = 10 Ω emitter resistor on Q4 for stability</li>
       <li>Microphone input option via DPDT slide switch and 3.5 mm jack (J1)</li>
     </ul>
+    <figure class="image-figure">
+      <a href="images/am-radio/audio-amp-sch.png">
+        <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
+      </a>
+      <figcaption>Stages 3 &amp; 4: Audio pre-amp + Darlington power output</figcaption>
+    </figure>
   </section>
 
-  <!-- SCHEMATICS & PCB -->
+  <!-- PCB LAYOUT -->
   <section class="card">
-    <h2>Schematics &amp; PCB</h2>
-    <div class="image-grid" id="lg-gallery">
-      <figure>
-        <a href="images/am-radio/rf-detection-sch.png">
-          <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
-        </a>
-        <figcaption>Stage 1: RF detection and pre-amplifier schematic (KiCad/Altium)</figcaption>
-      </figure>
-      <figure>
-        <a href="images/am-radio/demod-sch.png">
-          <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
-        </a>
-        <figcaption>Stage 2: AM demodulation and low-pass filter</figcaption>
-      </figure>
-      <figure>
-        <a href="images/am-radio/audio-amp-sch.png">
-          <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
-        </a>
-        <figcaption>Stages 3 &amp; 4: Audio pre-amp + Darlington power output</figcaption>
-      </figure>
+    <h2>PCB Layout</h2>
+    <div class="image-grid">
       <figure>
         <a href="images/am-radio/pcb-layout.png">
           <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy">
         </a>
-        <figcaption>PCB layout (Altium) — ground plane removed near LC tank to prevent noise injection</figcaption>
+        <figcaption>PCB layout (Altium): ground plane removed near LC tank to prevent noise injection</figcaption>
       </figure>
       <figure>
         <a href="images/am-radio/pcb-3d.png">
           <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy">
         </a>
-        <figcaption>3D PCB render — heatsink on TIP31C output transistor visible</figcaption>
-      </figure>
-      <figure>
-        <a href="images/am-radio/ltspice-sim.png">
-          <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
-        </a>
-        <figcaption>LTspice transient analysis (.tran)</figcaption>
+        <figcaption>3D PCB render: heatsink on TIP31C output transistor visible</figcaption>
       </figure>
     </div>
   </section>
@@ -181,6 +175,12 @@
   <section class="card">
     <h2>LTspice Simulation Results</h2>
     <p>The full signal chain was verified in LTspice using a transient analysis (.tran) and operating point check (.op).</p>
+    <figure class="image-figure">
+      <a href="images/am-radio/ltspice-sim.png">
+        <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
+      </a>
+      <figcaption>LTspice transient analysis (.tran)</figcaption>
+    </figure>
 
     <h3>Operating Point (confirmed active region for all transistors)</h3>
     <div class="table-scroll">
@@ -243,7 +243,7 @@
     </ul>
 
     <div class="metric-highlight">
-      Simulated peak speaker output: ~330 mW into 8 Ω — sufficient to drive the speaker audibly
+      Simulated peak speaker output: ~330 mW into 8 Ω, sufficient to drive the speaker audibly
     </div>
   </section>
 
@@ -251,10 +251,10 @@
   <section class="card">
     <h2>Design Notes &amp; Key Decisions</h2>
     <ul>
-      <li><strong>RF pre-amp added:</strong> downstream stages alone produced insufficient gain to drive the 8 Ω speaker — adding the LC-tuned common-emitter stage resolved this.</li>
+      <li><strong>RF pre-amp added:</strong> downstream stages alone produced insufficient gain to drive the 8 Ω speaker; adding the LC-tuned common-emitter stage resolved this.</li>
       <li><strong>Darlington pair:</strong> a single common-emitter output stage lacked current drive; the Q3 (2N3904) + Q4 (TIP31C) Darlington gives β<sub>total</sub> ≈ 25,000+, enabling clean speaker drive.</li>
       <li><strong>Ground plane clearance:</strong> ground pours were removed around the LC tank on the PCB to prevent capacitive coupling that would inject noise into the tuned circuit.</li>
-      <li><strong>C<sub>6</sub> trade-off:</strong> lower capacitance on the demodulator filter increases audio gain but allows more carrier ripple through — chosen value (330 pF) balances both.</li>
+      <li><strong>C<sub>6</sub> trade-off:</strong> lower capacitance on the demodulator filter increases audio gain but allows more carrier ripple through; the chosen value (330 pF) balances both.</li>
       <li><strong>Microphone option:</strong> a DPDT slide switch routes either the AM demodulated signal or a microphone input (biased via R<sub>16</sub> = 10 kΩ, +9 V) into the audio pre-amp stage.</li>
       <li><strong>Test points:</strong> 19 orange 5013 test point markers placed throughout the PCB for each stage's key nodes.</li>
     </ul>

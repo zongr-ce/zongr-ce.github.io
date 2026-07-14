@@ -34,28 +34,30 @@
       instruction execution, and FSM-based control. Extended the design into a PCB-based
       implementation to explore real-world integration constraints beyond FPGA simulation.
     </p>
+    <div class="chip-row">
+      <span class="chip chip-primary">Intel Quartus</span>
+      <span class="chip chip-primary">FPGA</span>
+      <span class="chip chip-primary">Custom instruction set</span>
+      <span class="chip">~15 kHz stable clock</span>
+      <span class="chip">PCB bring-up</span>
+    </div>
   </section>
 
   <section class="card">
-    <h2>What I Did</h2>
+    <h2>Phase 1: FPGA Design (Quartus)</h2>
     <ul>
       <li>Designed the datapath and control unit using block-diagram design in Intel Quartus.</li>
       <li>Implemented core components: program counter, registers, RAM, ALU, and control logic.</li>
       <li>Defined an instruction set (including addition/subtraction) and validated execution flow.</li>
       <li>Verified functionality using simulation, testbenches, and waveform analysis.</li>
-      <li>Translated the digital CPU into a PCB-level architecture (power + routing considerations).</li>
     </ul>
-  </section>
-
-  <section class="card">
-    <h2>System Images</h2>
-    <div class="image-grid" id="lg-gallery">
-      <figure>
-        <a href="images/cpu/8bit-cpu.png">
-          <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy">
-        </a>
-        <figcaption>Datapath + control unit design in Quartus</figcaption>
-      </figure>
+    <figure class="image-figure">
+      <a href="images/cpu/8bit-cpu.png">
+        <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy">
+      </a>
+      <figcaption>Datapath + control unit design in Quartus</figcaption>
+    </figure>
+    <div class="image-grid">
       <figure>
         <a href="images/cpu/instruction-steps.png">
           <img src="images/cpu/instruction-steps.png" alt="FPGA implementation" loading="lazy">
@@ -68,11 +70,21 @@
         </a>
         <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Phase 2: PCB Implementation</h2>
+    <p>
+      Translated the digital CPU into a PCB-level architecture, working through power and routing
+      considerations that do not appear in FPGA simulation.
+    </p>
+    <div class="image-grid">
       <figure>
         <a href="images/cpu/8bit-reg-sch.png">
           <img src="images/cpu/8bit-reg-sch.png" alt="8-bit register schematic" loading="lazy">
         </a>
-        <figcaption>PCB-based CPU implementation — 8-bit register schematic</figcaption>
+        <figcaption>PCB-based CPU implementation: 8-bit register schematic</figcaption>
       </figure>
       <figure>
         <a href="images/cpu/8bit-reg-pcd.png">
@@ -101,13 +113,19 @@
       <li>Successfully executed all implemented instructions on FPGA hardware.</li>
       <li>Achieved stable operation at ~15 kHz after resolving timing violations (FPGA).</li>
       <li>Successfully demonstrated CPU operation on a custom PCB.</li>
-      <li>Gained hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
-      <li>Strengthened understanding of computer architecture, FSM-based control, and debugging workflow.</li>
     </ul>
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/vF5l8H2w_BA?mute=1" title="Testbench verification" allowfullscreen loading="lazy"></iframe>
     </div>
     <p><em>Waveform + testbench verification of instruction execution</em></p>
+  </section>
+
+  <section class="card">
+    <h2>What I Learned</h2>
+    <ul>
+      <li>Hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>
+      <li>Deeper understanding of computer architecture, FSM-based control, and debugging workflow.</li>
+    </ul>
   </section>
 
   <nav class="project-pagination" aria-label="Project navigation">

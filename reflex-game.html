@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reflex Game – ECE 315 | Grace O. Zongo</title>
-  <meta name="description" content="Multi-sheet PCB design (Altium) for a reflex game built around the Seeed Studio XIAO RP2350 — addressable LED chain, buzzer feedback, regulated 3.3 V power, and voltage-supervisor reset. ECE 315 Intro Microprocessor Lab, UW–Madison, Spring 2026.">
+  <meta name="description" content="Multi-sheet PCB design (Altium) for a reflex game built around the Seeed Studio XIAO RP2350: addressable LED chain, buzzer feedback, regulated 3.3 V power, and voltage-supervisor reset. ECE 315 Intro Microprocessor Lab, UW–Madison, Spring 2026.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
@@ -33,9 +33,9 @@
       Multi-sheet PCB designed in Altium for a microcontroller-based reflex game built around the
       Seeed Studio XIAO RP2350. The board drives a chain of 12 addressable LEDs as the visual
       stimulus, uses a piezo buzzer for audio feedback, and integrates regulated 3.3 V power
-      and voltage supervision. ECE 315 Intro Microprocessor Lab — UW–Madison, Spring 2026.
+      and voltage supervision. ECE 315 Intro Microprocessor Lab, UW–Madison, Spring 2026.
     </p>
-    <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+    <div class="chip-row">
       <span class="chip chip-primary">XIAO RP2350</span>
       <span class="chip chip-primary">12-LED chain</span>
       <span class="chip chip-primary">Altium multi-sheet</span>
@@ -67,19 +67,19 @@
         <a href="images/ece315/led-schematic.png">
           <img src="images/ece315/led-schematic.png" alt="Serial LED array schematic" loading="lazy">
         </a>
-        <figcaption>Serial LED array — 12 daisy-chained addressable LEDs</figcaption>
+        <figcaption>Serial LED array: 12 daisy-chained addressable LEDs</figcaption>
       </figure>
       <figure>
         <a href="images/ece315/ECE315_Altium_design.png">
           <img src="images/ece315/ECE315_Altium_design.png" alt="Altium PCB layout" loading="lazy">
         </a>
-        <figcaption>Altium PCB layout — LEDs arranged in a ring around the UW–Madison crest</figcaption>
+        <figcaption>Altium PCB layout: LEDs arranged in a ring around the UW–Madison crest</figcaption>
       </figure>
       <figure>
         <a href="images/ece315/ECE_315_PCB.jpg">
           <img src="images/ece315/ECE_315_PCB.jpg" alt="Assembled reflex-game PCB" loading="lazy">
         </a>
-        <figcaption>Assembled board — XIAO RP2350, 12 RGB LEDs, button, buzzer</figcaption>
+        <figcaption>Assembled board: XIAO RP2350, 12 RGB LEDs, button, buzzer</figcaption>
       </figure>
       <figure>
         <a href="images/ece315/ECE_315_PCB2.jpg">
@@ -106,7 +106,7 @@
     <h2>What I Learned</h2>
     <ul>
       <li>Multi-sheet hierarchical schematic capture in Altium.</li>
-      <li>Embedded support circuitry around a digital MCU — decoupling, low-side switching, flyback protection.</li>
+      <li>Embedded support circuitry around a digital MCU: decoupling, low-side switching, flyback protection.</li>
       <li>Brown-out and watchdog supervision for reliability beyond the MCU's internal POR.</li>
       <li>End-to-end PCB workflow: schematic → DRC → layout → bring-up → firmware demo.</li>
     </ul>
