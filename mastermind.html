@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Two-Player Mastermind (PSoC 6 + FreeRTOS) | Grace O. Zongo</title>
+  <meta name="description" content="Two PSoC 6 boards playing Mastermind over a custom UART protocol: FreeRTOS task design, gatekeeper tasks over shared I2C and SPI buses, and capacitive touch input.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    /* Page-local only, so nothing in style.css needs to change. */
+    code {
+      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: var(--background);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+    /* Temporary image placeholders — replace each with a <figure class="image-figure"> */
+    .ph {
+      margin: 16px 0 0;
+      border: 2px dashed var(--border-light);
+      border-radius: 8px;
+      padding: 34px 20px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.9em;
+      background: var(--background);
+    }
+    .ph strong { display: block; color: var(--text-mid); margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="work.html">Work Experience</a>
+  <span class="nav-spacer"></span>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
+  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+</nav>
+
+<main class="page-content">
+
+  <h1>Two-Player Mastermind – PSoC 6 &amp; FreeRTOS</h1>
+  <hr class="accent-rule">
+
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      Two PSoC 6 boards, each running its own FreeRTOS application, play Mastermind against each
+      other over a single UART link. Each player picks a hidden four-digit cypher on a capacitive
+      touch screen, then the boards trade guesses and feedback until one cracks the other's code.
+    </p>
+    <p>
+      There is no host and no referee. Both boards are peers, so everything a server would normally
+      handle has to be negotiated between them: who goes first, when a turn ends, and how to recover
+      when a message is missed. My partner and I wrote our firmware separately and agreed only on the
+      wire format, so the protocol had to be right before either side could be debugged.
+    </p>
+    <div class="chip-row">
+      <span class="chip chip-primary">FreeRTOS</span>
+      <span class="chip chip-primary">PSoC 6 (CY8C6244)</span>
+      <span class="chip chip-primary">Custom UART protocol</span>
+      <span class="chip">C</span>
+      <span class="chip">I<sup>2</sup>C + SPI</span>
+      <span class="chip">ModusToolbox</span>
+    </div>
+    <div class="ph">
+      <strong>Photo placeholder</strong>
+      The two boards mid-game, LCDs visible
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Architecture</h2>
+    <p>
+      Nothing polls for input. Button presses and inbound packets become bits in one FreeRTOS event
+      group, and the game logic sits blocked on <code>xEventGroupWaitBits()</code> until a bit it
+      cares about is set. Each state then names only the events it will accept, and the scheduler
+      does the waiting.
+    </p>
+    <p>
+      Every shared peripheral is owned by exactly one gatekeeper task. Application code never touches
+      the I<sup>2</sup>C or SPI bus directly; it posts a request on that device's queue and blocks on
+      its own response queue while the gatekeeper takes the bus semaphore and does the transfer.
+    </p>
+    <div class="ph">
+      <strong>Diagram placeholder</strong>
+      Task and resource architecture: event group, gatekeeper tasks, bus semaphores
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>The Board-to-Board Protocol</h2>
+    <p>
+      Every packet carries a <code>0xAA</code> start byte, a command, a sequence number, a payload,
+      and an XOR checksum over everything between. A packet is rejected unless both the start byte
+      and the checksum agree, so a reset on one board cannot inject a bogus guess into the other.
+      Commands live in <code>0xC0</code>–<code>0xC8</code> and status codes start at
+      <code>0xE0</code>, which makes a stray byte cheap to discard.
+    </p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Command</th><th class="num">Code</th><th>Payload</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DISCOVERY / ACK</td><td class="num">0xC0 / 0xC4</td><td>status</td><td>Find the other board and confirm the link</td></tr>
+          <tr><td>ACTIVE / INACTIVE</td><td class="num">0xC1 / 0xC2</td><td>status</td><td>Signal that a cypher is locked in</td></tr>
+          <tr><td>GUESS</td><td class="num">0xC5</td><td>4 digits</td><td>The active player's guess</td></tr>
+          <tr><td>FEEDBACK</td><td class="num">0xC6</td><td>exact, misplaced</td><td>Result of scoring that guess</td></tr>
+          <tr><td>GAME_OVER</td><td class="num">0xC7</td><td>guess count</td><td>Sender won, in this many guesses</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;">
+      My <code>GAME_OVER</code> payload is a single guess-count byte, chosen to be wire-compatible
+      with the <code>WIN</code> message my partner had already implemented. Neither of us had to
+      rewrite: the byte layout matches even though the command names do not.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Three Problems Worth Describing</h2>
+
+    <h3>1) Resolving the handshake race</h3>
+    <p>
+      Nothing stops both players pressing start at the same instant, and then each board waits for an
+      ACK the other is too busy sending its own DISCOVERY to produce. I made the wait symmetric: a
+      board waits on <em>either</em> an ACK or an incoming DISCOVERY. If its own DISCOVERY is
+      acknowledged it is the first player; if the opponent's arrives first it yields and goes second.
+      A five second timeout retries rather than deadlocking, and there is no case where both boards
+      claim the same role.
+    </p>
+
+    <h3>2) A touch controller that lies about being released</h3>
+    <p>
+      Registering a digit on the rising edge of a touch produced doubled and tripled entries. The
+      FT6236 intermittently reports "no touch" for a single sample mid-press, and the next sample
+      looks like a fresh edge. Instead of a longer blind delay I used a settled-state debounce: a
+      digit registers only while armed, and arming is restored only after <strong>three
+      consecutive</strong> read failures, so a one-sample glitch cannot pass as a release.
+    </p>
+
+    <h3>3) Keeping two boards in agreement</h3>
+    <p>
+      If a guess is lost, both boards wait forever. After sending, a board waits one second for
+      feedback and resends once if none arrives; duplicates are harmless because scoring is
+      idempotent. Stale event bits were the subtler hazard: a packet arriving after its state had
+      moved on would satisfy the next state's wait immediately and skip a turn. Clearing the
+      game-related bits at the start of the handshake, before each guess, and at end of game fixed a
+      class of bugs that only showed up when the boards were a turn out of sync.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Smaller Details</h2>
+    <ul>
+      <li><strong>Automatic dark mode.</strong> A dedicated task samples the ambient light sensor once a second and inverts the LCD in a bright room. Nothing in the assignment asked for this.</li>
+      <li><strong>Persistent best score.</strong> A win writes the guess count to EEPROM if it beats the record, so it survives a power cycle. SW3 clears it.</li>
+      <li><strong>Console tracing.</strong> Every state transition prints over UART, so a desync shows up as two diverging traces instead of a frozen board.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>What I Would Change</h2>
+    <p>
+      The LCD is the one peripheral without a gatekeeper task. The game loop draws to it directly and
+      so does the ambient light task, which means two tasks can reach the same SPI bus without
+      arbitration. It never misbehaved, because the inversion command is short and infrequent, but it
+      is a race that exists in the design rather than one I ruled out. The fix is the pattern already
+      used everywhere else: an LCD gatekeeper fed by a queue, holding the SPI semaphore across each
+      transfer.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p class="footer-links">
+    © 2026 Grace O. Zongo
+    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+  </p>
+</footer>
+
+<script src="scripts/lightbox.js"></script>
+</body>
+</html>
