@@ -1,6 +1,6 @@
 {
   // Name of the Cloudflare project this repo deploys to.
-  "name": "grace-o-zongo",
+  "name": "portfolio",
 
   // Pins the Workers runtime behaviour to this date so future
   // platform changes cannot silently alter your deploy.
