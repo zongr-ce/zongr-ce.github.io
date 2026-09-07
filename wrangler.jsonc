@@ -1,0 +1,17 @@
+{
+  // Name of the Cloudflare project this repo deploys to.
+  "name": "grace-o-zongo",
+
+  // Pins the Workers runtime behaviour to this date so future
+  // platform changes cannot silently alter your deploy.
+  "compatibility_date": "2026-09-07",
+
+  "observability": { "enabled": true },
+
+  "assets": {
+    // Upload ONLY what the build step puts in ./dist.
+    // Previously this was "." (the whole repo), which swept in
+    // the hidden .git folder and blew past the 25 MiB file cap.
+    "directory": "./dist"
+  }
+}

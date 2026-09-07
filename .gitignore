@@ -1,0 +1,5 @@
+# Build output for Cloudflare. Generated on every deploy, never committed.
+dist/
+
+# Wrangler scratch files
+.wrangler/
