@@ -17,27 +17,31 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="canonical" href="https://gracezongo.com/">
   <meta name="author" content="Grace O. Zongo">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html" class="active">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <!-- HERO -->
   <section class="hero">
-    <img src="images/profile.jpg" alt="Grace O. Zongo" class="profile-photo" loading="eager">
+    <img src="images/profile.jpg" alt="Grace O. Zongo" class="profile-photo" loading="eager" width="1600" height="1600">
     <div>
       <h1>Grace O. Zongo</h1>
       <p class="hero-tagline">Electrical Engineering &amp; CS Certificate @ UW–Madison &nbsp;·&nbsp; Embedded Systems &amp; Power Electronics</p>
@@ -46,9 +50,9 @@
         Real systems, real results.
       </p>
       <div class="hero-chips">
-        <span class="chip chip-primary"><i class="fa-solid fa-microchip" style="font-size:0.76em;margin-right:4px;"></i>32→7 mA sleep mode</span>
-        <span class="chip chip-primary"><i class="fa-solid fa-trophy" style="font-size:0.76em;margin-right:4px;"></i>2nd Place PEP 2024</span>
-        <span class="chip chip-primary"><i class="fa-solid fa-snowflake" style="font-size:0.76em;margin-right:4px;"></i>Antarctica deployment</span>
+        <span class="chip chip-primary"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#microchip"/></svg>32→7 mA sleep mode</span>
+        <span class="chip chip-primary"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#trophy"/></svg>2nd Place PEP 2024</span>
+        <span class="chip chip-primary"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#snowflake"/></svg>Antarctica deployment</span>
       </div>
     </div>
   </section>
@@ -115,17 +119,17 @@
     <h2>Explore</h2>
     <div class="project-grid">
       <a href="education.html" class="project-card">
-        <img src="images/campus-building.jpg" alt="UW-Madison Campus" loading="lazy">
+        <img src="images/campus-building.jpg" alt="UW-Madison Campus" loading="lazy" width="1024" height="683">
         <h3>Education</h3>
         <p>UW–Madison EE + CS Certificate, Dean's List, awards &amp; coursework</p>
       </a>
       <a href="projects.html" class="project-card">
-        <img src="images/am-radio/audio-amp-pop.jpg" alt="Projects" loading="lazy">
+        <img src="images/am-radio/audio-amp-pop.jpg" alt="Projects" loading="lazy" width="1600" height="1270">
         <h3>Project Work</h3>
         <p>Embedded firmware, power systems, digital hardware</p>
       </a>
       <a href="work.html" class="project-card">
-        <img src="images/work2.jpg" alt="Work experience" loading="lazy">
+        <img src="images/work2.jpg" alt="Work experience" loading="lazy" width="1600" height="1068">
         <h3>Work Experience</h3>
         <p>SSEC, Alpha Controls, Bemis</p>
       </a>
@@ -136,15 +140,15 @@
   <section class="downloads">
     <h2>Downloads</h2>
     <div class="download-buttons">
-      <a href="Grace_Zongo_Resume.pdf" target="_blank" class="download-card">
-        <i class="fa-solid fa-file-lines"></i>
+      <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer" class="download-card">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#file-lines"/></svg>
         <div>
           <strong>Resume</strong>
           <p>One-page PDF overview</p>
         </div>
       </a>
-      <a href="Grace_Zongo_Portfolio.pdf" target="_blank" class="download-card">
-        <i class="fa-solid fa-folder-open"></i>
+      <a href="Grace_Zongo_Portfolio.pdf" target="_blank" rel="noopener noreferrer" class="download-card">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#folder-open"/></svg>
         <div>
           <strong>Portfolio PDF</strong>
           <p>Printable full project portfolio</p>
@@ -161,13 +165,13 @@
     </div>
     <div class="cta-links">
       <a href="mailto:grace.o.zongo@gmail.com" class="cta-btn cta-btn-primary">
-        <i class="fa-solid fa-envelope"></i> Email Me
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email Me
       </a>
-      <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" class="cta-btn cta-btn-outline">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-outline">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn
       </a>
-      <a href="https://github.com/zongr-ce" target="_blank" class="cta-btn cta-btn-outline">
-        <i class="fa-brands fa-github"></i> GitHub
+      <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-outline">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub
       </a>
     </div>
   </section>
@@ -177,11 +181,12 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

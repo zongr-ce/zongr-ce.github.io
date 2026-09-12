@@ -17,24 +17,28 @@
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="1270">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>AM Radio Receiver – ECE 342</h1>
   <hr class="accent-rule">
@@ -108,7 +112,7 @@
     </ul>
     <figure class="image-figure">
       <a href="images/am-radio/rf-detection-sch.png">
-        <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy">
+        <img src="images/am-radio/rf-detection-sch.png" alt="RF detection and pre-amp schematic" loading="lazy" width="927" height="698">
       </a>
       <figcaption>Stage 1: RF detection and pre-amplifier schematic (KiCad/Altium)</figcaption>
     </figure>
@@ -126,7 +130,7 @@
     </ul>
     <figure class="image-figure">
       <a href="images/am-radio/demod-sch.png">
-        <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy">
+        <img src="images/am-radio/demod-sch.png" alt="AM demodulation and LPF schematic" loading="lazy" width="745" height="397">
       </a>
       <figcaption>Stage 2: AM demodulation and low-pass filter</figcaption>
     </figure>
@@ -158,7 +162,7 @@
     </ul>
     <figure class="image-figure">
       <a href="images/am-radio/audio-amp-sch.png">
-        <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy">
+        <img src="images/am-radio/audio-amp-sch.png" alt="Audio amplification schematic" loading="lazy" width="813" height="546">
       </a>
       <figcaption>Stages 3 &amp; 4: Audio pre-amp + Darlington power output</figcaption>
     </figure>
@@ -170,13 +174,13 @@
     <div class="image-grid">
       <figure>
         <a href="images/am-radio/pcb-layout.png">
-          <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy">
+          <img src="images/am-radio/pcb-layout.png" alt="PCB layout in Altium" loading="lazy" width="964" height="651">
         </a>
         <figcaption>PCB layout (Altium): ground plane removed near LC tank to prevent noise injection</figcaption>
       </figure>
       <figure>
         <a href="images/am-radio/pcb-3d.png">
-          <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy">
+          <img src="images/am-radio/pcb-3d.png" alt="3D PCB render" loading="lazy" width="970" height="685">
         </a>
         <figcaption>3D PCB render: heatsink on TIP31C output transistor visible</figcaption>
       </figure>
@@ -189,7 +193,7 @@
     <p>The full signal chain was verified in LTspice using a transient analysis (.tran) and operating point check (.op).</p>
     <figure class="image-figure">
       <a href="images/am-radio/ltspice-sim.png">
-        <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy">
+        <img src="images/am-radio/ltspice-sim.png" alt="LTspice simulation" loading="lazy" width="1017" height="498">
       </a>
       <figcaption>LTspice transient analysis (.tran)</figcaption>
     </figure>
@@ -289,13 +293,14 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
 
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>
