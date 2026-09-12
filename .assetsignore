@@ -1,0 +1,11 @@
+# Files that must never be uploaded as site assets (same syntax as .gitignore)
+.git
+.gitignore
+.assetsignore
+.claude
+.wrangler
+dist
+node_modules
+wrangler.jsonc
+LICENSE
+*.md
