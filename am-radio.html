@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,8 +43,19 @@
   <h1>AM Radio Receiver – ECE 342</h1>
   <hr class="accent-rule">
 
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#signal-chain">Signal Chain</a>
+      <a href="#pcb-layout">PCB Layout</a>
+      <a href="#ltspice-simulation-results">LTspice Simulation Results</a>
+      <a href="#design-notes-and-key-decisions">Design Notes &amp; Key Decisions</a>
+    </div>
+  </nav>
+
   <!-- OVERVIEW -->
-  <section class="card">
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Designed and simulated a complete AM radio receiver with a microphone input option for ECE 342 (Spring 2026).
@@ -57,17 +68,21 @@
       A DPDT slide switch allows toggling between the AM radio input and a 3.5 mm microphone jack.
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">12 V supply</span>
-      <span class="chip chip-primary">~330 mW speaker output</span>
-      <span class="chip chip-primary">AM band (530–1700 kHz)</span>
+      <span class="chip chip-primary readout">12 V supply</span>
+      <span class="chip chip-primary readout">~330 mW speaker output</span>
+      <span class="chip chip-primary readout">AM band (530–1700 kHz)</span>
       <span class="chip">LTspice verified</span>
       <span class="chip">Altium PCB</span>
-      <span class="chip">BOM: ~$47</span>
+      <span class="chip readout">BOM: ~$47</span>
+    </div>
+
+    <div class="metric-highlight">
+      Simulated peak speaker output: ~330 mW into 8 Ω, sufficient to drive the speaker audibly
     </div>
   </section>
 
   <!-- SIGNAL CHAIN -->
-  <section class="card">
+  <section class="card" id="signal-chain">
     <h2>Signal Chain</h2>
 
     <!-- Stage blocks -->
@@ -169,7 +184,7 @@
   </section>
 
   <!-- PCB LAYOUT -->
-  <section class="card">
+  <section class="card" id="pcb-layout">
     <h2>PCB Layout</h2>
     <div class="image-grid">
       <figure>
@@ -188,7 +203,7 @@
   </section>
 
   <!-- SIMULATION -->
-  <section class="card">
+  <section class="card" id="ltspice-simulation-results">
     <h2>LTspice Simulation Results</h2>
     <p>The full signal chain was verified in LTspice using a transient analysis (.tran) and operating point check (.op).</p>
     <figure class="image-figure">
@@ -257,14 +272,10 @@
       <li><strong>Demodulated audio:</strong> clean ~8 mV peak recovered audio signal</li>
       <li><strong>Speaker voltage:</strong> ±1.5 V swing → ~330 mW peak into 8 Ω</li>
     </ul>
-
-    <div class="metric-highlight">
-      Simulated peak speaker output: ~330 mW into 8 Ω, sufficient to drive the speaker audibly
-    </div>
   </section>
 
   <!-- RESULTS & NOTES -->
-  <section class="card">
+  <section class="card" id="design-notes-and-key-decisions">
     <h2>Design Notes &amp; Key Decisions</h2>
     <ul>
       <li><strong>RF pre-amp added:</strong> downstream stages alone produced insufficient gain to drive the 8 Ω speaker; adding the LC-tuned common-emitter stage resolved this.</li>

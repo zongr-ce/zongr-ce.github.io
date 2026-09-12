@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,7 +43,18 @@
   <h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#what-i-built">What I Built</a>
+      <a href="#results">Results</a>
+      <a href="#current-work-local-nand-flash-storage">Current Work: Local NAND Flash Storage</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       The AWS project is a <strong>data logger for climate research</strong>: an instrument that
@@ -62,10 +73,10 @@
       <a href="WAMC-2026-Madison-AWS.pdf" target="_blank" rel="noopener noreferrer" class="project-link">View Poster (PDF) →</a>
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">ATmega2560</span>
+      <span class="chip chip-primary readout">ATmega2560</span>
       <span class="chip chip-primary">Iridium telemetry</span>
-      <span class="chip chip-primary">32 → 7 mA idle</span>
-      <span class="chip">10-min data cadence</span>
+      <span class="chip chip-primary readout">32 → 7 mA idle</span>
+      <span class="chip readout">10-min data cadence</span>
       <span class="chip">Doxygen docs</span>
     </div>
     <figure class="image-figure">
@@ -74,9 +85,12 @@
       </a>
       <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
     </figure>
+    <div class="metric-highlight">
+      Reduced idle-mode power consumption by ~78% (32 mA → 7 mA)
+    </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="how-it-works">
     <h2>How It Works</h2>
     <p>
       The station runs on a 10-minute cycle: the board wakes, takes about a minute to measure the
@@ -112,7 +126,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-built">
     <h2>What I Built</h2>
 
     <h3>1) Low-Power Sleep Mode (32 mA → 7 mA)</h3>
@@ -172,18 +186,15 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="results">
     <h2>Results</h2>
     <ul>
       <li>The AWS operated independently in Antarctica for a full year.</li>
       <li>Reduced active runtime from ~10 minutes to ~1 minute 30 seconds per cycle.</li>
     </ul>
-    <div class="metric-highlight">
-      Reduced idle-mode power consumption by ~78% (32 mA → 7 mA)
-    </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="current-work-local-nand-flash-storage">
     <h2>Current Work: Local NAND Flash Storage</h2>
     <p>
       I am currently adding local storage on NAND flash so the station keeps an on-board record.
@@ -197,9 +208,9 @@
       <span class="pagination-label">Previous</span>
       Occupancy Sensor
     </a>
-    <a class="next" href="electric-boat.html">
+    <a class="next" href="mastermind.html">
       <span class="pagination-label">Next</span>
-      Electric Boat
+      Two-Player Mastermind
     </a>
   </nav>
 

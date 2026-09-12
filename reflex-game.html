@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,7 +43,18 @@
   <h1>Reflex Game – ECE 315 PCB Design Lab</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#subsystems">Subsystems</a>
+      <a href="#schematics-and-pcb">Schematics &amp; PCB</a>
+      <a href="#demo">Demo</a>
+      <a href="#what-i-learned">What I Learned</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Multi-sheet PCB designed in Altium for a microcontroller-based reflex game built around the
@@ -52,15 +63,15 @@
       and voltage supervision. ECE 315 Intro Microprocessor Lab, UW–Madison, Spring 2026.
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">XIAO RP2350</span>
-      <span class="chip chip-primary">12-LED chain</span>
+      <span class="chip chip-primary readout">XIAO RP2350</span>
+      <span class="chip chip-primary readout">12-LED chain</span>
       <span class="chip chip-primary">Altium multi-sheet</span>
-      <span class="chip">5 V → 3.3 V LDO</span>
+      <span class="chip readout">5 V → 3.3 V LDO</span>
       <span class="chip">Watchdog supervisor</span>
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="subsystems">
     <h2>Subsystems</h2>
 
     <h3>Serial LED Array</h3>
@@ -76,7 +87,7 @@
     <p>MCP131X-2X monitors the 3.3 V rail (2.93 V threshold) with watchdog input, manual reset, and an indicator LED.</p>
   </section>
 
-  <section class="card">
+  <section class="card" id="schematics-and-pcb">
     <h2>Schematics &amp; PCB</h2>
     <div class="image-grid" id="lg-gallery">
       <figure>
@@ -106,7 +117,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="demo">
     <h2>Demo</h2>
     <p>Quick demo of the assembled board running the reflex game.</p>
     <div style="max-width:360px;margin:14px auto 0;">
@@ -118,7 +129,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-learned">
     <h2>What I Learned</h2>
     <ul>
       <li>Multi-sheet hierarchical schematic capture in Altium.</li>

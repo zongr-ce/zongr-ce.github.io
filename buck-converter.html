@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,8 +43,21 @@
   <h1>Digitally Controlled Buck Converter</h1>
   <hr class="accent-rule">
 
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#system-architecture">System Architecture</a>
+      <a href="#schematics-and-pcb">Schematics &amp; PCB</a>
+      <a href="#firmware">Firmware</a>
+      <a href="#ltspice-simulation">LTspice Simulation</a>
+      <a href="#lab-results-and-measurements">Lab Results &amp; Measurements</a>
+      <a href="#challenges-and-potential-improvements">Challenges &amp; Potential Improvements</a>
+    </div>
+  </nav>
+
   <!-- OVERVIEW -->
-  <section class="card">
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Designed and built a digitally controlled synchronous DC-DC buck converter with a UART-programmable
@@ -61,11 +74,11 @@
       design was laid out in Altium Designer and simulated in LTspice before fabrication.
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">STM32G431KB</span>
-      <span class="chip chip-primary">IR2104 gate driver</span>
-      <span class="chip chip-primary">IRLZ44N MOSFETs</span>
-      <span class="chip chip-primary">1.8–10 V programmable</span>
-      <span class="chip chip-primary">200 kHz switching</span>
+      <span class="chip chip-primary readout">STM32G431KB</span>
+      <span class="chip chip-primary readout">IR2104 gate driver</span>
+      <span class="chip chip-primary readout">IRLZ44N MOSFETs</span>
+      <span class="chip chip-primary readout">1.8–10 V programmable</span>
+      <span class="chip chip-primary readout">200 kHz switching</span>
       <span class="chip">Bare-metal C</span>
       <span class="chip">UART interface</span>
       <span class="chip">Altium PCB</span>
@@ -74,7 +87,7 @@
   </section>
 
   <!-- SYSTEM ARCHITECTURE -->
-  <section class="card">
+  <section class="card" id="system-architecture">
     <h2>System Architecture</h2>
     <p>
       The design is split into two subsystems: a <strong>control subsystem</strong> (MCU, gate signal path,
@@ -111,7 +124,7 @@
   </section>
 
   <!-- SCHEMATICS & PCB -->
-  <section class="card">
+  <section class="card" id="schematics-and-pcb">
     <h2>Schematics &amp; PCB</h2>
     <div class="image-grid" id="lg-gallery">
 
@@ -140,7 +153,7 @@
   </section>
 
   <!-- FIRMWARE -->
-  <section class="card">
+  <section class="card" id="firmware">
     <h2>Firmware</h2>
     <p>
       Bare-metal C targeting the STM32G431KB at 170 MHz. Every peripheral is
@@ -185,7 +198,7 @@
   </section>
 
   <!-- SIMULATION -->
-  <section class="card">
+  <section class="card" id="ltspice-simulation">
     <h2>LTspice Simulation</h2>
     <p>
       The full synchronous buck power stage was simulated in LTspice before PCB layout to verify gate drive,
@@ -206,7 +219,7 @@
   </section>
 
   <!-- LAB RESULTS -->
-  <section class="card">
+  <section class="card" id="lab-results-and-measurements">
     <h2>Lab Results &amp; Measurements</h2>
     <p>
       The converter was tested on the bench with a 12 V DC supply and a resistive load and a signal generator for the pwm input.
@@ -260,7 +273,7 @@
   </section>
 
   <!-- CHALLENGES & IMPROVEMENTS -->
-  <section class="card">
+  <section class="card" id="challenges-and-potential-improvements">
     <h2>Challenges &amp; Potential Improvements</h2>
 
     <h3>VS Pin Not Connected to Switch Node</h3>

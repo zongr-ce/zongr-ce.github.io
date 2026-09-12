@@ -7,7 +7,7 @@
   <meta name="description" content="Two PSoC 6 boards playing Mastermind over a custom UART protocol: FreeRTOS task design, gatekeeper tasks over shared I2C and SPI buses, and capacitive touch input.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -54,7 +54,19 @@
   <h1>Two-Player Mastermind – PSoC 6 &amp; FreeRTOS</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#the-board-to-board-protocol">The Board-to-Board Protocol</a>
+      <a href="#three-problems-worth-describing">Three Problems Worth Describing</a>
+      <a href="#smaller-details">Smaller Details</a>
+      <a href="#what-i-would-change">What I Would Change</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Two PSoC 6 boards, each running its own FreeRTOS application, play Mastermind against each
@@ -69,7 +81,7 @@
     </p>
     <div class="chip-row">
       <span class="chip chip-primary">FreeRTOS</span>
-      <span class="chip chip-primary">PSoC 6 (CY8C6244)</span>
+      <span class="chip chip-primary readout">PSoC 6 (CY8C6244)</span>
       <span class="chip chip-primary">Custom UART protocol</span>
       <span class="chip">C</span>
       <span class="chip">I<sup>2</sup>C + SPI</span>
@@ -77,7 +89,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="architecture">
     <h2>Architecture</h2>
     <p>
       Nothing polls for input. Button presses and inbound packets become bits in one FreeRTOS event
@@ -92,7 +104,7 @@
     </p>
   </section>
 
-  <section class="card">
+  <section class="card" id="the-board-to-board-protocol">
     <h2>The Board-to-Board Protocol</h2>
     <p>
       Every packet carries a <code>0xAA</code> start byte, a command, a sequence number, a payload,
@@ -122,7 +134,7 @@
     </p>
   </section>
 
-  <section class="card">
+  <section class="card" id="three-problems-worth-describing">
     <h2>Three Problems Worth Describing</h2>
 
     <h3>1) Resolving the handshake race</h3>
@@ -155,7 +167,7 @@
     </p>
   </section>
 
-  <section class="card">
+  <section class="card" id="smaller-details">
     <h2>Smaller Details</h2>
     <ul>
       <li><strong>Automatic dark mode.</strong> A dedicated task samples the ambient light sensor once a second and inverts the LCD in a bright room. Nothing in the assignment asked for this.</li>
@@ -164,7 +176,7 @@
     </ul>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-would-change">
     <h2>What I Would Change</h2>
     <p>
       The LCD is the one peripheral without a gatekeeper task. The game loop draws to it directly and
@@ -175,6 +187,17 @@
       transfer.
     </p>
   </section>
+
+  <nav class="project-pagination" aria-label="Project navigation">
+    <a class="prev" href="aws.html">
+      <span class="pagination-label">Previous</span>
+      Automatic Weather Station
+    </a>
+    <a class="next" href="electric-boat.html">
+      <span class="pagination-label">Next</span>
+      Electric Boat
+    </a>
+  </nav>
 
 </main>
 

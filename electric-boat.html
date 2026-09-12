@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,7 +43,19 @@
   <h1>Electric Boat – Battery &amp; Propulsion System</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#system-architecture">System Architecture</a>
+      <a href="#build-process">Build Process</a>
+      <a href="#prototyping-and-testing">Prototyping &amp; Testing</a>
+      <a href="#results">Results</a>
+      <a href="#potential-improvements">Potential Improvements</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Designed and built a dual-battery electric propulsion system for a competition boat with a team,
@@ -52,15 +64,18 @@
       <strong>2nd place in the Displacement Hull Division at PEP 2024</strong>.
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">2nd Place PEP 2024</span>
-      <span class="chip chip-primary">Dual 6s8p Li-ion packs</span>
-      <span class="chip chip-primary">2× 1 kW T500 thrusters</span>
+      <span class="chip chip-primary readout">2nd Place PEP 2024</span>
+      <span class="chip chip-primary readout">Dual 6s8p Li-ion packs</span>
+      <span class="chip chip-primary readout">2× 1 kW T500 thrusters</span>
       <span class="chip">JK-BMS</span>
       <span class="chip">Differential steering</span>
     </div>
+    <div class="metric-highlight">
+      🏆 2nd Place – PEP 2024 (Displacement Hull Division)
+    </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="system-architecture">
     <h2>System Architecture</h2>
     <ul>
       <li><strong>Energy Storage:</strong> Two identical custom <strong>6s8p 18650 Li-ion</strong> battery packs with BMS protection.</li>
@@ -77,7 +92,7 @@
     </figure>
   </section>
 
-  <section class="card">
+  <section class="card" id="build-process">
     <h2>Build Process</h2>
     <ul>
       <li>Aligned cells with spacers and <strong>spot welded</strong> into a 6-series / 8-parallel layout (6s8p).</li>
@@ -109,7 +124,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="prototyping-and-testing">
     <h2>Prototyping &amp; Testing</h2>
     <p>
       Before mounting on the boat, the batteries were fully charged and tested under a ~1 kW motor load.
@@ -125,7 +140,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="results">
     <h2>Results</h2>
     <ul>
       <li><strong>Runtime:</strong> ~2.5 hours at ~8 knots</li>
@@ -134,9 +149,6 @@
       <li><strong>In-water current draw:</strong> ~10 A average per motor at full throttle (~8 knots)</li>
       <li><strong>Steering:</strong> differential thrust successfully eliminated need for a rudder</li>
     </ul>
-    <div class="metric-highlight">
-      🏆 2nd Place – PEP 2024 (Displacement Hull Division)
-    </div>
     <figure class="image-figure">
       <a href="images/electric-boat/boat_water_test2.jpg">
         <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing" loading="lazy" width="1600" height="1483">
@@ -149,7 +161,7 @@
     <p><em>On-water testing demonstrating sustained cruise speed and stable differential-thrust steering.</em></p>
   </section>
 
-  <section class="card">
+  <section class="card" id="potential-improvements">
     <h2>Potential Improvements</h2>
     <ol>
       <li><strong>On-board charging module:</strong> Add external charging access without removing battery packs.</li>
@@ -159,9 +171,9 @@
   </section>
 
   <nav class="project-pagination" aria-label="Project navigation">
-    <a class="prev" href="aws.html">
+    <a class="prev" href="mastermind.html">
       <span class="pagination-label">Previous</span>
-      Automatic Weather Station
+      Two-Player Mastermind
     </a>
     <a class="next" href="buck-converter.html">
       <span class="pagination-label">Next</span>
