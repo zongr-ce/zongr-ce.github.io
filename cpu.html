@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,7 +43,18 @@
   <h1>8-Bit CPU – FPGA (Quartus) &amp; PCB Implementation</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#phase-1-fpga-design-quartus">Phase 1: FPGA Design (Quartus)</a>
+      <a href="#phase-2-pcb-implementation">Phase 2: PCB Implementation</a>
+      <a href="#results">Results</a>
+      <a href="#what-i-learned">What I Learned</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Designed and implemented a custom 8-bit CPU to understand processor architecture,
@@ -54,12 +65,12 @@
       <span class="chip chip-primary">Intel Quartus</span>
       <span class="chip chip-primary">FPGA</span>
       <span class="chip chip-primary">Custom instruction set</span>
-      <span class="chip">~15 kHz stable clock</span>
+      <span class="chip readout">~15 kHz stable clock</span>
       <span class="chip">PCB bring-up</span>
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="phase-1-fpga-design-quartus">
     <h2>Phase 1: FPGA Design (Quartus)</h2>
     <ul>
       <li>Designed the datapath and control unit using block-diagram design in Intel Quartus.</li>
@@ -89,7 +100,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="phase-2-pcb-implementation">
     <h2>Phase 2: PCB Implementation</h2>
     <p>
       Translated the digital CPU into a PCB-level architecture, working through power and routing
@@ -123,7 +134,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="results">
     <h2>Results</h2>
     <ul>
       <li>Successfully executed all implemented instructions on FPGA hardware.</li>
@@ -136,7 +147,7 @@
     <p><em>Waveform + testbench verification of instruction execution</em></p>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-learned">
     <h2>What I Learned</h2>
     <ul>
       <li>Hands-on experience with hardware bring-up, debugging, and FPGA vs PCB design tradeoffs.</li>

@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -43,21 +43,31 @@
   <h1>555 Timer Clock Module</h1>
   <hr class="accent-rule">
 
-  <section class="card">
+  <nav class="project-nav" aria-label="On this page">
+    <h3>On this page</h3>
+    <div class="project-links">
+      <a href="#overview">Overview</a>
+      <a href="#what-i-did">What I Did</a>
+      <a href="#results">Results</a>
+      <a href="#what-i-learned">What I Learned</a>
+    </div>
+  </nav>
+
+  <section class="card" id="overview">
     <h2>Overview</h2>
     <p>
       Prototyped and designed a clock generation module using a 555 timer to provide a stable
       timing source for digital circuits.
     </p>
     <div class="chip-row">
-      <span class="chip chip-primary">555 timer</span>
+      <span class="chip chip-primary readout">555 timer</span>
       <span class="chip chip-primary">Monostable / astable / bistable</span>
-      <span class="chip">Up to ~10 kHz</span>
+      <span class="chip readout">Up to ~10 kHz</span>
       <span class="chip">KiCad PCB</span>
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-did">
     <h2>What I Did</h2>
     <ul>
       <li>Configured the 555 timer in <strong>astable mode</strong> to generate a periodic clock signal.</li>
@@ -87,7 +97,7 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card" id="results">
     <h2>Results</h2>
     <ul>
       <li>Generated a stable, reliable clock signal for digital systems.</li>
@@ -105,7 +115,7 @@
     <p><em>Demonstration of breadboard prototype (monostable, astable, bistable).</em></p>
   </section>
 
-  <section class="card">
+  <section class="card" id="what-i-learned">
     <h2>What I Learned</h2>
     <p>
       Reinforced understanding of analog timing circuits and component-level design.

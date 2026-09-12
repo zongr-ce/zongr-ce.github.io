@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       lightGallery(grid, {
         selector: "a",
         plugins: [lgZoom, lgThumbnail],
-        speed: 100,
-        backdropDuration: 100,
+        speed: 150,
+        backdropDuration: 150,
         download: false,
-        zoomFromOrigin: false,
+        zoomFromOrigin: true, // image grows from its thumbnail and returns to it
         hideScrollbar: true
       });
     });
