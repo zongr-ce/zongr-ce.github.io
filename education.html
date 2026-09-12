@@ -17,23 +17,27 @@
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="683">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html" class="active">Education</a>
-  <a href="projects.html">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html" class="active">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Education</h1>
   <hr class="accent-rule">
@@ -43,7 +47,7 @@
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h2>University of Wisconsin–Madison</h2>
+        <h3>University of Wisconsin–Madison</h3>
         <p class="edu-degree">B.S. Electrical Engineering</p>
         <p class="edu-degree">Certificate in Computer Science</p>
         <p class="edu-meta">Sept 2024 – Present · Expected graduation: May 2027</p>
@@ -56,7 +60,7 @@
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h2>Madison College</h2>
+        <h3>Madison College</h3>
         <p class="edu-degree">Associate Degree – Liberal Arts Transfer (STEM)</p>
         <p class="edu-meta">Jan 2022 – May 2024</p>
         <ul>
@@ -108,10 +112,11 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

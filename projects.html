@@ -17,23 +17,27 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="1600">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Projects</h1>
   <hr class="accent-rule">
@@ -43,13 +47,13 @@
     <div class="project-grid">
 
       <a href="aws.html" class="project-card">
-        <img src="images/aws/20240626_104618.jpg" alt="Automatic Weather Station" loading="lazy">
+        <img src="images/aws/20240626_104618.jpg" alt="Automatic Weather Station" loading="lazy" width="1200" height="1600">
         <h3>Automatic Weather Station</h3>
         <p>Embedded sensing system, Antarctic deployment</p>
       </a>
 
       <a href="reflex-game.html" class="project-card">
-        <img src="images/ece315/ECE_315_PCB.jpg" alt="Reflex Game PCB" loading="lazy">
+        <img src="images/ece315/ECE_315_PCB.jpg" alt="Reflex Game PCB" loading="lazy" width="1600" height="1543">
         <h3>Reflex Game – ECE 315</h3>
         <p>Multi-sheet PCB (Altium): XIAO RP2350, LED chain, buzzer, supervisor</p>
       </a>
@@ -62,25 +66,25 @@
     <div class="project-grid">
 
       <a href="buck-converter.html" class="project-card">
-        <img src="images/buck-converter/altium-3d.png" alt="Digitally Controlled Buck Converter PCB" loading="lazy">
+        <img src="images/buck-converter/altium-3d.png" alt="Digitally Controlled Buck Converter PCB" loading="lazy" width="654" height="804">
         <h3>Digitally Controlled Buck Converter</h3>
         <p>STM32 bare-metal firmware, IR2104 gate driver, Altium PCB, LTspice simulation</p>
       </a>
 
       <a href="electric-boat.html" class="project-card">
-        <img src="images/electric-boat/boat_water_test2.jpg" alt="Electric Boat" loading="lazy">
+        <img src="images/electric-boat/boat_water_test2.jpg" alt="Electric Boat" loading="lazy" width="1600" height="1483">
         <h3>Electric Boat – Battery &amp; Propulsion</h3>
         <p>Custom Li-ion system and dual-thruster propulsion</p>
       </a>
 
       <a href="am-radio.html" class="project-card">
-        <img src="images/am-radio/audio-amp-pop.jpg" alt="AM Radio Receiver PCB" loading="lazy">
+        <img src="images/am-radio/audio-amp-pop.jpg" alt="AM Radio Receiver PCB" loading="lazy" width="1600" height="1270">
         <h3>AM Radio Receiver – ECE 342</h3>
         <p>4-stage discrete receiver: RF pre-amp, demodulator, audio amp, Darlington output</p>
       </a>
 
       <a href="occ-sensor.html" class="project-card">
-        <img src="images/occ-sensor/occ-pcb-solder.jpg" alt="Motion Sensor" loading="lazy">
+        <img src="images/occ-sensor/occ-pcb-solder.jpg" alt="Motion Sensor" loading="lazy" width="1560" height="1600">
         <h3>Occupancy / Motion Sensor</h3>
         <p>Low-cost sensing prototype and PCB implementation</p>
       </a>
@@ -93,13 +97,13 @@
     <div class="project-grid">
 
       <a href="cpu.html" class="project-card">
-        <img src="images/cpu/8bit-reg-3d.png" alt="8-bit CPU" loading="lazy">
+        <img src="images/cpu/8bit-reg-3d.png" alt="8-bit CPU" loading="lazy" width="514" height="369">
         <h3>8-Bit CPU</h3>
         <p>CPU architecture (FPGA), verification, and hardware bring-up</p>
       </a>
 
       <a href="555-timer.html" class="project-card">
-        <img src="images/555-timer/clk-module-soldered.jpg" alt="Clock Module" loading="lazy">
+        <img src="images/555-timer/clk-module-soldered.jpg" alt="Clock Module" loading="lazy" width="1200" height="1600">
         <h3>555 Timer Clock Module</h3>
         <p>Hardware timing and signal generation module</p>
       </a>
@@ -111,10 +115,11 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

@@ -17,24 +17,28 @@
   <meta property="og:image:width" content="514">
   <meta property="og:image:height" content="369">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>8-Bit CPU – FPGA (Quartus) &amp; PCB Implementation</h1>
   <hr class="accent-rule">
@@ -65,20 +69,20 @@
     </ul>
     <figure class="image-figure">
       <a href="images/cpu/8bit-cpu.png">
-        <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy">
+        <img src="images/cpu/8bit-cpu.png" alt="CPU block diagram" loading="lazy" width="1600" height="827">
       </a>
       <figcaption>Datapath + control unit design in Quartus</figcaption>
     </figure>
     <div class="image-grid">
       <figure>
         <a href="images/cpu/instruction-steps.png">
-          <img src="images/cpu/instruction-steps.png" alt="FPGA implementation" loading="lazy">
+          <img src="images/cpu/instruction-steps.png" alt="FPGA implementation" loading="lazy" width="1282" height="1057">
         </a>
         <figcaption>FPGA implementation of instructions and control unit</figcaption>
       </figure>
       <figure>
         <a href="images/cpu/instruction.png">
-          <img src="images/cpu/instruction.png" alt="Control unit steps" loading="lazy">
+          <img src="images/cpu/instruction.png" alt="Control unit steps" loading="lazy" width="1479" height="1171">
         </a>
         <figcaption>Detailed steps indicating specific action of the control unit for each instruction</figcaption>
       </figure>
@@ -94,25 +98,25 @@
     <div class="image-grid">
       <figure>
         <a href="images/cpu/8bit-reg-sch.png">
-          <img src="images/cpu/8bit-reg-sch.png" alt="8-bit register schematic" loading="lazy">
+          <img src="images/cpu/8bit-reg-sch.png" alt="8-bit register schematic" loading="lazy" width="765" height="493">
         </a>
         <figcaption>PCB-based CPU implementation: 8-bit register schematic</figcaption>
       </figure>
       <figure>
         <a href="images/cpu/8bit-reg-pcd.png">
-          <img src="images/cpu/8bit-reg-pcd.png" alt="8-bit register PCB" loading="lazy">
+          <img src="images/cpu/8bit-reg-pcd.png" alt="8-bit register PCB" loading="lazy" width="337" height="385">
         </a>
         <figcaption>8-bit register (building block of RAM)</figcaption>
       </figure>
       <figure>
         <a href="images/cpu/4bit-decoder-pcb.png">
-          <img src="images/cpu/4bit-decoder-pcb.png" alt="4-bit decoder PCB" loading="lazy">
+          <img src="images/cpu/4bit-decoder-pcb.png" alt="4-bit decoder PCB" loading="lazy" width="829" height="270">
         </a>
         <figcaption>4-bit decoder</figcaption>
       </figure>
       <figure>
         <a href="images/cpu/pcb.jpg">
-          <img src="images/cpu/pcb.jpg" alt="Printed Circuit Board" loading="lazy">
+          <img src="images/cpu/pcb.jpg" alt="Printed Circuit Board" loading="lazy" width="900" height="1600">
         </a>
         <figcaption>PCB for RAM, register, and 4-bit decoder testing</figcaption>
       </figure>
@@ -156,12 +160,13 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

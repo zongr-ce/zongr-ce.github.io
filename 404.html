@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page Not Found | Grace O. Zongo</title>
   <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="/index.html">Home</a>
-  <a href="/education.html">Education</a>
-  <a href="/projects.html">Projects</a>
-  <a href="/work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="/Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="/Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="/index.html">Home</a>
+    <a href="/education.html">Education</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/work.html">Work Experience</a>
+  </div>
+  <a href="/Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
   <h1>Page not found</h1>
   <hr class="accent-rule">
   <section class="card">
@@ -32,11 +37,12 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank">LinkedIn</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="mailto:grace.o.zongo@gmail.com">Email</a>
   </p>
 </footer>
 
+<script src="/scripts/nav.js" defer></script>
 </body>
 </html>

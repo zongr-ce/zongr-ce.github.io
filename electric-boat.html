@@ -17,24 +17,28 @@
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="1483">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Electric Boat – Battery &amp; Propulsion System</h1>
   <hr class="accent-rule">
@@ -67,7 +71,7 @@
     </ul>
     <figure class="image-figure">
       <a href="images/electric-boat/remote-control-thruster.png">
-        <img src="images/electric-boat/remote-control-thruster.png" alt="T500 thruster and MT12 controller" loading="lazy">
+        <img src="images/electric-boat/remote-control-thruster.png" alt="T500 thruster and MT12 controller" loading="lazy" width="1276" height="1014">
       </a>
       <figcaption>1 kW Blue Robotics T500 thruster and MT12 controller</figcaption>
     </figure>
@@ -86,19 +90,19 @@
     <div class="image-grid">
       <figure>
         <a href="images/electric-boat/battery-pack.png">
-          <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals" loading="lazy">
+          <img src="images/electric-boat/battery-pack.png" alt="Battery pack internals" loading="lazy" width="800" height="600">
         </a>
         <figcaption>Custom 6s8p 18650 Li-ion battery pack</figcaption>
       </figure>
       <figure>
         <a href="images/electric-boat/battery_enclosure.jpg">
-          <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure" loading="lazy">
+          <img src="images/electric-boat/battery_enclosure.jpg" alt="Battery enclosure" loading="lazy" width="1600" height="1200">
         </a>
         <figcaption>Battery pack sealed inside waterproof enclosure with integrated BMS</figcaption>
       </figure>
       <figure>
         <a href="images/electric-boat/BMS-monitoring.png">
-          <img src="images/electric-boat/BMS-monitoring.png" alt="BMS monitoring" loading="lazy">
+          <img src="images/electric-boat/BMS-monitoring.png" alt="BMS monitoring" loading="lazy" width="337" height="402">
         </a>
         <figcaption>Monitoring and configuration of battery packs using JK-BMS</figcaption>
       </figure>
@@ -135,7 +139,7 @@
     </div>
     <figure class="image-figure">
       <a href="images/electric-boat/boat_water_test2.jpg">
-        <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing" loading="lazy">
+        <img src="images/electric-boat/boat_water_test2.jpg" alt="Boat water testing" loading="lazy" width="1600" height="1483">
       </a>
       <figcaption>Electric boat during full-throttle on-water testing</figcaption>
     </figure>
@@ -170,12 +174,13 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

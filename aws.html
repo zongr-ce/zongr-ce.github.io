@@ -17,24 +17,28 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="1600">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Automatic Weather Station (AWS) – Embedded Firmware</h1>
   <hr class="accent-rule">
@@ -55,7 +59,7 @@
       supported by the NSF Antarctic Automatic Weather Station program.
     </p>
     <p style="margin-top:10px;">
-      <a href="WAMC-2026-Madison-AWS.pdf" target="_blank" class="project-link">View Poster (PDF) →</a>
+      <a href="WAMC-2026-Madison-AWS.pdf" target="_blank" rel="noopener noreferrer" class="project-link">View Poster (PDF) →</a>
     </p>
     <div class="chip-row">
       <span class="chip chip-primary">ATmega2560</span>
@@ -66,7 +70,7 @@
     </div>
     <figure class="image-figure">
       <a href="images/aws/20240626_104612.jpg">
-        <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="eager">
+        <img src="images/aws/20240626_104612.jpg" alt="AWS station hardware" loading="eager" width="1200" height="1600">
       </a>
       <figcaption>AWS hardware system (deployment-ready enclosure)</figcaption>
     </figure>
@@ -132,7 +136,7 @@
     </p>
     <figure class="image-figure">
       <a href="images/aws/FSM-2.png">
-        <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy">
+        <img src="images/aws/FSM-2.png" alt="Finite State Machine diagram" loading="lazy" width="646" height="718">
       </a>
       <figcaption>Finite state machine controlling collection / processing / error handling</figcaption>
     </figure>
@@ -155,13 +159,13 @@
     <div class="image-grid">
       <figure>
         <a href="images/aws/baro-1.png">
-          <img src="images/aws/baro-1.png" alt="Barometer driver snapshot" loading="lazy">
+          <img src="images/aws/baro-1.png" alt="Barometer driver snapshot" loading="lazy" width="645" height="754">
         </a>
         <figcaption>Snapshot of barometer driver</figcaption>
       </figure>
       <figure>
         <a href="images/aws/aws-serial-monitor.jpg">
-          <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug" loading="lazy">
+          <img src="images/aws/aws-serial-monitor.jpg" alt="Firmware testing / debug" loading="lazy" width="901" height="1600">
         </a>
         <figcaption>Firmware validation and debugging during test runs</figcaption>
       </figure>
@@ -204,12 +208,13 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

@@ -17,23 +17,27 @@
   <meta property="og:image:width" content="1067">
   <meta property="og:image:height" content="1600">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html">Projects</a>
-  <a href="work.html" class="active">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="work.html" class="active">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Work Experience</h1>
   <hr class="accent-rule">
@@ -52,7 +56,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>Design Engineer Intern</h2>
+            <h3>Design Engineer Intern</h3>
             <span class="work-dates">May 2025 – Dec 2025</span>
           </div>
           <p class="work-org">Alpha Controls and Services · Middleton, WI</p>
@@ -76,7 +80,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>AWS Student Intern (Embedded Systems)</h2>
+            <h3>AWS Student Intern (Embedded Systems)</h3>
             <span class="work-dates">Apr 2024 – Present</span>
           </div>
           <p class="work-org">Space Science and Engineering Center (SSEC), UW–Madison · Madison, WI</p>
@@ -104,7 +108,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>Electrical Engineering Intern</h2>
+            <h3>Electrical Engineering Intern</h3>
             <span class="work-dates">Jun 2022 – Aug 2022</span>
           </div>
           <p class="work-org">Bemis Manufacturing Company · Madison, WI</p>
@@ -135,7 +139,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>Badger Solar Racing · Low Voltage Team</h2>
+            <h3>Badger Solar Racing · Low Voltage Team</h3>
             <span class="work-dates">Dec 2024 – Present</span>
           </div>
           <p class="work-org">UW–Madison</p>
@@ -157,7 +161,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>Clubs Development Coordinator (ELT)</h2>
+            <h3>Clubs Development Coordinator (ELT)</h3>
             <span class="work-dates">Mar 2022 – May 2024</span>
           </div>
           <p class="work-org">Madison College</p>
@@ -180,7 +184,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>Peer Tutor</h2>
+            <h3>Peer Tutor</h3>
             <span class="work-dates">Jun 2022 – May 2023</span>
           </div>
           <p class="work-org">Student Achievement Center · Madison College</p>
@@ -200,7 +204,7 @@
         <div class="work-dot"></div>
         <div class="work-card">
           <div class="work-header">
-            <h2>STEM Ambassador</h2>
+            <h3>STEM Ambassador</h3>
             <span class="work-dates">May 2023 – May 2024</span>
           </div>
           <p class="work-org">STEM Center · Madison College</p>
@@ -250,10 +254,11 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>

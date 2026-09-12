@@ -17,24 +17,28 @@
   <meta property="og:image:width" content="654">
   <meta property="og:image:height" content="804">
   <meta property="og:image:alt" content="Grace O. Zongo portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono&display=swap">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery-bundle.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-<nav class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="projects.html" class="active">Projects</a>
-  <a href="work.html">Work Experience</a>
-  <span class="nav-spacer"></span>
-  <a href="Grace_Zongo_Resume.pdf" target="_blank">Resume</a>
-  <a href="Grace_Zongo_Portfolio.pdf" target="_blank">PDF Portfolio</a>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top-nav" aria-label="Site">
+  <div class="nav-pages">
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="work.html">Work Experience</a>
+  </div>
+  <a href="Grace_Zongo_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
 </nav>
 
-<main class="page-content">
+<main class="page-content" id="main">
 
   <h1>Digitally Controlled Buck Converter</h1>
   <hr class="accent-rule">
@@ -113,21 +117,21 @@
 
       <figure>
         <a href="images/buck-converter/conv-altium-sch.png">
-          <img src="images/buck-converter/conv-altium-sch.png" alt="Buck converter schematic (Altium)" loading="lazy">
+          <img src="images/buck-converter/conv-altium-sch.png" alt="Buck converter schematic (Altium)" loading="lazy" width="1462" height="900">
         </a>
         <figcaption>Converter schematic: IR2104 gate driver, Q1/Q2 MOSFETs, SS14 bootstrap diode, LC output filter, INA180A2 current sense (Altium Designer)</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/pow-altium-sch.png">
-          <img src="images/buck-converter/pow-altium-sch.png" alt="Power/control schematic (Altium)" loading="lazy">
+          <img src="images/buck-converter/pow-altium-sch.png" alt="Power/control schematic (Altium)" loading="lazy" width="1213" height="901">
         </a>
         <figcaption>Power/control schematic: Nucleo-G431KB MCU, 12 V input (TVS + bulk cap), pull-up resistors, SD_EN/PWM signal routing</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/altium-3d.png">
-          <img src="images/buck-converter/altium-3d.png" alt="3D PCB render (Altium)" loading="lazy">
+          <img src="images/buck-converter/altium-3d.png" alt="3D PCB render (Altium)" loading="lazy" width="654" height="804">
         </a>
         <figcaption>3D PCB render: MOSFETs placed adjacent to minimise switch-node trace length</figcaption>
       </figure>
@@ -190,7 +194,7 @@
     <div class="image-grid">
       <figure>
         <a href="images/buck-converter/ltspice-sim-duty-cycle.png">
-          <img src="images/buck-converter/ltspice-sim-duty-cycle.png" alt="LTspice duty cycle simulation" loading="lazy">
+          <img src="images/buck-converter/ltspice-sim-duty-cycle.png" alt="LTspice duty cycle simulation" loading="lazy" width="2000" height="1222">
         </a>
         <figcaption>LTspice transient simulation: switching waveforms, bootstrap gate drive with different duty cycle values</figcaption>
       </figure>
@@ -212,42 +216,42 @@
 
       <figure>
         <a href="images/buck-converter/Pcb-front.jpg">
-          <img src="images/buck-converter/Pcb-front.jpg" alt="Assembled PCB front" loading="lazy">
+          <img src="images/buck-converter/Pcb-front.jpg" alt="Assembled PCB front" loading="lazy" width="1600" height="1157">
         </a>
         <figcaption>Assembled PCB: front side</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/Pcb-back.jpg">
-          <img src="images/buck-converter/Pcb-back.jpg" alt="Assembled PCB back" loading="lazy">
+          <img src="images/buck-converter/Pcb-back.jpg" alt="Assembled PCB back" loading="lazy" width="1600" height="994">
         </a>
         <figcaption>Assembled PCB: back side</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/lab-test-1.jpg">
-          <img src="images/buck-converter/lab-test-1.jpg" alt="Lab test setup" loading="lazy">
+          <img src="images/buck-converter/lab-test-1.jpg" alt="Lab test setup" loading="lazy" width="1600" height="1580">
         </a>
         <figcaption>Bench test setup: PCB connected to supply with oscilloscope probes on output</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/Vout5v.jpg">
-          <img src="images/buck-converter/Vout5v.jpg" alt="Output voltage 5V" loading="lazy">
+          <img src="images/buck-converter/Vout5v.jpg" alt="Output voltage 5V" loading="lazy" width="1600" height="901">
         </a>
         <figcaption>Output voltage: 5 V regulated output (D ≈ 41.7%)</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/Vout8.9V.jpg">
-          <img src="images/buck-converter/Vout8.9V.jpg" alt="Output voltage 8.9V" loading="lazy">
+          <img src="images/buck-converter/Vout8.9V.jpg" alt="Output voltage 8.9V" loading="lazy" width="1600" height="901">
         </a>
         <figcaption>Output voltage: 8.9 V at higher duty cycle</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/Ripple-voltage.jpg">
-          <img src="images/buck-converter/Ripple-voltage.jpg" alt="Output ripple voltage" loading="lazy">
+          <img src="images/buck-converter/Ripple-voltage.jpg" alt="Output ripple voltage" loading="lazy" width="1600" height="901">
         </a>
         <figcaption>AC-coupled output: ripple voltage at switching frequency</figcaption>
       </figure>
@@ -275,7 +279,7 @@
     </p>
     <figure style="max-width:520px;">
       <a href="images/buck-converter/Ringing-noise.jpg">
-        <img src="images/buck-converter/Ringing-noise.jpg" alt="Ringing noise on switch node" loading="lazy" style="width:100%;border-radius:8px;">
+        <img src="images/buck-converter/Ringing-noise.jpg" alt="Ringing noise on switch node" loading="lazy" style="width:100%;border-radius:8px;" width="1600" height="901">
       </a>
       <figcaption>Switch-node ringing, parasitic resonance</figcaption>
     </figure>
@@ -307,13 +311,14 @@
 <footer>
   <p class="footer-links">
     © 2026 Grace O. Zongo
-    <a href="https://github.com/zongr-ce" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a href="mailto:grace.o.zongo@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://github.com/zongr-ce" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/grace-ozongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:grace.o.zongo@gmail.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#envelope"/></svg> Email</a>
   </p>
 </footer>
 
 <script src="scripts/lightbox.js"></script>
 
+<script src="scripts/nav.js" defer></script>
 </body>
 </html>
