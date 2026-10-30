@@ -52,7 +52,7 @@
       <a href="#firmware">Firmware</a>
       <a href="#ltspice-simulation">LTspice Simulation</a>
       <a href="#lab-results-and-measurements">Lab Results &amp; Measurements</a>
-      <a href="#october-2026-retest">October 2026 Retest</a>
+      <a href="#mosfet-retest">MOSFET Retest</a>
       <a href="#challenges-and-potential-improvements">Challenges &amp; Potential Improvements</a>
     </div>
   </nav>
@@ -69,7 +69,7 @@
     </p>
     <p>
       The power stage is a synchronous buck converter topology: an IR2104 half-bridge gate driver switches both a high-side
-      and low-side N-channel MOSFET (IRLZ34NS, which replaced the original IRLZ44N pair in October 2026),
+      and low-side N-channel MOSFET (IRLZ34NS, which replaced the original IRLZ44N pair),
       with the low-side device replacing the freewheeling diode to reduce conduction losses. A 47 µH power inductor and output filter capacitors smooth the switched
       waveform. An INA180A2 current sense amplifier (50 V/V gain) across a 20 mΩ shunt monitors output
       current; output voltage is scaled through a 12 kΩ / 3.3 kΩ resistor divider (ratio 0.216) for the STM32 ADC. The full
@@ -177,7 +177,7 @@
     </p>
     <ul>
       <li>PA0 (ADC_VOUT): output voltage via 12 kΩ/3.3 kΩ divider → scaled by ratio 0.2157</li>
-      <li>PA1 (ADC_IOUT): INA180A2 output → design scale 0.020 Ω × 50 V/V = 1.0 V/A (measured 1.36 V/A on the bench; see the October 2026 retest)</li>
+      <li>PA1 (ADC_IOUT): INA180A2 output → design scale 0.020 Ω × 50 V/V = 1.0 V/A (measured 1.36 V/A on the bench; see the MOSFET retest)</li>
     </ul>
 
     <h3>PID Control Loop: 10 kHz ISR</h3>
@@ -224,7 +224,7 @@
   <section class="card" id="lab-results-and-measurements">
     <h2>Lab Results &amp; Measurements</h2>
     <p>
-      June 2026 bring-up ran closed loop: a 12 V bench supply, a resistive load, and the STM32 firmware
+      Initial bring-up ran closed loop: a 12 V bench supply, a resistive load, and the STM32 firmware
       generating the PWM and regulating the output. The output-voltage scope shots below were taken with the
       control loop running. Output voltage was measured with an oscilloscope at both DC level and AC ripple.
     </p>
@@ -275,24 +275,24 @@
     </div>
   </section>
 
-  <!-- OCTOBER 2026 RETEST -->
-  <section class="card" id="october-2026-retest">
-    <h2>October 2026 Retest: New MOSFETs</h2>
+  <!-- MOSFET RETEST -->
+  <section class="card" id="mosfet-retest">
+    <h2>Retest with New MOSFETs</h2>
     <p>
-      In October I characterized the power stage open loop: firmware off, 200 kHz PWM from an external
+      I later characterized the power stage open loop: firmware off, 200 kHz PWM from an external
       generator, 12 V input, and resistive loads from 0.68 Ω to 10 kΩ. With the original IRLZ44N pair the
       board drew up to 0.96 W with nothing on the output, and that loss fell in a straight line as duty rose,
       which pointed to current flowing only while the low side was on. Q2's gate measured 67 Ω
       gate-to-source, so its gate was damaged. I replaced both FETs with IRLZ34NS parts (same D2PAK
-      footprint) and repeated the sweep on 21 Oct.
+      footprint) and repeated the sweep.
     </p>
     <div class="table-scroll">
       <table class="data-table">
         <thead>
           <tr>
             <th>Measurement</th>
-            <th class="num">IRLZ44N (10–15 Oct)</th>
-            <th class="num">IRLZ34NS (21 Oct)</th>
+            <th class="num">IRLZ44N</th>
+            <th class="num">IRLZ34NS</th>
           </tr>
         </thead>
         <tbody>
