@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Digitally Controlled Buck Converter | Grace O. Zongo</title>
-  <meta name="description" content="Digitally controlled synchronous buck converter: STM32G431KB bare-metal firmware, IR2104 gate driver, IRLZ44N MOSFETs, UART-programmable 1.8–10 V output, Altium PCB, LTspice simulation.">
+  <meta name="description" content="Digitally controlled synchronous buck converter: STM32G431KB bare-metal firmware, IR2104 gate driver, IRLZ34NS MOSFETs, UART-programmable 1.8–10 V output, Altium PCB, LTspice simulation.">
   <link rel="canonical" href="https://gracezongo.com/buck-converter.html">
   <meta name="author" content="Grace O. Zongo">
   <meta property="og:title" content="Digitally Controlled Buck Converter | Grace O. Zongo">
-  <meta property="og:description" content="Digitally controlled synchronous buck converter: STM32G431KB bare-metal firmware, IR2104 gate driver, IRLZ44N MOSFETs, UART-programmable 1.8–10 V output, Altium PCB, LTspice simulation.">
+  <meta property="og:description" content="Digitally controlled synchronous buck converter: STM32G431KB bare-metal firmware, IR2104 gate driver, IRLZ34NS MOSFETs, UART-programmable 1.8–10 V output, Altium PCB, LTspice simulation.">
   <meta property="og:site_name" content="Grace O. Zongo">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gracezongo.com/buck-converter.html">
@@ -52,6 +52,7 @@
       <a href="#firmware">Firmware</a>
       <a href="#ltspice-simulation">LTspice Simulation</a>
       <a href="#lab-results-and-measurements">Lab Results &amp; Measurements</a>
+      <a href="#october-2026-retest">October 2026 Retest</a>
       <a href="#challenges-and-potential-improvements">Challenges &amp; Potential Improvements</a>
     </div>
   </nav>
@@ -64,19 +65,20 @@
       output voltage. A Nucleo-G431KB runs bare-metal C firmware 
       that generates a 200 kHz PWM signal, reads output voltage and inductor current via ADC with DMA, and
       runs a PID control loop at 10 kHz to maintain a user-set target voltage from 1.8 V to 10 V.
+      Design, layout and testing are mine; I wrote the firmware with AI help.
     </p>
     <p>
       The power stage is a synchronous buck converter topology: an IR2104 half-bridge gate driver switches both a high-side
-      and low-side IRLZ44N N-channel MOSFET, with the low-side device replacing the freewheeling diode to
-      reduce conduction losses. A 47 µH power inductor and output filter capacitors smooth the switched
+      and low-side N-channel MOSFET (IRLZ34NS, which replaced the original IRLZ44N pair in October 2026),
+      with the low-side device replacing the freewheeling diode to reduce conduction losses. A 47 µH power inductor and output filter capacitors smooth the switched
       waveform. An INA180A2 current sense amplifier (50 V/V gain) across a 20 mΩ shunt monitors output
-      current; output voltage is scaled through a 27 kΩ / 10 kΩ resistor divider for the STM32 ADC. The full
+      current; output voltage is scaled through a 12 kΩ / 3.3 kΩ resistor divider (ratio 0.216) for the STM32 ADC. The full
       design was laid out in Altium Designer and simulated in LTspice before fabrication.
     </p>
     <div class="chip-row">
       <span class="chip chip-primary readout">STM32G431KB</span>
       <span class="chip chip-primary readout">IR2104 gate driver</span>
-      <span class="chip chip-primary readout">IRLZ44N MOSFETs</span>
+      <span class="chip chip-primary readout">IRLZ34NS MOSFETs</span>
       <span class="chip chip-primary readout">1.8–10 V programmable</span>
       <span class="chip chip-primary readout">200 kHz switching</span>
       <span class="chip">Bare-metal C</span>
@@ -110,8 +112,8 @@
 
       <div class="mini-card">
         <p class="mini-card-label">Power Stage</p>
-        <p class="mini-card-title">IRLZ44N MOSFETs + LC Filter</p>
-        <p>High-side (Q1) + low-side (Q2) IRLZ44N synchronous pair, 47 µH inductor, 220 µF + 100 nF output capacitors</p>
+        <p class="mini-card-title">IRLZ34NS MOSFETs + LC Filter</p>
+        <p>High-side (Q1) + low-side (Q2) IRLZ34NS synchronous pair (originally IRLZ44N), 47 µH inductor, 220 µF + 100 nF output capacitors</p>
       </div>
 
       <div class="mini-card">
@@ -132,7 +134,7 @@
         <a href="images/buck-converter/conv-altium-sch.png">
           <img src="images/buck-converter/conv-altium-sch.png" alt="Buck converter schematic (Altium)" loading="lazy" width="1462" height="900">
         </a>
-        <figcaption>Converter schematic: IR2104 gate driver, Q1/Q2 MOSFETs, SS14 bootstrap diode, LC output filter, INA180A2 current sense (Altium Designer)</figcaption>
+        <figcaption>Converter schematic: IR2104 gate driver, Q1/Q2 MOSFETs, SS14 bootstrap diode, LC output filter, INA180A2 current sense (Altium Designer). The board has since changed in two places: the Vout divider (R8/R9) is 12 kΩ / 3.3 kΩ, and Q1/Q2 are IRLZ34NS.</figcaption>
       </figure>
 
       <figure>
@@ -157,8 +159,8 @@
     <h2>Firmware</h2>
     <p>
       Bare-metal C targeting the STM32G431KB at 170 MHz. Every peripheral is
-      configured by direct register writes. The control loop runs entirely inside a TIM6 interrupt at 10 kHz
-      . The main loop handles only UART commands and telemetry.
+      configured by direct register writes. The control loop runs entirely inside a TIM6 interrupt at 10 kHz.
+      The main loop handles only UART commands and telemetry.
     </p>
 
     <h3>PWM: 200 kHz on PA8</h3>
@@ -174,8 +176,8 @@
       fresh.
     </p>
     <ul>
-      <li>PA0 (ADC_VOUT): output voltage via 27 kΩ/10 kΩ divider → scaled by ratio 0.270</li>
-      <li>PA1 (ADC_IOUT): INA180A2 output → scaled by 0.020 Ω × 50 V/V = 1.0 V/A</li>
+      <li>PA0 (ADC_VOUT): output voltage via 12 kΩ/3.3 kΩ divider → scaled by ratio 0.2157</li>
+      <li>PA1 (ADC_IOUT): INA180A2 output → design scale 0.020 Ω × 50 V/V = 1.0 V/A (measured 1.36 V/A on the bench; see the October 2026 retest)</li>
     </ul>
 
     <h3>PID Control Loop: 10 kHz ISR</h3>
@@ -184,7 +186,7 @@
       written directly to the PWM timer compare register.
     </p>
     <ul>
-      <li>Default gains: K<sub>p</sub> = 0.8, K<sub>i</sub> = 120, K<sub>d</sub> = 0.0002 . Can be tuned live via UART without reflashing</li>
+      <li>Default gains: K<sub>p</sub> = 0.8, K<sub>i</sub> = 120, K<sub>d</sub> = 0.0002. Can be tuned live via UART without reflashing</li>
       <li><strong>Anti-windup:</strong> integral accumulator clamped to duty cycle limits every tick, preventing overshoot during startup or load steps</li>
       <li><strong>Soft-start:</strong> internal shadow setpoint ramps at 0.5 mV/tick from 0 V to the target on enable</li>
       <li><strong>Overcurrent fault:</strong> if ADC_IOUT exceeds 3.2 A, the ISR immediately pulls SD_EN low and latches a fault flag. Recovery requires sending <code>START</code> over USART</li>
@@ -222,8 +224,9 @@
   <section class="card" id="lab-results-and-measurements">
     <h2>Lab Results &amp; Measurements</h2>
     <p>
-      The converter was tested on the bench with a 12 V DC supply and a resistive load and a signal generator for the pwm input.
-      Output voltage was measured with an oscilloscope at both DC level and AC ripple.
+      June 2026 bring-up ran closed loop: a 12 V bench supply, a resistive load, and the STM32 firmware
+      generating the PWM and regulating the output. The output-voltage scope shots below were taken with the
+      control loop running. Output voltage was measured with an oscilloscope at both DC level and AC ripple.
     </p>
     <div class="image-grid" id="lg-gallery-results">
 
@@ -250,16 +253,16 @@
 
       <figure>
         <a href="images/buck-converter/Vout5v.jpg">
-          <img src="images/buck-converter/Vout5v.jpg" alt="Output voltage 5V" loading="lazy" width="1600" height="901">
+          <img src="images/buck-converter/Vout5v.jpg" alt="Output voltage 4.98 V, closed loop" loading="lazy" width="1600" height="901">
         </a>
-        <figcaption>Output voltage: 5 V regulated output (D ≈ 41.7%)</figcaption>
+        <figcaption>Closed loop: 4.98 V average at 43.5% duty (ideal 12 V × D would need 41.7%; the loop adds duty to cover losses)</figcaption>
       </figure>
 
       <figure>
         <a href="images/buck-converter/Vout8.9V.jpg">
-          <img src="images/buck-converter/Vout8.9V.jpg" alt="Output voltage 8.9V" loading="lazy" width="1600" height="901">
+          <img src="images/buck-converter/Vout8.9V.jpg" alt="Output voltage 8.90 V, closed loop" loading="lazy" width="1600" height="901">
         </a>
-        <figcaption>Output voltage: 8.9 V at higher duty cycle</figcaption>
+        <figcaption>Closed loop: 8.90 V at 75.3% duty, 200 kHz</figcaption>
       </figure>
 
       <figure>
@@ -270,6 +273,65 @@
       </figure>
 
     </div>
+  </section>
+
+  <!-- OCTOBER 2026 RETEST -->
+  <section class="card" id="october-2026-retest">
+    <h2>October 2026 Retest: New MOSFETs</h2>
+    <p>
+      In October I characterized the power stage open loop: firmware off, 200 kHz PWM from an external
+      generator, 12 V input, and resistive loads from 0.68 Ω to 10 kΩ. With the original IRLZ44N pair the
+      board drew up to 0.96 W with nothing on the output, and that loss fell in a straight line as duty rose,
+      which pointed to current flowing only while the low side was on. Q2's gate measured 67 Ω
+      gate-to-source, so its gate was damaged. I replaced both FETs with IRLZ34NS parts (same D2PAK
+      footprint) and repeated the sweep on 21 Oct.
+    </p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th class="num">IRLZ44N (10–15 Oct)</th>
+            <th class="num">IRLZ34NS (21 Oct)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>No-load input power, highest across 10–85% duty</td>
+            <td class="num">0.96 W</td>
+            <td class="num">0.20 W</td>
+          </tr>
+          <tr>
+            <td>Efficiency, 3 Ω load at 50% duty</td>
+            <td class="num">74%</td>
+            <td class="num">83%</td>
+          </tr>
+          <tr>
+            <td>Total loss, 3 Ω load at 50% duty</td>
+            <td class="num">2.54 W</td>
+            <td class="num">1.33 W</td>
+          </tr>
+          <tr>
+            <td>Highest output current tested</td>
+            <td class="num">1.54 A</td>
+            <td class="num">5.05 A</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>With the new FETs</h3>
+    <ul>
+      <li>Up to 90% efficiency: 3 Ω at 80% duty, 7.68 V and 2.56 A (19.7 W out)</li>
+      <li>5.05 A into 0.68 Ω at 50% duty, about 80% efficient (17.3 W out). Load current is V<sub>out</sub> ÷ R, since the current-sense output clips above about 2.4 A</li>
+      <li>Dead time about 424 ns, from the step in duty error between light and heavy load; inside the IR2104's 400–650 ns datasheet range</li>
+      <li>The INA180 current sense reads 1.36 V/A against the 1.0 V/A design (an effective 27 mΩ instead of the 20 mΩ shunt). With the INA180 on 3.3 V, its output clips near 2.4 A</li>
+    </ul>
+    <p>
+      Load-dependent loss also fell (1.82 W to 1.13 W at 3 Ω, 50% duty), even though the IRLZ34NS has higher
+      on-resistance (35 vs 22 mΩ max). Its lower gate charge (25 vs 48 nC max) and removing the damaged part
+      both likely contribute; this data can't separate the two. These are open-loop numbers, so they describe
+      the power stage, not the regulation.
+    </p>
   </section>
 
   <!-- CHALLENGES & IMPROVEMENTS -->
@@ -304,6 +366,7 @@
     <h3>Potential Improvements</h3>
     <ul>
       <li><strong>Reduce output ripple:</strong> Measured ripple exceeds the &lt;50 mV design target. Adding a larger output capacitor or a higher-inductance value would reduce ripple amplitude; alternatively, increasing switching frequency reduces inductor current ripple directly.</li>
+      <li><strong>Calibrate current sensing:</strong> the firmware assumes 1.0 V/A, but the sense chain measures 1.36 V/A, so the 3.2 A overcurrent trip would fire at about 2.4 A of real current, right where the INA180 output clips. Calibrating the scale in firmware and lowering the amplifier gain would give closed-loop operation and protection the full current range.</li>
     </ul>
   </section>
 
